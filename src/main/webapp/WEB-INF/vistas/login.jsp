@@ -15,16 +15,27 @@
 				<%--debe referenciar con el nombre usuario, spring mapea los elementos de la vista con los atributos de dicho objeto--%>
 					<%--para eso debe coincidir el valor del elemento path de cada input con el nombre de un atributo del objeto --%>
 				<form:form action="validar-login" method="POST" modelAttribute="usuario">
-			    	<h3 class="form-signin-heading">Veterinaria </h3>
-					<hr class="colorgraph"><br>
+			    	<h3 class="form-signin-heading"><span class="glyphicon glyphicon-star"></span> Veterinaria <span class="glyphicon glyphicon-star"></span> </h3>
+					
+					 <h6 class="form-signin-heading">Ingrese sus datos para comenzar</h6>
 
 					<%--Elementos de entrada de datos, el elemento path debe indicar en que atributo del objeto usuario se guardan los datos ingresados--%>
+					<label for="email">Email:</label>
 					<form:input path="email" id="email" type="email" class="form-control" />
 					<br>
+					<label for="email">Password:</label>
 					<form:input path="password" type="password" id="password" class="form-control"/>     		  
 					<br>
-					<button class="btn btn-lg btn-primary btn-block" Type="Submit"/>ok</button>
+					<button class="btn btn-lg btn-primary btn-block btn-warning" Type="Submit"/>Ingresar</button>
+
 				</form:form>
+				
+				<div class="alert alert-warning">
+                 Si aun no te has registrado hazlo <strong>AQUI</strong></div>
+				
+				
+				
+				
 
 				<%--Bloque que es visible si el elemento error no estÃ¡ vacÃ­o	--%>
 				<c:if test="${not empty error}">
