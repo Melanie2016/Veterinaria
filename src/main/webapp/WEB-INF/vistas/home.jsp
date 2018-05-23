@@ -5,13 +5,24 @@
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	    <!-- probando cambiar el estilo -->
+	    <link href="css/cssPrueba.css" rel="stylesheet">
+	    
 	</head>
 	
 	<body>
 		<div class="jumbotron">
-			<h2>Bienvenido a su veterinaria</h2>
+			<div class="container">
 			
-			<p></p>
+				<h2>2018</h2>
+			
+			
+				<div class="page-header">
+					<h2>Bienvenido a su veterinaria</h2>
+				</div>
+			
+			</div>
+			
 		</div>
 		
 		<!-- Placed at the end of the document so the pages load faster -->
