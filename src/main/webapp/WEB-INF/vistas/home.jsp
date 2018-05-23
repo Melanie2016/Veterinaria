@@ -6,10 +6,14 @@
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	</head>
+	
 	<body>
-		<div class = "container">
-			<h1>Bienvenido a su veterinaria</h1>
+		<div class="jumbotron">
+			<h2>Bienvenido a su veterinaria</h2>
+			
+			<p></p>
 		</div>
+		
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
 		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
