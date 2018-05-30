@@ -26,7 +26,7 @@
 					<label for="email">Password:</label>
 					<form:input path="password" type="password" id="password" class="form-control"/>     		  
 					<br>
-					<button class="btn btn-lg btn-primary btn-block btn-warning" Type="Submit"/>Ingresar</button>
+					<button class="btn btn-lg btn-primary btn-block btn-warning" Type="Submit"> Ingresar</button>
 
 				</form:form>
 				
