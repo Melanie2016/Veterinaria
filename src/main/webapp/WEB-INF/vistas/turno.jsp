@@ -24,10 +24,21 @@
     </ul>
   </div>
 </nav>
-		
-			<h1>VISTA HOME</h1>
+		<div class = "container">
+			<h1>Reserve su turno con solo un click</h1>
 			
-
+			<div class="form-group">
+  	<label for="sel1">Seleccione nombre del veterinario:</label>
+  	<select class="form-control" id="sel1">
+    <option>nombre 1</option>
+    <option>nombre 2</option>
+    <option>nombre 3</option>
+    <option>nombre 4</option>
+  </select>
+</div>
+			
+			<button class="btn btn-lg btn-primary btn-block btn-warning" Type="Submit"/>Buscar Turnos</button>
+		</div>
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
 		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
