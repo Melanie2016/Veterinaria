@@ -14,7 +14,7 @@
       <a class="navbar-brand" href="#">VET Center <span class="glyphicon glyphicon-heart"style="color:orange"></span> </a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Perfil</a></li>
+      <li><a href="#">Perfil</a></li>
       <li><a href="#">Turnos</a></li>
       <li><a href="#">Peluquerias</a></li>
     </ul>

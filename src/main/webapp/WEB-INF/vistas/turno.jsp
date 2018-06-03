@@ -14,7 +14,7 @@
       <a class="navbar-brand" href="#">VET Center <span class="glyphicon glyphicon-heart"style="color:orange"></span> </a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Perfil</a></li>
+      <li><a href="#">Perfil</a></li>
       <li><a href="#">Turnos</a></li>
       <li><a href="#">Peluquerias</a></li>
     </ul>
@@ -30,10 +30,10 @@
 			<div class="form-group">
   	<label for="sel1">Seleccione nombre del veterinario:</label>
   	<select class="form-control" id="sel1">
-    <option>nombre 1</option>
-    <option>nombre 2</option>
-    <option>nombre 3</option>
-    <option>nombre 4</option>
+    <option>vet 1</option>
+    <option>vet 2</option>
+    <option>vet 3</option>
+    <option>vet 4</option>
   </select>
 </div>
 			
