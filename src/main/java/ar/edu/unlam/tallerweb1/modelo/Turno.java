@@ -18,6 +18,9 @@ public class Turno {
 	@ManyToOne
 	private Usuario usuario;
 	
+	@ManyToOne
+	private Veterinario veterinario;
+	
 	
 	//getters y setters
 	
@@ -39,5 +42,11 @@ public class Turno {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
+	public Veterinario getVeterinario() {
+		return veterinario;
+	}
+	public void setVeterinario(Veterinario veterinario) {
+		this.veterinario = veterinario;
+	}
+
 }
