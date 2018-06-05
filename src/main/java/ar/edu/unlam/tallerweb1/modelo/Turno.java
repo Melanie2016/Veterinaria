@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Turno {
@@ -13,6 +14,12 @@ public class Turno {
 	private Long id;
 	private String especialidad;
 
+	
+	@ManyToOne
+	private Usuario usuario;
+	
+	
+	//getters y setters
 	
 	public Long getId() {
 		return id;
@@ -26,7 +33,11 @@ public class Turno {
 	public void setEspecialidad(String especialidad) {
 		this.especialidad = especialidad;
 	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
-	
-
 }
