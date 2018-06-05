@@ -11,6 +11,7 @@ public class Turno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private String especialidad;
 
 	
 	public Long getId() {
@@ -19,5 +20,13 @@ public class Turno {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	public String getEspecialidad() {
+		return especialidad;
+	}
+	public void setEspecialidad(String especialidad) {
+		this.especialidad = especialidad;
+	}
+	
+	
 
 }
