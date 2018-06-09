@@ -14,7 +14,7 @@
 			value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/base" />
 		<property name="username" value="root" />
-		<property name="password" value="140271" />
+		<property name="password" value="3573" />
 	</bean>
 
 	<!--Configuracion de la factory encargada de generar las sesiones con la 
@@ -39,7 +39,7 @@
 				<!--create: lo crea siempre -->
 				<!--update: aplica cambios realizados -->
 				<!--none: no modifica nunca el esquema de datos -->
-				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 		<!--Se configura qué paquetes debe escanear hibernate en busca de clases 

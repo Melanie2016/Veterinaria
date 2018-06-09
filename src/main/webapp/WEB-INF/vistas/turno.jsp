@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,19 +29,24 @@
 		<h1>Reserve su turno con solo un click</h1>
 
 		<div class="form-group">
-			<label for="sel1">Seleccione nombre del veterinario:</label> <select
-				class="form-control" id="sel1">
-				<option>nombre 1</option>
-				<option>nombre 2</option>
-				<option>nombre 3</option>
-				<option>nombre 4</option>
+		
+			<label for="sel1">Seleccione nombre del veterinario:</label> 
+			<select	class="form-control" id="sel1">
+				<option>Seleccione un especialista</option>
+				<c:forEach items="${veterinarios}" var="veterinarios">
+					<option>${veterinarios.nombre}</option>
+				</c:forEach>
 			</select>
+			
 		</div>
 
 		<button class="btn btn-lg btn-primary btn-block btn-warning"
 			Type="Submit" />
 		Buscar Turnos
 		</button>
+		
+		
+		
 	</div>
 	<!-- Placed at the end of the do"src/main/webapp/WEB-INF/vistas/login.jsp"cument so the pages load faster -->
 	<script
