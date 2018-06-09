@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <head>
 <!-- Bootstrap core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,6 +27,45 @@
 				<li><a href="#"><span class="glyphicon glyphicon-log-in"
 						style="color: orange"></span> Login</a></li>
 			</ul>
+=======
+	<head>
+		<!-- Bootstrap core CSS -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet" >
+	    <!-- Bootstrap theme -->
+	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	</head>
+	<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">VET Center <span class="glyphicon glyphicon-heart"style="color:orange"></span> </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Perfil</a></li>
+      <li><a href="#">Turnos</a></li>
+      <li><a href="#">Peluquerias</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user" style="color:orange"></span> Registrarse</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in" style="color:orange"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+		<div class = "container">
+			<h1>Reserve su turno con solo un click</h1>
+			
+			<div class="form-group">
+  	<label for="sel1">Seleccione nombre del veterinario:</label>
+  	<select class="form-control" id="sel1">
+    <option>vet 1</option>
+    <option>vet 2</option>
+    <option>vet 3</option>
+    <option>vet 4</option>
+  </select>
+</div>
+			
+			<button class="btn btn-lg btn-primary btn-block btn-warning" Type="Submit"/>Buscar Turnos</button>
+>>>>>>> 0b44ac25b8ed4e169068bb52d604f5264f9517e0
 		</div>
 	</nav>
 	<div class="container">
