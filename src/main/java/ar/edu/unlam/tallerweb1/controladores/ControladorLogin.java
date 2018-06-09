@@ -67,4 +67,10 @@ public class ControladorLogin {
 	public ModelAndView inicio() {
 		return new ModelAndView("redirect:/login");
 	}
+	
+	//Para probar las vistas del formulario.
+	@RequestMapping(path = "/home/formMascota", method = RequestMethod.GET)
+	public ModelAndView irAlFormularioMascota() {
+		return new ModelAndView("formMascota");
+	}
 }
