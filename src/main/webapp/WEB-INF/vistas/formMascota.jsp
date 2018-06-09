@@ -28,29 +28,32 @@
 </nav>
 		<div class = "container">
 			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-				<form:form action="validar-login" method="POST" modelAttribute="usuario">
+				<form:form action="" method="" modelAttribute="">
 			    
 					 <h6 class="form-signin-heading">Ingrese sus datos para loguearse</h6>
 
 					<%--Elementos de entrada de datos, el elemento path debe indicar en que atributo del objeto usuario se guardan los datos ingresados--%>
-					<label for="email">Email:</label>
-					<form:input path="email" id="email" type="email" class="form-control" />
+					<label for="nombre">Nombre:</label>
+					<!-- <form:input path="" id="" type="text" class="form-control" />-->
 					<br>
-					<label for="email">Password:</label>
-					<form:input path="password" type="password" id="password" class="form-control"/>     		  
-					<br>
-					<button class="btn btn-lg btn-primary btn-block btn-warning" Type="Submit"> Ingresar</button>
+					<label for="tipo">Tipo de Mascota:</label>
+					<select class="form-control" id="sel1">
+				        <option>Perro</option>
+				        <option>Gato</option>
+				        <option>Tortuga</option>
+				        <option>Pajaro</option>
+				        <option>Hamsters</option>
+			            </select>
+			       <label for="duenio">Due�o:</label>
+					<form:input path="" id="" type="text" class="form-control" />
+		</div>
 
+		<button class="btn btn-lg btn-primary btn-block btn-warning"
+			Type="Submit" />
+		Enviar
+		</button>  
 				</form:form>
-				
-				<div class="alert alert-warning">
-                 Si aun no te has registrado hazlo <strong>AQUI</strong></div>
-				
-				
-				
-				
-
-				<%--Bloque que es visible si el elemento error no estÃ¡ vacÃ­o	--%>
+                <%--Bloque que es visible si el elemento error no está vacío	--%>
 				<c:if test="${not empty error}">
 			        <h4><span>${error}</span></h4>
 			        <br>
