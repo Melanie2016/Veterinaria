@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,13 +18,13 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Perfil</a></li>
-				<li><a href="#">Turnos</a></li>
+				<li><a href="<c:url value="/turno"/>">Turnos</a></li>
 				<li><a href="#">Peluquerias</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-user"
 						style="color: orange"></span> Registrarse</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-log-in"
+				<li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in"
 						style="color: orange"></span> Login</a></li>
 			</ul>
 		</div>

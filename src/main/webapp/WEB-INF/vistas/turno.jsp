@@ -16,13 +16,13 @@
     </div>
     
     <ul class="nav navbar-nav">
-      <li><a href="#">Perfil</a></li>
-      <li><a href="#">Turnos</a></li>
+      <li><a href="<c:url value="/home"/>">Perfil</a></li>
+      <li class="active"><a href="#">Turnos</a></li>
       <li><a href="#">Peluquerias</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user" style="color:orange"></span> Registrarse</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in" style="color:orange"></span> Login</a></li>
+      <li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in" style="color:orange"></span> Login</a></li>
     </ul>
 		</div>
 	</nav>
@@ -35,7 +35,7 @@
 			<select	class="form-control" id="sel1">
 				<option>Seleccione un veterinario</option>
 				<c:forEach items="${veterinarios}" var="veterinarios">
-					<option>${veterinarios.apellido} ${veterinarios.nombre} --> ${veterinarios.especialidad}</option>
+					<option>${veterinarios.apellido} ${veterinarios.nombre} | ${veterinarios.especialidad}</option>
 				</c:forEach>
 			</select>
 			

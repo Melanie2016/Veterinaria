@@ -1,6 +1,7 @@
 @charset "ISO-8859-1";
 
-.container {
-	color: rgba(1, 1, 1, 0.3);
-	background: activeborder;
+.body{
+	background-color: orange;
+	
+	color:white;
 }
