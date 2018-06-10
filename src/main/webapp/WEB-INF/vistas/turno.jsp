@@ -14,6 +14,7 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="<c:url value="/login"/>">VET Center <span class="glyphicon glyphicon-heart"style="color:orange"></span> </a>
     </div>
+    
     <ul class="nav navbar-nav">
       <li><a href="#">Perfil</a></li>
       <li><a href="#">Turnos</a></li>
