@@ -13,13 +13,11 @@
 		<nav class="navbar navbar-default">
 				<div class="container-fluid">
 					<div class="navbar-header">
-						<a class="navbar-brand" href="#">VET Center <span
-							class="glyphicon glyphicon-heart" style="color: orange"></span>
-						</a>
+						 <a class="navbar-brand" href="<c:url value="/login"/>">VET Center <span class="glyphicon glyphicon-heart"style="color:orange"></span> </a>
 					</div>
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Perfil</a></li>
-						<li><a href="#">Turnos</a></li>
+				<li><a href="<c:url value="/perfil"/>">Perfil</a></li>
+				<li><a href="<c:url value="/turno"/>">Turnos</a></li>
 						<li><a href="#">Peluquerias</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">

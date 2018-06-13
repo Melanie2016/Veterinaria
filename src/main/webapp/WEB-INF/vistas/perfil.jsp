@@ -16,8 +16,8 @@
     </div>
     
     <ul class="nav navbar-nav">
-      <li><a href="<c:url value="/perfil"/>">Perfil</a></li>
-      <li class="active"><a href="#">Turnos</a></li>
+      <li class="active"><a href="#">Perfil</a></li>
+      <li><a href="<c:url value="/turno"/>">Turnos</a></li>
       <li><a href="#">Peluquerias</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -27,27 +27,25 @@
 		</div>
 	</nav>
 	<div class="container">
-		<h1>Reserve su turno con solo un click</h1>
+	<h1>Perfil del usuario</h1>
+<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+	
+		<h4>Datos del usuario</h4>
 
 		<div class="form-group">
-		
-			<!--<label for="sel1">Seleccione nombre del veterinario:</label> -->
-			<select	class="form-control" id="sel1">
-				<option>Seleccione un veterinario</option>
-				<c:forEach items="${veterinarios}" var="veterinarios">
-					<option>${veterinarios.apellido} ${veterinarios.nombre} | ${veterinarios.especialidad}</option>
-				</c:forEach>
-			</select>
-			
+		Mi mascota 1 <a class="btn btn-warning" href="#">Ver perfil <i class="fa fa-edit"></i></a>
+					<a class="btn btn-info" href="#">Editar <i class="fa fa-edit"></i></a>
+		             <a class="btn btn-danger" href="#">Eliminar <i class="fa fa-minus"></i></a>
+	<br>
+		Mi mascota 2 <a class="btn btn-warning" href="#">Ver perfil <i class="fa fa-edit"></i></a>
+						<a class="btn btn-info" href="#">Editar <i class="fa fa-edit"></i></a>
+		             <a class="btn btn-danger" href="#">Eliminar <i class="fa fa-minus"></i></a>
+		             <br>  <br>
+ <a href="<c:url value="/formMascota"/>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Agregar una mascota</a>	
 		</div>
 
-		<button class="btn btn-lg btn-primary btn-block btn-warning"
-			Type="Submit" />
-		Buscar Turnos
-		</button>
 		
-		
-		
+</div>		
 	</div>
 	<!-- Placed at the end of the do"src/main/webapp/WEB-INF/vistas/login.jsp"cument so the pages load faster -->
 	<script
