@@ -16,7 +16,7 @@ public class Mascota {
 	
 	
 	@ManyToOne
-	private Usuario dueño;
+	private Usuario duenio;
 
 	//getters y setters
 	
@@ -50,13 +50,13 @@ public class Mascota {
 	}
 
 
-	public Usuario getDueño() {
-		return dueño;
+	public Usuario getDuenio() {
+		return duenio;
 	}
 
 
-	public void setDueño(Usuario dueño) {
-		this.dueño = dueño;
+	public void setDuenio(Usuario duenio) {
+		this.duenio = duenio;
 	}
 	
 }
