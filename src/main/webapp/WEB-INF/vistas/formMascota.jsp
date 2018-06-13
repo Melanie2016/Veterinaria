@@ -34,7 +34,7 @@
 			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 
 				<form:form >
-					<h3>Ingrese sus datos </h3>
+					<h3>Ingrese los datos de su mascota</h3>
 					
 					<label for="nombre">Nombre:</label>
 					<input type="text" class="form-control" />
@@ -49,9 +49,17 @@
 				        <option>Hamsters</option>
 			      	</select>
 			      	<br>
-			      	<label for="duenio">Duenio:</label>
-			      	<br>
-			      	<input type="text" class="form-control" />
+ <!--Creo que el duenio no debe ingresarse, porke el form esta siendo usado desde la cuenta del duenio-->
+<!--	<label for="duenio">Duenio:</label>
+<input type="text" class="form-control" />-->		      
+	
+<label for="vacunas">Vacunas que tiene aplicadas:</label>
+<label class="checkbox-inline"><input type="checkbox" value="">Quintuple</label>		      	
+<label class="checkbox-inline"><input type="checkbox" value="">Sextuple</label>
+<label class="checkbox-inline"><input type="checkbox" value="">Rabia</label>
+	<br>
+			      	
+<button class="btn btn-lg btn-block btn-default" Type="Submit" /> Ingresar</button>
 			      	
 				</form:form>
 			</div>
