@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 
 @Controller
@@ -65,12 +68,20 @@ public class ControladorLogin {
 	// Escucha la url /, y redirige a la URL /login, es lo mismo que si se invoca la url /login directamente.
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public ModelAndView inicio() {
-		return new ModelAndView("redirect:/login");
+		return new ModelAndView("redirect:/home");
 	}
 	
+	
+	
 	//Para probar las vistas del formulario.
-	@RequestMapping(path = "/home/formMascota", method = RequestMethod.GET)
-	public ModelAndView irAlFormularioMascota() {
-		return new ModelAndView("formMascota");
+	@RequestMapping("/formMascota")
+	public ModelAndView sacarTurno() {
+		String msj = "hola";
+		ModelMap model =new ModelMap();
+		
+		model.put("datos", msj);
+		
+		return new ModelAndView ("formMascota",model);
 	}
+	
 }

@@ -13,10 +13,10 @@ public class Turno {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String especialidad;
-
+    
 	
 	@ManyToOne
-	private Usuario usuario;
+	private Mascota mascota;
 	
 	@ManyToOne
 	private Veterinario veterinario;
@@ -36,17 +36,18 @@ public class Turno {
 	public void setEspecialidad(String especialidad) {
 		this.especialidad = especialidad;
 	}
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+	
 	public Veterinario getVeterinario() {
 		return veterinario;
 	}
 	public void setVeterinario(Veterinario veterinario) {
 		this.veterinario = veterinario;
 	}
-
+    
+	public Mascota getMascota() {
+		return mascota;
+	}
+	public void setMascota(Mascota mascota) {
+		this.mascota= mascota;
+	}
 }

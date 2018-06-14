@@ -1,2 +1,6 @@
 /target/
+<<<<<<< HEAD
 /.metadata/
+=======
+/pom.xml
+>>>>>>> 6463c796c708989a96de2fce6602833e19a51971
