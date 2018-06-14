@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,11 +14,11 @@ public class Turno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String especialidad;
-
+	private Date fechaTurno;
+	private Date fechaActual;
 	
 	@ManyToOne
-	private Usuario usuario;
+	private Mascota mascota;
 	
 	@ManyToOne
 	private Veterinario veterinario;
@@ -30,23 +32,18 @@ public class Turno {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getEspecialidad() {
-		return especialidad;
-	}
-	public void setEspecialidad(String especialidad) {
-		this.especialidad = especialidad;
-	}
-	public Usuario getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+		
 	public Veterinario getVeterinario() {
 		return veterinario;
 	}
 	public void setVeterinario(Veterinario veterinario) {
 		this.veterinario = veterinario;
 	}
-
+    
+	public Mascota getMascota() {
+		return mascota;
+	}
+	public void setMascota(Mascota mascota) {
+		this.mascota= mascota;
+	}
 }
