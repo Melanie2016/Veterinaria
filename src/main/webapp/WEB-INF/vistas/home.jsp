@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav class="navbar navbar-default">
-		<div class="container-fluid">
+		<div class="container-fluid" style="background: url(img/mudanza03.jpg) no-repeat center fixed;">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#">VET Center <span
 					class="glyphicon glyphicon-heart" style="color: orange"></span>
