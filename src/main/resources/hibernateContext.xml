@@ -14,11 +14,7 @@
 			value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/base" />
 		<property name="username" value="root" />
-<<<<<<< HEAD
 		<property name="password" value="3573" />
-=======
-		<property name="password" value="maluna" />
->>>>>>> 30a408478ee9be4a296005cd88ec5444a6e6fc51
 	</bean>
 
 	<!--Configuracion de la factory encargada de generar las sesiones con la 
