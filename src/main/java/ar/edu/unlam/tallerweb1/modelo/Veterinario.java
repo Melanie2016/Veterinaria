@@ -1,27 +1,37 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Veterinario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long veterinarioId;
 	private String nombre;
 	private String apellido;
-	private String especialidad;
+
+	@ManyToMany(mappedBy = "veterinario")
+	private Collection<Especialidad> especialidad = new ArrayList<>();
+	
+	
+	
+	
 	
 	
 	//getters y setters
-	public Long getId() {
-		return id;
+	public Long getVeterinarioId() {
+		return veterinarioId;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setVeterinarioId(Long veterinarioId) {
+		this.veterinarioId = veterinarioId;
 	}
 	public String getNombre() {
 		return nombre;
@@ -35,10 +45,7 @@ public class Veterinario {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public String getEspecialidad() {
-		return especialidad;
-	}
-	public void setEspecialidad(String especialidad) {
-		this.especialidad = especialidad;
-	}
+	
+	
+	
 }
