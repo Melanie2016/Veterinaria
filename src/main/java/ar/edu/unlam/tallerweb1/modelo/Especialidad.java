@@ -30,8 +30,8 @@ public class Especialidad {
 	private String descripcion;
 	private Float duracion;
 	private String diaDeAtencion;
-	private Time turnoMañanaInicio;
-	private Time turnoMañanaFinaliza;
+	private Time turnoManianaInicio;
+	private Time turnoManianaFinaliza;
 	private Time turnoTardeInicio;
 	private Time turnoTardeFinaliza;
 	
@@ -75,20 +75,20 @@ public class Especialidad {
 		this.diaDeAtencion = diaDeAtencion;
 	}
 
-	public Time getTurnoMañanaInicio() {
-		return turnoMañanaInicio;
+	public Time getTurnoManianaInicio() {
+		return turnoManianaInicio;
 	}
 
-	public void setTurnoMañanaInicio(Time turnoMañanaInicio) {
-		this.turnoMañanaInicio = turnoMañanaInicio;
+	public void setTurnoManianaInicio(Time turnoManianaInicio) {
+		this.turnoManianaInicio = turnoManianaInicio;
 	}
 
-	public Time getTurnoMañanaFinaliza() {
-		return turnoMañanaFinaliza;
+	public Time getTurnoManianaFinaliza() {
+		return turnoManianaFinaliza;
 	}
 
-	public void setTurnoMañanaFinaliza(Time turnoMañanaFinaliza) {
-		this.turnoMañanaFinaliza = turnoMañanaFinaliza;
+	public void setTurnoManianaFinaliza(Time turnoManianaFinaliza) {
+		this.turnoManianaFinaliza = turnoManianaFinaliza;
 	}
 
 	public Time getTurnoTardeInicio() {
