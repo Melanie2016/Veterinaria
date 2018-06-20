@@ -16,7 +16,7 @@
     </div>
     
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Perfil</a></li>
+      <li class="active"><a href="<c:url value="/perfil"/>">Perfil</a></li>
       <li><a href="<c:url value="/turno"/>">Turnos</a></li>
       <li><a href="#">Peluquerias</a></li>
     </ul>
@@ -34,6 +34,10 @@
 
 		<div class="form-group">
 		
+   			Nombre:<br>
+   			Animal:<br>
+   			Proxima vacuna:<br>
+      
 		</div>
 
 		

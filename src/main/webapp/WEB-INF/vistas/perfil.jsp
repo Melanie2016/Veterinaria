@@ -33,11 +33,11 @@
 		<h4>Datos del usuario</h4>
 
 		<div class="form-group">
-		Mi mascota 1 <a class="btn btn-warning" href="#">Ver perfil <i class="fa fa-edit"></i></a>
+		Mi mascota 1 <a class="btn btn-warning" href="<c:url value="/perfilMascota"/>">Ver perfil <i class="fa fa-edit"></i></a>
 					<a class="btn btn-info" href="#">Editar <i class="fa fa-edit"></i></a>
 		             <a class="btn btn-danger" href="#">Eliminar <i class="fa fa-minus"></i></a>
 	<br>
-		Mi mascota 2 <a class="btn btn-warning" href="#">Ver perfil <i class="fa fa-edit"></i></a>
+		Mi mascota 2 <a class="btn btn-warning" href="<c:url value="/perfilMascota"/>">Ver perfil <i class="fa fa-edit"></i></a>
 						<a class="btn btn-info" href="#">Editar <i class="fa fa-edit"></i></a>
 		             <a class="btn btn-danger" href="#">Eliminar <i class="fa fa-minus"></i></a>
 		             <br>  <br>
