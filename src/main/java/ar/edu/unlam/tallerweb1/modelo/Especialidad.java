@@ -1,46 +1,29 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.sql.Date;
-import java.sql.Time;
-import java.util.ArrayList;
-import java.util.List;
-
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn; 
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 
 @Entity
 public class Especialidad {
 	
-	
-
 	@Id 
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long especialidadId;
 	private String descripcion;
-	private Float duracion;
-	private String diaDeAtencion;
-	private Time turnoManianaInicio;
-	private Time turnoManianaFinaliza;
-	private Time turnoTardeInicio;
-	private Time turnoTardeFinaliza;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
-    @Fetch(FetchMode.SELECT)
-    @JoinTable(name="especialidad_veterinario",
-    joinColumns = {@JoinColumn(name = "especialidad_id")},
-    inverseJoinColumns = {@JoinColumn(name = "veterinario_id")})
-    private List<Veterinario> veterinario = new ArrayList<>();
+	
+	@ManyToOne
+	private Veterinario veterinario; 
+	
+	
+	
+	
 	
 	// getters y setters 
 	public Long getEspecialidadId() {
@@ -59,62 +42,6 @@ public class Especialidad {
 		this.descripcion = descripcion;
 	}
 	
-	public Float getDuracion() {
-		return duracion;
-	}
-
-	public void setDuracion(Float duracion) {
-		this.duracion = duracion;
-	}
-
-	public String getDiaDeAtencion() {
-		return diaDeAtencion;
-	}
-
-	public void setDiaDeAtencion(String diaDeAtencion) {
-		this.diaDeAtencion = diaDeAtencion;
-	}
-
-	public Time getTurnoManianaInicio() {
-		return turnoManianaInicio;
-	}
-
-	public void setTurnoManianaInicio(Time turnoManianaInicio) {
-		this.turnoManianaInicio = turnoManianaInicio;
-	}
-
-	public Time getTurnoManianaFinaliza() {
-		return turnoManianaFinaliza;
-	}
-
-	public void setTurnoManianaFinaliza(Time turnoManianaFinaliza) {
-		this.turnoManianaFinaliza = turnoManianaFinaliza;
-	}
-
-	public Time getTurnoTardeInicio() {
-		return turnoTardeInicio;
-	}
-
-	public void setTurnoTardeInicio(Time turnoTardeInicio) {
-		this.turnoTardeInicio = turnoTardeInicio;
-	}
-
-	public Time getTurnoTardeFinaliza() {
-		return turnoTardeFinaliza;
-	}
-
-	public void setTurnoTardeFinaliza(Time turnoTardeFinaliza) {
-		this.turnoTardeFinaliza = turnoTardeFinaliza;
-	}
-
-	public List<Veterinario> getVeterinario() {
-		return veterinario;
-	}
-
-	public void setVeterinario(List<Veterinario> veterinario) {
-		this.veterinario = veterinario;
-	}
-
 	
 	
 }
