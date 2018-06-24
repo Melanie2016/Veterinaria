@@ -27,7 +27,7 @@
 				</div>
 			</nav>
 		<div class="container">
-			<form:form action="consultarDisp" method="POST" modelAttribute="especialidades">
+			<form:form action="consultarVet" method="POST" modelAttribute="especialidades">
 					
 					<h1>Reserve su turno</h1>
 					<!-- VER ..  https://www.youtube.com/watch?v=rFCaI1daCLs  https://www.youtube.com/watch?v=KnZ5zYYIxu8-->

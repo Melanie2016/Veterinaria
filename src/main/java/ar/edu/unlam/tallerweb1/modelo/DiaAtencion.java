@@ -15,7 +15,7 @@ public class DiaAtencion {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
-	private Date dia;
+	private String dia;
 	private Time horaAtencionInicio;
 	private Time horaAtencionFinalizacion;
 	
@@ -35,11 +35,11 @@ public class DiaAtencion {
 		this.id = id;
 	}
 
-	public Date getDia() {
+	public String getDia() {
 		return dia;
 	}
 
-	public void setDia(Date dia) {
+	public void setDia(String dia) {
 		this.dia = dia;
 	}
 

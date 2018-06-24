@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
-import ar.edu.unlam.tallerweb1.modelo.Turno;
-import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTurno;
 
 
@@ -35,13 +33,25 @@ public class ControladorTurno {
 		return new ModelAndView ("turno",model);
 	}
 	
+	
+	@RequestMapping(path="/consultarVet",method=RequestMethod.POST)
+	public ModelAndView irAConsultarVet(@ModelAttribute ("especialidades") Especialidad especialidad) {
+				
+		ModelMap model =new ModelMap();
+		List<Especialidad> vetList = servicioTurno.consultarVeterinario(especialidad);
+		model.put("veterinarios", vetList);
+				
+		return new ModelAndView ("disponibilidad",model);
+	}
+	
+	
 	@RequestMapping(path="/consultarDisp",method=RequestMethod.POST)
 	public ModelAndView irAConsultarDisp(@ModelAttribute ("especialidades") Especialidad especialidad) {
 				
 		ModelMap model =new ModelMap();
 		List<Especialidad> especialidadList = servicioTurno.consultarDisponibilidad(especialidad);
-
-		model.put("especialidades", especialidadList);
+//		ver el tema de como no mostrar los veterinarios repetidos 
+		model.put("con", especialidadList);
 				
 		return new ModelAndView ("disponibilidad",model);
 	}

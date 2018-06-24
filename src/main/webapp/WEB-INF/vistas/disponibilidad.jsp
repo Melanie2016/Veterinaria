@@ -30,15 +30,23 @@
 			<form:form action="consultarFecha" method="POST" modelAttribute="especialidades">
 				<h1>Disponibilidad</h1>			
 				<div class="form-group">
-					
 					<label for="sel1">Seleccione su profecional:</label> 
-					<select	class="form-control" id="sel1">
-						<option>Seleccione un veterinario</option>
-						<c:forEach items="${especialidades}" var="especialidades">
-							<option>${especialidades.nombre} </option>
-						</c:forEach>
+					<select	name="descripcion"class="form-control" id="sel1">
+							<option>Seleccione veterinario</option>
+							<c:forEach items="${veterinarios}" var="veterinarios">
+								<option>${veterinarios} </option>
+							</c:forEach>
 					</select>
-			
+					
+					<!-- 
+					<label for="sel1">Seleccione su profecional:</label> 
+					<select	name="descripcion"class="form-control" id="sel1">
+							<option>Seleccione veterinario</option>
+							<c:forEach items="${con}" var="con">
+								<option>${con.veterinario.nombre} | ${con.dia} | ${con.horaAtencionInicio } </option>
+							</c:forEach>
+					</select>
+					-->
 				</div>
 				
 				<button class="btn btn-lg btn-primary btn-block btn-warning"
