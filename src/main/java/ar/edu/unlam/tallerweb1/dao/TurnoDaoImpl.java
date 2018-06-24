@@ -14,6 +14,7 @@ import org.hibernate.criterion.*;
 
 import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
+import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 
 @Repository("turnoDao")
 public class TurnoDaoImpl implements TurnoDao {
@@ -52,10 +53,9 @@ public class TurnoDaoImpl implements TurnoDao {
 				.createAlias("classGral.veterinario","vetBuscado")
 				.createAlias("classGral.especialidad","espBuscado")
 				.add(Restrictions.eq("espBuscado.descripcion",especialidad.getDescripcion()))
-				.setProjection(Projections.projectionList()
-                        .add(Projections.groupProperty("vetBuscado.nombre"))
-                        )
-				.list();
+				.setProjection(Projections.projectionList() // para hacer un group by y muestre una vez cada nombre 
+					.add(Projections.groupProperty("vetBuscado.nombre"))
+                ).list();
 
 		
 			}
@@ -63,17 +63,27 @@ public class TurnoDaoImpl implements TurnoDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Especialidad> consultarDisponibilidadDao(Especialidad especialidad){
+	public List<Veterinario> consultarDisponibilidadDao(Veterinario veterinarios){
 		final Session session = sessionFactory.getCurrentSession();
 		
 		return session.createCriteria(DiaAtencion.class,"classGral")
 				.createAlias("classGral.veterinario","vetBuscado")
-				.createAlias("classGral.especialidad","espBuscado")
-				.add(Restrictions.eq("espBuscado.descripcion",especialidad.getDescripcion()))
-				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)// supuestamente para hacer el distinct 
+				.add(Restrictions.eq("vetBuscado.nombre",veterinarios.getNombre())) 
 				.list();
 		
 			}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

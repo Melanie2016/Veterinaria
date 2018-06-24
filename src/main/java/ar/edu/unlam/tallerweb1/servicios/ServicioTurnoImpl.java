@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.dao.TurnoDao;
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
+import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 
 @Service("servicioTurno")
 @Transactional
@@ -39,8 +40,8 @@ public class ServicioTurnoImpl implements ServicioTurno{
 	}
 	
 	@Override
-	public List<Especialidad> consultarDisponibilidad(Especialidad especialidad){
-		return turnoDao.consultarDisponibilidadDao(especialidad);
+	public List<Veterinario> consultarDisponibilidad(Veterinario veterinarios){
+		return turnoDao.consultarDisponibilidadDao(veterinarios);
 	
 	}
 	

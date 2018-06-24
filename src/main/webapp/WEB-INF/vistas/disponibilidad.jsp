@@ -27,11 +27,11 @@
 				</div>
 		</nav>
 		<div class="container">
-			<form:form action="consultarFecha" method="POST" modelAttribute="especialidades">
+			<form:form action="consultarDisp" method="POST" modelAttribute="veterinarios">
 				<h1>Disponibilidad</h1>			
 				<div class="form-group">
 					<label for="sel1">Seleccione su profecional:</label> 
-					<select	name="descripcion"class="form-control" id="sel1">
+					<select	name="nombre"class="form-control" id="sel1">
 							<option>Seleccione veterinario</option>
 							<c:forEach items="${veterinarios}" var="veterinarios">
 								<option>${veterinarios} </option>

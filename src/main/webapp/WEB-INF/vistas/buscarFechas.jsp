@@ -7,15 +7,7 @@
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
-		<script>
-		$(function () {
-		$("#fecha").datepicker();
-		});
-		</script>
+        <meta charset="utf-8">		
     </head>
 
     <body>
@@ -40,16 +32,34 @@
 		
 			<form:form action="registrarTurno" method="POST" modelAttribute="especialidades">
 				<h1>Disponibilidad</h1>			
-				<div class="form-group">
-					
-				
-					
-					<label for="fecha">Seleccione fecha:</label>
-						<input class="form-control" type="text" id="fecha" value="" placeholder="Seleccione fecha" />
-					
-					<br>
-					<label for="sel1">Ingrese horario:</label> 
-    				<input class="form-control" type="text" id="fecha" value="" placeholder="Seleccione fecha" />
+				<div class="form-group"> 
+				<br>
+				<label for="fecha">Seleccione fecha:</label>
+						
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col" class="glyphicon glyphicon-pencil"></th>
+							<th scope="col">Especialista</th>
+							<th scope="col">Dias de atencion</th>
+							<th scope="col">Hora</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${consulta}" var="consulta">
+							<tr>
+								<th scope="row"></th>
+								<td >${consulta.veterinario.apellido }</td>
+								<td >${consulta.veterinario.nombre }</td>
+								<td>${consulta.dia}</td>
+								<td>${consulta.horaAtencionInicio }</td>
+							</tr>
+						</c:forEach>				
+					</tbody>
+				</table>
+									
+						
+				<br>
 					
 				</div>
 				<br>
@@ -61,29 +71,4 @@
 			</form:form>
 		</div>	
     </body>
-    <script>
-				
-					 $.datepicker.regional['es'] = {
-					 closeText: 'Cerrar',
-					 prevText: '< Ant',
-					 nextText: 'Sig >',
-					 currentText: 'Hoy',
-					 monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-					 monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-					 dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-					 dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-					 dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
-					 weekHeader: 'Sm',
-					 dateFormat: 'dd/mm/yy',
-					 firstDay: 1,
-					 isRTL: false,
-					 showMonthAfterYear: false,
-					 yearSuffix: ''
-					 };
-					 $.datepicker.setDefaults($.datepicker.regional['es']);
-					$(function () {
-					$("#fecha").datepicker();
-					});
-					
-	</script>
 </html>

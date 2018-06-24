@@ -3,6 +3,7 @@ package ar.edu.unlam.tallerweb1.servicios;
 import java.util.List;
 
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
+import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 
 public interface ServicioTurno {
 	
@@ -12,7 +13,7 @@ public interface ServicioTurno {
 
 	List<Especialidad> consultarVeterinario(Especialidad especialidad);
 	
-	List<Especialidad> consultarDisponibilidad(Especialidad especialidad);
+	List<Veterinario> consultarDisponibilidad(Veterinario veterinarios);
 
 	
 
