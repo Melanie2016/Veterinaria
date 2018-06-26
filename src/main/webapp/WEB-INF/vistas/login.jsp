@@ -37,7 +37,7 @@
 					<form:input path="email" id="email" type="email" class="form-control" />
 					<br>
 					<label for="email">Password:</label>
-					<form:input path="password" type="password" id="password" class="form-control"/>     		  
+					<form:input path="pass" type="pass" id="pass" class="form-control"/>     		  
 					<br>
 					<button class="btn btn-lg btn-primary btn-block btn-warning" Type="Submit"> Ingresar</button>
 

@@ -49,13 +49,13 @@
 			      	<br>
  <!--Creo que el duenio no debe ingresarse, porke el form esta siendo usado desde la cuenta del duenio-->
 <!--	<label for="duenio">Duenio:</label>
-<input type="text" class="form-control" />-->		      
+<input type="text" class="form-control" />		      
 	
 <label for="vacunas">Vacunas que tiene aplicadas:</label>
 <label class="checkbox-inline"><input type="checkbox" value="">Quintuple</label>		      	
 <label class="checkbox-inline"><input type="checkbox" value="">Sextuple</label>
 <label class="checkbox-inline"><input type="checkbox" value="">Rabia</label>
-	<br>
+	<br>-->
 			      	
 <button class="btn btn-lg btn-block btn-default" Type="Submit" /> Ingresar</button>
 			      	
