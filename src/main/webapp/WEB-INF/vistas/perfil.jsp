@@ -30,17 +30,34 @@
 	<h1>Perfil del usuario</h1>
 <div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 	
-		<h4>Datos del usuario</h4>
 
-		<div class="form-group">
-		Mi mascota 1 <a class="btn btn-warning" href="<c:url value="/perfilMascota"/>">Ver perfil <i class="fa fa-edit"></i></a>
-					<a class="btn btn-info" href="#">Editar <i class="fa fa-edit"></i></a>
-		             <a class="btn btn-danger" href="#">Eliminar <i class="fa fa-minus"></i></a>
-	<br>
-		Mi mascota 2 <a class="btn btn-warning" href="<c:url value="/perfilMascota"/>">Ver perfil <i class="fa fa-edit"></i></a>
-						<a class="btn btn-info" href="#">Editar <i class="fa fa-edit"></i></a>
-		             <a class="btn btn-danger" href="#">Eliminar <i class="fa fa-minus"></i></a>
-		             <br>  <br>
+		<table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Edad</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+
+                    <c:forEach var="mascota" items="${mascota}">
+                        <tr>
+                            <td>${mascota.id}</td>
+                            <td>${mascota.nombre}</td>
+                            <td>${mascota.tipo}</td>
+                            <td>${mascota.edad}</td>
+                            <td>
+     <a class="btn btn-warning" href="perfilMascota/${mascota.id}">irPerfil <i class="fa fa-edit"></i></a>
+     <a class="btn btn-default" href="vacunas/${mascota.id}">VerVacunas <i class="fa fa-minus"></i>              
+						    
+                                <a class="btn btn-danger"> X <i class="fa fa-minus"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
  <a href="<c:url value="/formMascota"/>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Agregar una mascota</a>	
 		</div>
 

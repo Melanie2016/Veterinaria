@@ -13,8 +13,9 @@ public class Mascota {
 	private Long id;
 	private String nombre;
 	private String tipo;
+	private Integer edad;
 	
-	
+
 	@ManyToOne
 	private Usuario duenio;
 
@@ -59,4 +60,13 @@ public class Mascota {
 		this.duenio = duenio;
 	}
 	
+	
+	public Integer getEdad() {
+		return edad;
+	}
+
+
+	public void setEdad(Integer edad) {
+		this.edad = edad;
+	}
 }
