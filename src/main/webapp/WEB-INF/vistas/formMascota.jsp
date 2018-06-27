@@ -47,18 +47,19 @@
 				        <option>Hamsters</option>
 			      	</select>
 			      	<br>
- <!--Creo que el duenio no debe ingresarse, porke el form esta siendo usado desde la cuenta del duenio-->
-<!--	<label for="duenio">Duenio:</label>
-<input type="text" class="form-control" />		      
-	
-<label for="vacunas">Vacunas que tiene aplicadas:</label>
-<label class="checkbox-inline"><input type="checkbox" value="">Quintuple</label>		      	
-<label class="checkbox-inline"><input type="checkbox" value="">Sextuple</label>
-<label class="checkbox-inline"><input type="checkbox" value="">Rabia</label>
-	<br>-->
+						 <!--Creo que el duenio no debe ingresarse, porke el form esta siendo usado desde la cuenta del duenio-->
+						<!--	<label for="duenio">Duenio:</label>
+						<input type="text" class="form-control" />		      
+							
+						<label for="vacunas">Vacunas que tiene aplicadas:</label>
+						<label class="checkbox-inline"><input type="checkbox" value="">Quintuple</label>		      	
+						<label class="checkbox-inline"><input type="checkbox" value="">Sextuple</label>
+						<label class="checkbox-inline"><input type="checkbox" value="">Rabia</label>
+							<br>-->
 			      	
-<button class="btn btn-lg btn-block btn-default" Type="Submit" /> Ingresar</button>
-			      	
+				<button class="btn btn-lg btn-block btn-default" Type="Submit" /> Ingresar</button>
+			    <a href="<c:url value="/perfil"/>" class="btn btn-lg btn-block btn-default" role="button">Volver</a>	 
+				  	
 				</form:form>
 			</div>
 		</div>

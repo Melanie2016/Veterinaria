@@ -53,6 +53,8 @@
 						Type="Submit" >
 					Buscar Turnos
 				</button>
+				<a href="<c:url value="/turno"/>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Volver</a>	 
+				
 			</form:form>			
 		</div>
 		<!-- Placed at the end of the do"src/main/webapp/WEB-INF/vistas/login.jsp"cument so the pages load faster -->

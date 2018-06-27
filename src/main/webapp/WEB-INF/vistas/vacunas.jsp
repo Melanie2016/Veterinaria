@@ -16,34 +16,37 @@
 	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
 	</head>
 	<body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="<c:url value="/home"/>">VET Center <span class="glyphicon glyphicon-heart"style="color:orange"></span> </a>
-    </div>
-    
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="<c:url value="/perfil"/>">Perfil</a></li>
-      <li><a href="<c:url value="/turno"/>">Turnos</a></li>
-      <li><a href="#">Peluquerias</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user" style="color:orange"></span> Registrarse</a></li>
-      <li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in" style="color:orange"></span> Login</a></li>
-    </ul>
-		</div>
-	</nav>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+		    	<div class="navbar-header">
+		      		<a class="navbar-brand" href="<c:url value="/home"/>">VET Center <span class="glyphicon glyphicon-heart"style="color:orange"></span> </a>
+		    	</div>
+		    
+			    <ul class="nav navbar-nav">
+			      <li class="active"><a href="<c:url value="/perfil"/>">Perfil</a></li>
+			      <li><a href="<c:url value="/turno"/>">Turnos</a></li>
+			      <li><a href="#">Peluquerias</a></li>
+			    </ul>
+			    <ul class="nav navbar-nav navbar-right">
+			      <li><a href="#"><span class="glyphicon glyphicon-user" style="color:orange"></span> Registrarse</a></li>
+			      <li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in" style="color:orange"></span> Login</a></li>
+			    </ul>
+			</div>
+		</nav>
+		
 		<div class = "container">
 			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-					<h1><span style="font-size:20px">Vacunas de:</span> ${mascota.nombre} <span class="glyphicon glyphicon-heart" style="color:orange"></span></h1>							 	
- 		<table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                         <th>Vacuna</th>
-                        <th>Estado</th>
-                        <th> </th>
-                    </tr>
+				<h1><span style="font-size:20px">Vacunas de:</span> ${mascota.nombre} <span class="glyphicon glyphicon-heart" style="color:orange"></span></h1>							 	
+ 			
+ 			
+ 				<table class="table table-striped">
+                	<thead>
+                    	<tr>
+                        	<th>Id</th>
+                         	<th>Vacuna</th>
+                        	<th>Estado</th>
+                        	<th> </th>
+                    	</tr>
                     </thead>
 
                     <c:forEach var="id" items="${id}">
@@ -52,22 +55,22 @@
   							<td>${id.vacuna.nombreVacuna}</td>						
                             <td>${id.estado}</td>      
                             <td>
-     
-             <c:if test="${id.estado=='no'}">
-                <a class="btn btn-warning" href="<c:url value="/turno"/>">SacarTurno <i class="fa fa-edit"></i></a>
-            </c:if>
-            <c:if test="${id.estado=='ok'}">
-            <h11>Vence cada ${id.vacuna.vencimiento} meses</h11>
-            </c:if>
-             <!-- <a class="btn btn-warning" >Editar <i class="fa fa-edit"></i></a> --> 
-                               
+     			            <c:if test="${id.estado=='no'}">
+				                <a class="btn btn-warning" href="<c:url value="/turno"/>">SacarTurno <i class="fa fa-edit"></i></a>
+				            </c:if>
+            
+				            <c:if test="${id.estado=='ok'}">
+				            	<h11>Vence cada ${id.vacuna.vencimiento} meses</h11>
+				            </c:if>
+            				<!-- <a class="btn btn-warning" >Editar <i class="fa fa-edit"></i></a> --> 
                             </td>                         
                         </tr>
-                    </c:forEach>
-                   
+                    </c:forEach>               
                 </table>
  								
+				
 				<a href="<c:url value="/perfil"/>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Volver</a>	 
+				
 			</div>	
 		</div>
 		

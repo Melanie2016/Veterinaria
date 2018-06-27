@@ -40,7 +40,7 @@
 					<thead>
 						<tr>
 							<th scope="col" class="glyphicon glyphicon-pencil"></th>
-							<th scope="col">Especialista</th>
+							<th colspan="2">Especialista</th>
 							<th scope="col">Dias de atencion</th>
 							<th scope="col">Hora</th>
 						</tr>
@@ -49,8 +49,8 @@
 						<c:forEach items="${consulta}" var="consulta">
 							<tr>
 								<th scope="row"></th>
-								<td >${consulta.veterinario.apellido }</td>
-								<td >${consulta.veterinario.nombre }</td>
+								<td>${consulta.veterinario.apellido }</td>
+								<td>${consulta.veterinario.nombre }</td>
 								<td>${consulta.dia}</td>
 								<td>${consulta.horaAtencionInicio }</td>
 							</tr>
@@ -67,7 +67,8 @@
 						Type="Submit" >
 					Buscar Turnos
 				</button>
-			 
+			 	<a href="<c:url value="/disponibilidad"/>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Volver</a>	 
+			 	
 			</form:form>
 		</div>	
     </body>
