@@ -14,10 +14,12 @@ public class Veterinario {
 	private String nombre;
 	private String apellido;
 
-	
+//	Date hoy = new Date();
+//	hoy.
 	
 	//getters y setters
 	public Long getVeterinarioId() {
+
 		return veterinarioId;
 	}
 	public void setVeterinarioId(Long veterinarioId) {
