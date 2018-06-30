@@ -1,7 +1,4 @@
 
-.body{
-	background-color: orange;
-	
-	color:white;
-}
-
+	.table-hover>tbody>tr:hover {
+			background-color: #FFF9A2;
+		}

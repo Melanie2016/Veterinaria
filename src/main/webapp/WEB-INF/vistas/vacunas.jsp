@@ -7,14 +7,14 @@
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-	     <!-- Esto me soluciono la falta de bootstrap -->
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	    <!-- Esto me soluciono la falta de bootstrap -->
+		<link rel="stylesheet"
+			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
-<!-- Optional theme -->
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
-	</head>
+		<!-- Optional theme -->
+		<link rel="stylesheet"
+			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+			</head>
 	<body>
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">

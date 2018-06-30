@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.dao.TurnoDao;
+import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
 import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 
@@ -34,14 +35,14 @@ public class ServicioTurnoImpl implements ServicioTurno{
 	}
 	
 	@Override
-	public List<Especialidad> consultarVeterinario(Especialidad especialidad){
-		return turnoDao.consultarVeterinarioDao(especialidad);
+	public List<DiaAtencion> consultarVeterinario(Long especialidadId){
+		return turnoDao.consultarVeterinarioDao(especialidadId);
 	
 	}
 	
 	@Override
-	public List<Veterinario> consultarDisponibilidad(Veterinario veterinarios){
-		return turnoDao.consultarDisponibilidadDao(veterinarios);
+	public List<Veterinario> consultarDisponibilidad(Long veterinarioId){
+		return turnoDao.consultarDisponibilidadDao(veterinarioId);
 	
 	}
 	

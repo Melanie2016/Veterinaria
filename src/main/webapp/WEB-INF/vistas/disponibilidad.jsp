@@ -7,6 +7,14 @@
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	    
+	    <!-- Esto me soluciono la falta de bootstrap -->
+		<link rel="stylesheet"
+			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet"
+			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -27,37 +35,52 @@
 				</div>
 		</nav>
 		<div class="container">
-			<form:form action="consultarDisp" method="POST" modelAttribute="veterinarios">
+			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			
 				<h1>Disponibilidad</h1>			
 				<div class="form-group">
+					 
 					<label for="sel1">Seleccione su profecional:</label> 
-					<select	name="nombre"class="form-control" id="sel1">
-							<option>Seleccione veterinario</option>
+					<!-- onchange="ShowSelected();"  -->
+					<select	 id="veterinarioId" name="veterinarioId" class="form-control">
+							<option value="0">Seleccione veterinario</option>
 							<c:forEach items="${veterinarios}" var="veterinarios">
-								<option>${veterinarios} </option>
+								<option value="${veterinarios.veterinarioId}"> ${veterinarios.apellido} ${veterinarios.nombre} </option>
 							</c:forEach>
 					</select>
 					
-					<!-- 
-					<label for="sel1">Seleccione su profecional:</label> 
-					<select	name="descripcion"class="form-control" id="sel1">
-							<option>Seleccione veterinario</option>
-							<c:forEach items="${con}" var="con">
-								<option>${con.veterinario.nombre} | ${con.dia} | ${con.horaAtencionInicio } </option>
-							</c:forEach>
-					</select>
-					-->
 				</div>
 				
-				<button class="btn btn-lg btn-primary btn-block btn-warning"
-						Type="Submit" >
-					Buscar Turnos
-				</button>
-				<a href="<c:url value="/turno"/>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Volver</a>	 
+				<button class="btn btn-lg btn-primary btn-block btn-warning" onclick="consultarDisp()"
+						>Buscar veterinario </button>
+				<br>
+				<a href="<c:url value="/turno"/>" class="btn btn-warning" role="button"><span class="glyphicon glyphicon-hand-left"></span></a>	 
 				
-			</form:form>			
+			</div>			
 		</div>
 		<!-- Placed at the end of the do"src/main/webapp/WEB-INF/vistas/login.jsp"cument so the pages load faster -->
+		<script type="text/javascript">
+							function consultarDisp()
+							{
+							/* Para obtener el valor */
+							var cod = document.getElementById("veterinarioId").value;
+								if(cod == null || cod == 0){
+									alert('Para continuar es necesario que seleccione un especialista  ¡GRACIAS!');
+								}
+								else{
+									location.href="consultarDisp/"+cod;
+								}
+								
+							
+							
+							/* Para obtener el texto 
+							var combo = document.getElementById("producto");
+							var selected = combo.options[combo.selectedIndex].text;
+							alert(selected); */
+							
+							}
+		</script>
+		
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>

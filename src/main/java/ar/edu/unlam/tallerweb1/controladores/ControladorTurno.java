@@ -7,10 +7,12 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
 import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTurno;
@@ -35,22 +37,24 @@ public class ControladorTurno {
 	}
 	
 	
-	@RequestMapping(path="/consultarVet",method=RequestMethod.POST)
-	public ModelAndView irAConsultarVet(@ModelAttribute ("especialidades") Especialidad especialidad) {
+	@RequestMapping(path="/consultarVet/{especialidadId}")
+	public ModelAndView irAConsultarVet(@PathVariable Long especialidadId) {
 				
 		ModelMap model =new ModelMap();
-		List<Especialidad> vetList = servicioTurno.consultarVeterinario(especialidad);
+		
+		List<DiaAtencion> vetList = servicioTurno.consultarVeterinario(especialidadId);
+		
 		model.put("veterinarios", vetList);
 				
 		return new ModelAndView ("disponibilidad",model);
 	}
 	
 	
-	@RequestMapping(path="/consultarDisp",method=RequestMethod.POST)
-	public ModelAndView irAConsultarDisp(@ModelAttribute ("veterinarios") Veterinario veterinarios) {
+	@RequestMapping(path="/consultarVet/consultarDisp/{veterinarioId}")
+	public ModelAndView irAConsultarDisp(@PathVariable Long veterinarioId ) {
 				
 		ModelMap model =new ModelMap();
-		List<Veterinario> disponibilidad = servicioTurno.consultarDisponibilidad(veterinarios);
+		List<Veterinario> disponibilidad = servicioTurno.consultarDisponibilidad(veterinarioId);
 
 		model.put("consulta", disponibilidad);
 				

@@ -27,47 +27,54 @@
 				</div>
 			</nav>
 		<div class="container">
-			<form:form action="consultarVet" method="POST" modelAttribute="especialidades">
+			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 					
-					<h1>Reserve su turno</h1>
-					<!-- VER ..  https://www.youtube.com/watch?v=rFCaI1daCLs  https://www.youtube.com/watch?v=KnZ5zYYIxu8-->
-					<div class="form-group">
-						<label for="sel1">Seleccione especialidad:</label> 
-						<select	name="descripcion"class="form-control" id="sel1">
-							<option>Seleccione especialidad</option>
-							<c:forEach items="${especialidades}" var="especialidades">
-								<option>${especialidades.descripcion} </option>
-							</c:forEach>
-						</select>
+						<h1 >Reserve su turno</h1>
+						<!-- VER ..  https://www.youtube.com/watch?v=rFCaI1daCLs  https://www.youtube.com/watch?v=KnZ5zYYIxu8-->
+						<div class="form-group">
+							<label for="sel1">Seleccione especialidad:</label> 
+							<!-- onchange="ShowSelected();"  -->
+							<select	 id="especialidadId" name="especialidadId" class="form-control">
+								<option value="0">Seleccione especialidad</option>
+								<c:forEach items="${especialidades}" var="especialidades">
+									<option value="${especialidades.especialidadId}">${especialidades.descripcion}</option>
+								
+								</c:forEach>
+								
+							</select>
+						 	
+						</div>
 						
 						
-					</div>
-					<!-- 
-					<div class="form-group">
-					
-						<label for="sel1">Seleccione nombre del veterinario:</label> 
-						<select	class="form-control" id="sel1">
-							<option>Seleccione un veterinario</option>
-							<c:forEach items="${veterinarios}" var="veterinarios">
-								<option>${veterinarios.apellido} ${veterinarios.nombre} |</option>
-							</c:forEach>
-						</select>
-						
-					</div>
-					-->
-					<button class="btn btn-lg btn-primary btn-block btn-warning"
-						Type="Submit" >
-					Buscar Turnos
-					</button>
-				
-					
-				
-				
-				</form:form>
+						<!-- pasamos el id por una funcion  -->
+						<button class="btn btn-lg btn-primary btn-block btn-warning" onclick="ShowSelected()"
+						>Buscar veterinario </button>
 			
-			
+			</div>
 		</div>
 		<!-- Placed at the end of the do"src/main/webapp/WEB-INF/vistas/login.jsp"cument so the pages load faster -->
+		<script type="text/javascript">
+							function ShowSelected()
+							{
+							/* Para obtener el valor */
+							var cod = document.getElementById("especialidadId").value;
+								if(cod == null || cod == 0){
+									alert('Para continuar es necesario que seleccione una especialidad  ¡GRACIAS!');
+								}
+								else{
+									location.href="consultarVet/"+cod;
+								}
+								
+							
+							
+							/* Para obtener el texto 
+							var combo = document.getElementById("producto");
+							var selected = combo.options[combo.selectedIndex].text;
+							alert(selected); */
+							
+							}
+		</script>
+		
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>

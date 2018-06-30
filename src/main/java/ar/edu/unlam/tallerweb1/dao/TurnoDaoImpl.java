@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.transform.Transformers;
 import org.springframework.stereotype.Repository;
 
 import org.hibernate.criterion.*;
@@ -46,16 +47,21 @@ public class TurnoDaoImpl implements TurnoDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Especialidad> consultarVeterinarioDao(Especialidad especialidad){
+	public List<DiaAtencion> consultarVeterinarioDao(Long especialidadId){
 		final Session session = sessionFactory.getCurrentSession();
-		
+	
 		return session.createCriteria(DiaAtencion.class,"classGral")
+				.createAlias("classGral.especialidad", "espBuscada")
 				.createAlias("classGral.veterinario","vetBuscado")
-				.createAlias("classGral.especialidad","espBuscado")
-				.add(Restrictions.eq("espBuscado.descripcion",especialidad.getDescripcion()))
-				.setProjection(Projections.projectionList() // para hacer un group by y muestre una vez cada nombre 
-					.add(Projections.groupProperty("vetBuscado.nombre"))
-                ).list();
+				.add(Restrictions.eq("espBuscada.especialidadId",especialidadId))
+				.setProjection(Projections.distinct(Projections.property("veterinario")))
+
+//				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+//				.setProjection(Projections.projectionList() // para hacer un group by y muestre una vez cada nombre 
+//					.add(Projections.groupProperty("classGral.veterinario.veterinarioId"))
+//                ) // el problema con esto es q solo devuelve una lista de nombres . y si necesito otro dato del vet no lo puedo obtener
+				.list();
+				
 
 		
 			}
@@ -63,12 +69,12 @@ public class TurnoDaoImpl implements TurnoDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Veterinario> consultarDisponibilidadDao(Veterinario veterinarios){
+	public List<Veterinario> consultarDisponibilidadDao(Long veterinarioId){
 		final Session session = sessionFactory.getCurrentSession();
 		
 		return session.createCriteria(DiaAtencion.class,"classGral")
 				.createAlias("classGral.veterinario","vetBuscado")
-				.add(Restrictions.eq("vetBuscado.nombre",veterinarios.getNombre())) 
+				.add(Restrictions.eq("vetBuscado.veterinarioId",veterinarioId)) 
 				.list();
 		
 			}

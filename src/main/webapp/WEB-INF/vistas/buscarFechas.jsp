@@ -3,13 +3,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- Bootstrap core CSS -->
+		
+	    <!-- Bootstrap core CSS -->
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-        <meta charset="utf-8">		
-    </head>
+	    
+	    <!-- Esto me soluciono la falta de bootstrap -->
+		<link rel="stylesheet"
+			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
+		<!-- Optional theme -->
+		<link rel="stylesheet"
+			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    </head>
+			<style>
+				
+			</style>
     <body>
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
@@ -35,7 +45,7 @@
 				<div class="form-group"> 
 				<br>
 				<label for="fecha">Seleccione fecha:</label>
-						
+				
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -49,26 +59,25 @@
 						<c:forEach items="${consulta}" var="consulta">
 							<tr>
 								<th scope="row"></th>
-								<td>${consulta.veterinario.apellido }</td>
-								<td>${consulta.veterinario.nombre }</td>
-								<td>${consulta.dia}</td>
-								<td>${consulta.horaAtencionInicio }</td>
+ 									<td>${consulta.veterinario.apellido}</td> 
+									<td>${consulta.veterinario.nombre }</td>
+									<td>${consulta.dia}</td>
+									<td>${consulta.horaAtencionInicio }</td>
 							</tr>
 						</c:forEach>				
 					</tbody>
 				</table>
 									
-						
-				<br>
-					
-				</div>
-				<br>
-				<button class="btn btn-lg btn-primary btn-block btn-warning"
+				
+					<button class="btn btn-lg btn-warning"
 						Type="Submit" >
 					Buscar Turnos
 				</button>
-			 	<a href="<c:url value="/disponibilidad"/>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Volver</a>	 
-			 	
+				</div>
+				
+				
+			 	<a href="<c:url value="/turno"/>" class="btn btn-warning" role="button"><span class="glyphicon glyphicon-hand-left"></span></a>	 
+				
 			</form:form>
 		</div>	
     </body>
