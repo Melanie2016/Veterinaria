@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.dao;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import org.hibernate.criterion.*;
 
 import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
+import ar.edu.unlam.tallerweb1.modelo.Duracion;
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
 import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 
@@ -54,9 +56,8 @@ public class TurnoDaoImpl implements TurnoDao {
 				.createAlias("classGral.especialidad", "espBuscada")
 				.createAlias("classGral.veterinario","vetBuscado")
 				.add(Restrictions.eq("espBuscada.especialidadId",especialidadId))
-				.setProjection(Projections.distinct(Projections.property("veterinario")))
-
-//				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+//				.setProjection(Projections.distinct(Projections.property("veterinario"))) //si funca
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 //				.setProjection(Projections.projectionList() // para hacer un group by y muestre una vez cada nombre 
 //					.add(Projections.groupProperty("classGral.veterinario.veterinarioId"))
 //                ) // el problema con esto es q solo devuelve una lista de nombres . y si necesito otro dato del vet no lo puedo obtener
@@ -65,6 +66,25 @@ public class TurnoDaoImpl implements TurnoDao {
 
 		
 			}
+	
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Veterinario> consultarDuracionDao(Long veterinarioId,Long especialidadId){
+		final Session session = sessionFactory.getCurrentSession();
+		
+		return session.createCriteria(Duracion.class,"classGral")
+				.createAlias("classGral.veterinario","vetBuscado")
+				.createAlias("classGral.especialidad","espBuscada")
+				.add(Restrictions.eq("vetBuscado.veterinarioId",veterinarioId))
+				.add(Restrictions.eq("espBuscada.especialidadId",especialidadId))
+				.list();
+		
+	}
+	
+	
+	
+	
 	
 	
 	@SuppressWarnings("unchecked")
@@ -78,7 +98,6 @@ public class TurnoDaoImpl implements TurnoDao {
 				.list();
 		
 			}
-	
 	
 	
 	

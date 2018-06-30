@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -42,10 +43,16 @@ public class ServicioTurnoImpl implements ServicioTurno{
 	
 	@Override
 	public List<Veterinario> consultarDisponibilidad(Long veterinarioId){
+		
 		return turnoDao.consultarDisponibilidadDao(veterinarioId);
 	
 	}
 	
+	public List<Veterinario> consultarDuracion(Long veterinarioId,Long especialidadId){
+		
+		return turnoDao.consultarDuracionDao(veterinarioId,especialidadId);
+	
+	}
 	
 	
 }

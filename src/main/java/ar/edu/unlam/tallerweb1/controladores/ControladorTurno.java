@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -50,29 +51,35 @@ public class ControladorTurno {
 	}
 	
 	
-	@RequestMapping(path="/consultarVet/consultarDisp/{veterinarioId}")
-	public ModelAndView irAConsultarDisp(@PathVariable Long veterinarioId ) {
+	@RequestMapping(path="/consultarVet/consultarDisp/{veterinarioId}/{especialidadId}")
+	public ModelAndView irAConsultarDisp(@PathVariable Long veterinarioId,@PathVariable Long especialidadId ) {
 				
 		ModelMap model =new ModelMap();
-		List<Veterinario> disponibilidad = servicioTurno.consultarDisponibilidad(veterinarioId);
-
-		model.put("consulta", disponibilidad);
-				
-		return new ModelAndView ("buscarFechas",model);
-	}
-	
-	/*
-	@RequestMapping(path="/consultarFecha",method=RequestMethod.POST)
-	public ModelAndView irAConsultarFecha(@ModelAttribute ("especialidades") Especialidad especialidad) {
-				
-		ModelMap model =new ModelMap();
-		model.put("especialidades", especialidad);
+		List<Veterinario> duracion = servicioTurno.consultarDuracion(veterinarioId,especialidadId);
+//		List<Veterinario> disponibilidad = servicioTurno.consultarDisponibilidad(veterinarioId);
+		
+		model.put("consulta", duracion);
 				
 		return new ModelAndView ("buscarFechas",model);
 	}
 	
 	
-	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
 

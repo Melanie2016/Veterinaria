@@ -4,22 +4,13 @@
 <html>
 	<head>
 		
-	    <!-- Bootstrap core CSS -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet" >
-	    <!-- Bootstrap theme -->
-	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	    
 	    <!-- Esto me soluciono la falta de bootstrap -->
 		<link rel="stylesheet"
 			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
-		<!-- Optional theme -->
-		<link rel="stylesheet"
-			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
     </head>
-			<style>
-				
-			</style>
+			
     <body>
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
@@ -40,7 +31,7 @@
 		</nav>
 		<div class="container">
 		
-			<form:form action="registrarTurno" method="POST" modelAttribute="especialidades">
+			
 				<h1>Disponibilidad</h1>			
 				<div class="form-group"> 
 				<br>
@@ -50,20 +41,24 @@
 					<thead>
 						<tr>
 							<th scope="col" class="glyphicon glyphicon-pencil"></th>
-							<th colspan="2">Especialista</th>
-							<th scope="col">Dias de atencion</th>
+							<th scope="col">Apellido</th>
+							<th scope="col">Nombre</th>
 							<th scope="col">Hora</th>
+							
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach items="${consulta}" var="consulta">
+						
 							<tr>
+								
 								<th scope="row"></th>
  									<td>${consulta.veterinario.apellido}</td> 
 									<td>${consulta.veterinario.nombre }</td>
-									<td>${consulta.dia}</td>
-									<td>${consulta.horaAtencionInicio }</td>
-							</tr>
+									<td>${consulta.tiempo }</td>
+									<td><a href="<c:url value="/turno"/>" class="btn btn-warning" 
+									role="button">Seleccionar</a></td>
+							</tr> 
 						</c:forEach>				
 					</tbody>
 				</table>
@@ -78,7 +73,7 @@
 				
 			 	<a href="<c:url value="/turno"/>" class="btn btn-warning" role="button"><span class="glyphicon glyphicon-hand-left"></span></a>	 
 				
-			</form:form>
+			
 		</div>	
     </body>
 </html>
