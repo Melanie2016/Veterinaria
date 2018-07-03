@@ -45,6 +45,7 @@
 							
 							<th scope="col">Apellido</th>
 							<th scope="col">Nombre</th>
+							<th scope="col">Rango horario</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -55,6 +56,7 @@
 								<th scope="row"></th>
  									<td>${veterinarios.veterinario.apellido}</td> 
 									<td>${veterinarios.veterinario.nombre}</td>
+									<td>${veterinarios.horaAtencionInicio} - ${veterinarios.horaAtencionFinalizacion}</td>
 
 									<td><a href="consultarDisp/${veterinarios.veterinario.veterinarioId}/${veterinarios.especialidad.especialidadId}" 
 									class="btn btn-warning" role="button" >Seleccionar</a></td>
