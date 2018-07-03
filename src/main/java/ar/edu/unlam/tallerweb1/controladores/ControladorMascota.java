@@ -39,7 +39,9 @@ public class ControladorMascota {
 
 				modelo.put("id",vacuna);
 				modelo.put("vacuna",vacuna);
+				modelo.put("fecha_aplicacion",vacuna);
 				modelo.put("estado",vacuna);
+				modelo.put("vencimiento",vacuna);
 
 				Mascota mascota = new Mascota(); 
 				modelo.put("mascota",servicioMascota.getId(idMascota));

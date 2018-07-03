@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,7 @@ public class EstadoVacuna {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String estado; //ok:aplicada  //no: no aplicada
+	private Date fecha_aplicacion;
 	
 	@ManyToOne
 	private Vacuna vacuna;
@@ -48,5 +51,11 @@ public class EstadoVacuna {
 		this.mascota = mascota;
 	}
 	
+	public Date getFecha_aplicacion() {
+		return fecha_aplicacion;
+	}
+	public void setFecha_aplicacion(Date fecha_aplicacion) {
+		this.fecha_aplicacion = fecha_aplicacion;
+	}
 
 }

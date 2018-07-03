@@ -35,7 +35,7 @@
 		</nav>
 		
 		<div class = "container">
-			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			
 				<h1><span style="font-size:20px">Vacunas de:</span> ${mascota.nombre} <span class="glyphicon glyphicon-heart" style="color:orange"></span></h1>							 	
  			
  			
@@ -44,6 +44,7 @@
                     	<tr>
                         	<th>Id</th>
                          	<th>Vacuna</th>
+                         	<th>Aplicacion</th>
                         	<th>Estado</th>
                         	<th> </th>
                     	</tr>
@@ -52,15 +53,16 @@
                     <c:forEach var="id" items="${id}">
                         <tr>
                             <td>${id.id}</td>
-  							<td>${id.vacuna.nombreVacuna}</td>						
+  							<td>${id.vacuna.nombreVacuna}</td>
+  							<td>${id.fecha_aplicacion}</td>						
                             <td>${id.estado}</td>      
                             <td>
      			            <c:if test="${id.estado=='no'}">
 				                <a class="btn btn-warning" href="<c:url value="/turno"/>">SacarTurno <i class="fa fa-edit"></i></a>
 				            </c:if>
             
-				            <c:if test="${id.estado=='ok'}">
-				            	<h11>Vence cada ${id.vacuna.vencimiento} meses</h11>
+				            <c:if test="${id.estado=='Dada'}">
+				     <h11>Vence cada ${id.vacuna.vencimiento} meses</h11>
 				            </c:if>
             				<!-- <a class="btn btn-warning" >Editar <i class="fa fa-edit"></i></a> --> 
                             </td>                         
@@ -70,8 +72,7 @@
  								
 				
 				<a href="<c:url value="/perfil"/>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Volver</a>	 
-				
-			</div>	
+			
 		</div>
 		
 		<!-- Placed at the end of the document so the pages load faster -->
