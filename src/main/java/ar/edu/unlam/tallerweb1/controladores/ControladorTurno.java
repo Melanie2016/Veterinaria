@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
+import ar.edu.unlam.tallerweb1.modelo.Duracion;
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
 import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTurno;
@@ -55,8 +56,8 @@ public class ControladorTurno {
 	public ModelAndView irAConsultarDisp(@PathVariable Long veterinarioId,@PathVariable Long especialidadId ) {
 				
 		ModelMap model =new ModelMap();
-		List<Veterinario> duracion = servicioTurno.consultarDuracion(veterinarioId,especialidadId);
-//		List<Veterinario> disponibilidad = servicioTurno.consultarDisponibilidad(veterinarioId);
+		Integer duracion = servicioTurno.buscarDuracion(veterinarioId, especialidadId);
+	//	List<DiaAtencion> disponibilidad = servicioTurno.consultarDisponibilidad(veterinarioId,especialidadId,duracion);
 		
 		model.put("consulta", duracion);
 				

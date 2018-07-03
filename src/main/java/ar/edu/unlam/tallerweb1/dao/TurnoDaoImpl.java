@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.dao;
 
+import java.sql.Time;
 import java.util.List;
 import java.util.Set;
 
@@ -17,6 +18,7 @@ import org.hibernate.criterion.*;
 import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
 import ar.edu.unlam.tallerweb1.modelo.Duracion;
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
+import ar.edu.unlam.tallerweb1.modelo.Turno;
 import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 
 @Repository("turnoDao")
@@ -46,7 +48,7 @@ public class TurnoDaoImpl implements TurnoDao {
 				.list();
 	}
 	
-	
+	// http://www.mballem.com/post/hibernate-projections-com-api-criteria/?i=1
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<DiaAtencion> consultarVeterinarioDao(Long especialidadId){
@@ -68,36 +70,57 @@ public class TurnoDaoImpl implements TurnoDao {
 			}
 	
 
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<Veterinario> consultarDuracionDao(Long veterinarioId,Long especialidadId){
+//		final Session session = sessionFactory.getCurrentSession();
+//		
+//		return session.createCriteria(Duracion.class,"classGral")
+//				.createAlias("classGral.veterinario","vetBuscado")
+//				.createAlias("classGral.especialidad","espBuscada")
+//				.add(Restrictions.eq("vetBuscado.veterinarioId",veterinarioId))
+//				.add(Restrictions.eq("espBuscada.especialidadId",especialidadId))
+//				.list();
+//		
+//	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Veterinario> consultarDuracionDao(Long veterinarioId,Long especialidadId){
+	public Integer buscarDuracionDao(Long veterinarioId,Long especialidadId) {
 		final Session session = sessionFactory.getCurrentSession();
 		
-		return session.createCriteria(Duracion.class,"classGral")
+		Criteria criteria = session.createCriteria(Duracion.class,"classGral")
 				.createAlias("classGral.veterinario","vetBuscado")
 				.createAlias("classGral.especialidad","espBuscada")
 				.add(Restrictions.eq("vetBuscado.veterinarioId",veterinarioId))
 				.add(Restrictions.eq("espBuscada.especialidadId",especialidadId))
-				.list();
+				.setProjection(Projections.projectionList() // para hacer un group by y muestre una vez cada nombre 
+						.add(Projections.groupProperty("classGral.tiempo"))
+	                );
 		
+		Integer duracion = (Integer) criteria.uniqueResult();
+				
+		return duracion;
 	}
 	
 	
-	
+
 	
 	
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Veterinario> consultarDisponibilidadDao(Long veterinarioId){
+	public List<DiaAtencion> consultarDisponibilidadDao(Long veterinarioId,Integer horaTurno){
 		final Session session = sessionFactory.getCurrentSession();
 		
-		return session.createCriteria(DiaAtencion.class,"classGral")
+		return session.createCriteria(Turno.class,"classGral")
 				.createAlias("classGral.veterinario","vetBuscado")
 				.add(Restrictions.eq("vetBuscado.veterinarioId",veterinarioId)) 
+//				.add(Subqueries.exists(horaTurno));
 				.list();
 		
 			}
+	
 	
 	
 	

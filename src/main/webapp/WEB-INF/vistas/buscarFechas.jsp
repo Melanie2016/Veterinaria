@@ -36,7 +36,7 @@
 				<div class="form-group"> 
 				<br>
 				<label for="fecha">Seleccione fecha:</label>
-				
+				<p>${consulta}</p>
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -48,18 +48,18 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${consulta}" var="consulta">
+<%-- 						<c:forEach items="${consulta}" var="consulta"> --%>
 						
-							<tr>
+<!-- 							<tr> -->
 								
-								<th scope="row"></th>
- 									<td>${consulta.veterinario.apellido}</td> 
-									<td>${consulta.veterinario.nombre }</td>
-									<td>${consulta.tiempo }</td>
-									<td><a href="<c:url value="/turno"/>" class="btn btn-warning" 
-									role="button">Seleccionar</a></td>
-							</tr> 
-						</c:forEach>				
+<!-- 								<th scope="row"></th> -->
+<%--  									<td>${consulta.veterinario.apellido}</td>  --%>
+<%-- 									<td>${consulta.veterinario.nombre }</td> --%>
+<%-- 									<td>${consulta.tiempo }</td> --%>
+<%-- 									<td><a href="<c:url value="/turno"/>" class="btn btn-warning"  --%>
+<!-- 									role="button">Seleccionar</a></td> -->
+<!-- 							</tr>  -->
+<%-- 						</c:forEach>				 --%>
 					</tbody>
 				</table>
 									
