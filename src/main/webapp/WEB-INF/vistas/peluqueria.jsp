@@ -29,19 +29,42 @@
 			</nav>
 		<div class="container">
 			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-					
+			
+			<title>Google Map Hello World Example</title>
+<style type="text/css">
+div#map_container{
+	width:100%;
+	height:350px;
+}
+</style>
+<script type="text/javascript" 
+   src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+  function loadMap() {
+    var latlng = new google.maps.LatLng( -34.6831,-58.5519);
+    var myOptions = {
+      zoom: 4,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById("map_container"),myOptions);
+	
+    var marker = new google.maps.Marker({
+      position: latlng, 
+      map: map, 
+      title:"my hometown, Malim Nawar!"
+    }); 
+  
+  }
+</script>
+			
+				</head>
+				<body onload="loadMap()">
+                <div id="map_container"></div>	
 						<h1 >Elige tu peluqueria mas cercana</h1>
 						
-						 	
-						</div>
-						
-						
-						
-		</div>
-		
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-		<script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+
 	</body>
 </html>
