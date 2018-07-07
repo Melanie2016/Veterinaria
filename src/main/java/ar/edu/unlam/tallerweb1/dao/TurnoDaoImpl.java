@@ -103,20 +103,27 @@ public class TurnoDaoImpl implements TurnoDao {
 		return duracion;
 	}
 	
-	
-
-	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Turno> listaDeTurnosDao(Long veterinarioId){
+		final Session session = sessionFactory.getCurrentSession();
+		
+		return session.createCriteria(Turno.class,"classGral")
+				.add(Restrictions.isNotNull("id"))
+				.list();
+	}
 	
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<DiaAtencion> consultarDisponibilidadDao(Long veterinarioId,Integer horaTurno){
+	public List<Turno> consultarDisponibilidadDao(Long veterinarioId,Turno turno){
 		final Session session = sessionFactory.getCurrentSession();
 		
 		return session.createCriteria(Turno.class,"classGral")
 				.createAlias("classGral.veterinario","vetBuscado")
+				.add(Restrictions.eq("fechaTurno", turno.getFechaTurno()))
 				.add(Restrictions.eq("vetBuscado.veterinarioId",veterinarioId)) 
-//				.add(Subqueries.exists(horaTurno));
+
 				.list();
 		
 			}

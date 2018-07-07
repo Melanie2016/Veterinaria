@@ -30,7 +30,6 @@
 				</div>
 		</nav>
 		<div class="container">
-			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 			
 				<h1>Disponibilidad</h1>			
 				<div class="form-group">
@@ -71,7 +70,7 @@
 				<a href="<c:url value="/turno"/>" class="btn btn-warning" role="button"><span class="glyphicon glyphicon-hand-left"></span></a>	 
 				
 			</div>			
-		</div>
+		
 		<!-- Placed at the end of the do"src/main/webapp/WEB-INF/vistas/login.jsp"cument so the pages load faster -->
 				
 		<script

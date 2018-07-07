@@ -1,7 +1,7 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
 import java.sql.Date;
-import java.sql.Time;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,9 +15,9 @@ public class Turno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Date fechaTurno;
+	private Date fechaHoy;
 	private Integer horaTurno;
-	private Date fechaActual;
+	private Long fechaTurno;
 	
 	@ManyToOne
 	private Mascota mascota;
@@ -35,11 +35,11 @@ public class Turno {
 		this.id = id;
 	}
 		
-	public Date getFechaTurno() {
-		return fechaTurno;
+	public Date getFechaHoy() {
+		return fechaHoy;
 	}
-	public void setFechaTurno(Date fechaTurno) {
-		this.fechaTurno = fechaTurno;
+	public void setFechaHoy(Date fechaTurno) {
+		this.fechaHoy = fechaTurno;
 	}
 	public Integer getHoraTurno() {
 		return horaTurno;
@@ -47,11 +47,11 @@ public class Turno {
 	public void setHoraTurno(Integer horaTurno) {
 		this.horaTurno = horaTurno;
 	}
-	public Date getFechaActual() {
-		return fechaActual;
+	public Long getFechaTurno() {
+		return fechaTurno;
 	}
-	public void setFechaActual(Date fechaActual) {
-		this.fechaActual = fechaActual;
+	public void setFechaTurno(Long fechaTurno) {
+		this.fechaTurno = fechaTurno;
 	}
 	public Veterinario getVeterinario() {
 		return veterinario;

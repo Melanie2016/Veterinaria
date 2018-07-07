@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
 import ar.edu.unlam.tallerweb1.modelo.Duracion;
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
+import ar.edu.unlam.tallerweb1.modelo.Turno;
 import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTurno;
 
@@ -57,9 +58,12 @@ public class ControladorTurno {
 				
 		ModelMap model =new ModelMap();
 		Integer duracion = servicioTurno.buscarDuracion(veterinarioId, especialidadId);
-	//	List<DiaAtencion> disponibilidad = servicioTurno.consultarDisponibilidad(veterinarioId,especialidadId,duracion);
+		List<Turno> turnos = servicioTurno.listaDeTurnos(veterinarioId);
+//		List<Turno> disponibilidad = servicioTurno.consultarDisponibilidad(veterinarioId,especialidadId,duracion);
 		
-		model.put("consulta", duracion);
+		model.put("duracion", duracion);
+		model.put("turnos", turnos);
+//		model.put("disp", disponibilidad);
 				
 		return new ModelAndView ("buscarFechas",model);
 	}

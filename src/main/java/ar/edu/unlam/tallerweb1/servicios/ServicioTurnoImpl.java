@@ -1,7 +1,9 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -14,11 +16,14 @@ import ar.edu.unlam.tallerweb1.dao.TurnoDao;
 import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
 import ar.edu.unlam.tallerweb1.modelo.Duracion;
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
+import ar.edu.unlam.tallerweb1.modelo.Turno;
 import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 
 @Service("servicioTurno")
 @Transactional
 public class ServicioTurnoImpl implements ServicioTurno{
+
+	
 
 	
 	@Inject
@@ -57,34 +62,45 @@ public class ServicioTurnoImpl implements ServicioTurno{
 //	
 //	}
 
+	
 	@Override
-	public List<DiaAtencion> consultarDisponibilidad(Long veterinarioId, Long especialidadId){
+	public List<Turno> listaDeTurnos(Long veterinarioId){
+		return turnoDao.listaDeTurnosDao(veterinarioId);
+	}
+	
+	@Override
+	public List<Turno> consultarDisponibilidad(Long veterinarioId, Long especialidadId, Integer duracion){
+		SimpleDateFormat formateador = new SimpleDateFormat("yyyy/MM/dd");
+		Date fechaHoy = new Date();
 		
-//		Veterinario vet = new Veterinario();
-//		vet.setVeterinarioId(veterinarioId);
-//		
-//		Especialidad esp = new Especialidad();
-//		esp.setEspecialidadId(especialidadId);
+		Turno turno = new Turno();
+		turno.setFechaTurno((Long.parseLong(formateador.format(fechaHoy))));
 		
-		DiaAtencion diaA = new DiaAtencion();
-//		diaA.setVeterinario(vet);
-//		diaA.setEspecialidad(esp);
+		List<Turno> turnos = turnoDao.consultarDisponibilidadDao(veterinarioId, turno);	// traigoLosTurnosDeHoy
 		
-		List<DiaAtencion> miList = new ArrayList<>();
-		miList.add(diaA);
+		List<Turno> turnosDisp = new ArrayList<Turno>();
 		
-		Integer horaTurno = 8 ;
-			
-			while(((DiaAtencion) miList).getHoraAtencionInicio() != null) {
-				Integer duracion = turnoDao.buscarDuracionDao(veterinarioId, especialidadId);
-				miList = turnoDao.consultarDisponibilidadDao(veterinarioId, horaTurno);
-				horaTurno = horaTurno + duracion;
-			
+	
+		for(Turno misT : turnos) {
+			turno.setHoraTurno(800);
+			if (turno.getHoraTurno().equals(misT.getHoraTurno()) ) {
+				 System.out.println("No es posible dar turnos para esa hora");
+			}else {
+				Integer hora = duracion ++;
+				turno.setHoraTurno(hora);
+				turnosDisp.add(turno);
 			}
 			
+		}
 		
 		
-		return miList;
+		
+//		List<Turno> listTurnos = new ArrayList<>();
+//		
+//		listTurnos.add(turno);
+//		turnos.removeAll(turnosDisp);
+//		
+		return turnosDisp;
 	}
 	
 	

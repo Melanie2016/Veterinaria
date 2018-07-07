@@ -36,30 +36,35 @@
 				<div class="form-group"> 
 				<br>
 				<label for="fecha">Seleccione fecha:</label>
-				<p>${consulta}</p>
+				<p>${duracion}</p>
+				
 				<table class="table table-hover">
 					<thead>
 						<tr>
 							<th scope="col" class="glyphicon glyphicon-pencil"></th>
-							<th scope="col">Apellido</th>
-							<th scope="col">Nombre</th>
+							<th scope="col">Fecha</th>
+							
 							<th scope="col">Hora</th>
+							<th scope="col">Mascota</th>
 							
 						</tr>
 					</thead>
 					<tbody>
-<%-- 						<c:forEach items="${consulta}" var="consulta"> --%>
-						
-<!-- 							<tr> -->
-								
-<!-- 								<th scope="row"></th> -->
-<%--  									<td>${consulta.veterinario.apellido}</td>  --%>
-<%-- 									<td>${consulta.veterinario.nombre }</td> --%>
-<%-- 									<td>${consulta.tiempo }</td> --%>
-<%-- 									<td><a href="<c:url value="/turno"/>" class="btn btn-warning"  --%>
-<!-- 									role="button">Seleccionar</a></td> -->
-<!-- 							</tr>  -->
-<%-- 						</c:forEach>				 --%>
+						<c:forEach items="${turnos}" var="turnos">
+							<tr>
+							
+								<th scope="row"></th>
+<%-- 										<td>${disp.horaTurno}</td> --%>
+<%-- 										<td>${disp.veterinario.nombre}</td> --%>
+<%--  									<td>${turnos.id}</td>  --%>
+										
+										<td>${turnos.fechaTurno}</td> 
+										<td>${turnos.horaTurno}</td> 
+										<td>${turnos.mascota.nombre}</td> 
+										<td><a href="<c:url value="/turno"/>" class="btn btn-warning" 
+									role="button">Seleccionar</a></td>
+							</tr> 
+						</c:forEach>				
 					</tbody>
 				</table>
 									
