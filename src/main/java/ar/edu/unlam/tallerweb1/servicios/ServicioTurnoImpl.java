@@ -74,8 +74,6 @@ public class ServicioTurnoImpl implements ServicioTurno{
 		miList.add(diaA);
 		
 		Integer horaTurno = 8 ;
-		
-		
 			
 			while(((DiaAtencion) miList).getHoraAtencionInicio() != null) {
 				Integer duracion = turnoDao.buscarDuracionDao(veterinarioId, especialidadId);
