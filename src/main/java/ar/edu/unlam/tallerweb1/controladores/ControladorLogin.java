@@ -45,17 +45,27 @@ public class ControladorLogin {
 	@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
 	public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
 		ModelMap model = new ModelMap();
-
-		// invoca el metodo consultarUsuario del servicio y hace un redirect a la URL /home, esto es, en lugar de enviar a una vista
-		// hace una llamada a otro action a través de la URL correspondiente a ésta
 		Usuario usuarioBuscado = servicioLogin.consultarUsuario(usuario);
-		if (usuarioBuscado != null) {
-			request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
-			return new ModelAndView("redirect:/home");
+		if (usuarioBuscado != null) {			
+	     request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
+	     request.getSession().setAttribute("idUsuario", usuarioBuscado.getId());
+	     
+	     if (usuarioBuscado.getRol().equals("admin")) {
+				return new ModelAndView("redirect:/perfilAdmin");
+			}
+			if (usuarioBuscado.getRol().equals("cliente")) {
+				return new ModelAndView("redirect:/perfil");
+			}
+			if (usuarioBuscado.getRol().equals("vet")) {
+				return new ModelAndView("redirect:/perfilVet");
+			}
+			return new ModelAndView("redirect:/index");
+
 		} else {
-			// si el usuario no existe agrega un mensaje de error en el modelo.
 			model.put("error", "Usuario o clave incorrecta");
-		}
+		
+		} 
+				
 		return new ModelAndView("login", model);
 	}
 
@@ -71,7 +81,13 @@ public class ControladorLogin {
 		return new ModelAndView("redirect:/home");
 	}
 	
-	
+	//cuando se aprete el boton cerrar sesion se desloguea y lleva al inicio	
+		@RequestMapping("cerrarSession")
+		public ModelAndView cerrarSession(HttpServletRequest request) {
+			request.getSession().setAttribute("rol", null);
+			request.getSession().setAttribute("id", null);
+			return new ModelAndView("redirect:/login");
+		}
 	
 	//Para probar las vistas del formulario.
 	@RequestMapping("/formMascota")
@@ -82,6 +98,26 @@ public class ControladorLogin {
 		model.put("datos", msj);
 		
 		return new ModelAndView ("formMascota",model);
+	}
+	
+	@RequestMapping("/perfilAdmin")
+	public ModelAndView mostrarPerfilAdmin() {		
+		
+		ModelMap model =new ModelMap();
+		Usuario admin = new Usuario();		
+		model.put("admin", admin);	
+		    return new ModelAndView ("perfilAdmin",model);
+		
+	}
+	
+	@RequestMapping("/perfilVet")
+	public ModelAndView mostrarPerfilVet() {		
+		
+		ModelMap model =new ModelMap();
+		Usuario vet = new Usuario();		
+		model.put("vet", vet);	
+		    return new ModelAndView ("perfilVet",model);
+		
 	}
 	
 }

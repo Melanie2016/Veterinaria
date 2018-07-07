@@ -28,8 +28,14 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		final Session session = sessionFactory.getCurrentSession();
 		return (Usuario) session.createCriteria(Usuario.class)
 				.add(Restrictions.eq("email", usuario.getEmail()))
-				.add(Restrictions.eq("password", usuario.getPass()))
+				.add(Restrictions.eq("pass", usuario.getPass()))
 				.uniqueResult();
+	}
+	
+	@Override
+	public Usuario buscarPorId(Long id) {
+		final Session session = sessionFactory.getCurrentSession();
+		return (Usuario) session.createCriteria(Usuario.class).add(Restrictions.eq("id", id)).uniqueResult();
 	}
 
 }
