@@ -42,19 +42,20 @@
 		            <thead>
 			            <tr>
 				            <th>Id</th>
-				            <th>Cantidad</th>			       
-				            <th></th>
+				            <th>Nombre</th>			       
+				            <th>Cantidad</th>
 				            <th></th>
 			            </tr>
 		            </thead>
 		
-		             <c:forEach var="persona" items="${persona}">
+		             <c:forEach var="vacuna" items="${vacuna}">
 		            <tr>
-			            <td>${persona.id}</td>
-			            <td>${persona.cantidad}</td>
-			             		   <td> <a class="btn btn-warning" href="stock-edit/${persona.id}">Editar <i class="fa fa-minus"></i>  </td>
+			            <td>${vacuna.id}</td>
+			            <td>${vacuna.nombreVacuna}</td>
+			            <td>${vacuna.cantidad}</td>
+			             		   <td> <a class="btn btn-warning" href="stock-edit/${vacuna.id}">Editar <i class="fa fa-minus"></i>  </td>
 		            	<td>
-		            	<c:if test="${persona.cantidad<20}"> 
+		            	<c:if test="${vacuna.cantidad<20}"> 
                 <div> <span class="glyphicon glyphicon-alert" style="color:red"> </span> <strong> &nbsp;  Encargar vacunas</strong></div>
             </c:if>
             </td>

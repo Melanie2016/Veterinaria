@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unlam.tallerweb1.modelo.EstadoVacuna;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
@@ -104,6 +105,10 @@ public class ControladorLogin {
 	public ModelAndView mostrarPerfilAdmin() {		
 		
 		ModelMap model =new ModelMap();
+		//List<Vacuna> vacList = servicioVacuna.mostrarVacunas();
+		//model.put("id",vacList);
+		//model.put("nombreVacuna",vacList);
+		//model.put("cantidad",vacList);
 		Usuario admin = new Usuario();		
 		model.put("admin", admin);	
 		    return new ModelAndView ("perfilAdmin",model);
