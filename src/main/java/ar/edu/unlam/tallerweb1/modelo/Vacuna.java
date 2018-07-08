@@ -16,14 +16,12 @@ public class Vacuna {
 	private String nombreVacuna;
 	private String animal;
 	private Integer vencimiento; // expresado en meses para calcular al revacunacion
+	private Integer cantStock;
 
-	
-	@ManyToOne
-	//private Vacunacion vacunacion;
 	
 	
 	//getters y setters
-	
+
 		public Long getId() {
 			return id;
 		}
@@ -52,4 +50,13 @@ public class Vacuna {
 			this.vencimiento = vencimiento;
 		}
 
+		
+		public Integer getCantStock() {
+			return cantStock;
+		}
+
+
+		public void setCantStock(Integer cantStock) {
+			this.cantStock = cantStock;
+		}
 }
