@@ -36,7 +36,7 @@
 		</span></h1>
 			
 			<p>aca quiero que me muestre la tabla vacuna para luego editar su stock</p>
-		<!--		
+				
              <table class="table table-striped">
 					<h3>Stock de Vacunas</h3>
 		            <thead>
@@ -53,7 +53,7 @@
 			            <td>${vacuna.id}</td>
 			            <td>${vacuna.nombreVacuna}</td>
 			            <td>${vacuna.cantidad}</td>
-			             		   <td> <a class="btn btn-warning" href="stock-edit/${vacuna.id}">Editar <i class="fa fa-minus"></i>  </td>
+			             		<!--   <td> <a class="btn btn-warning" href="stock-edit/${vacuna.id}">Editar <i class="fa fa-minus"></i>  </td>-->
 		            	<td>
 		            	<c:if test="${vacuna.cantidad<20}"> 
                 <div> <span class="glyphicon glyphicon-alert" style="color:red"> </span> <strong> &nbsp;  Encargar vacunas</strong></div>
@@ -63,7 +63,7 @@
 			        </tr>
 			        </c:forEach>
 		        </table>
--->
+
 		
 	</div>		
 		</div>
