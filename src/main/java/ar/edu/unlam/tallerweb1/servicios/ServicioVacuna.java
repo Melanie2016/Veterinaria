@@ -6,6 +6,8 @@ import ar.edu.unlam.tallerweb1.modelo.Mascota;
 import ar.edu.unlam.tallerweb1.modelo.Vacuna;
 
 public interface ServicioVacuna {
+	
+	
 	List<Vacuna> mostrarVacunas();
 
 }

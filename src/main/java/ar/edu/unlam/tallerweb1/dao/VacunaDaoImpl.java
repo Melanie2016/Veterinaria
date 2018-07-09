@@ -9,7 +9,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import ar.edu.unlam.tallerweb1.modelo.Mascota;
 import ar.edu.unlam.tallerweb1.modelo.Vacuna;
 
 @Repository("vacunaDao")
@@ -19,6 +18,7 @@ public class VacunaDaoImpl implements VacunaDao{
 	private SessionFactory sessionFactory;
 	
 	//mostrar la lista sacando info de la bd
+	
 			@SuppressWarnings("unchecked")
 			@Override
 			public List<Vacuna> mostrarVacunasDao(){
