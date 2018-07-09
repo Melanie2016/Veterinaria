@@ -1,23 +1,18 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
-import ar.edu.unlam.tallerweb1.modelo.Duracion;
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
-import ar.edu.unlam.tallerweb1.modelo.Turno;
-import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioTurno;
 
 
@@ -53,17 +48,17 @@ public class ControladorTurno {
 	}
 	
 	
-	@RequestMapping(path="/consultarVet/consultarDisp/{veterinarioId}/{especialidadId}")
-	public ModelAndView irAConsultarDisp(@PathVariable Long veterinarioId,@PathVariable Long especialidadId ) {
-				
-		ModelMap model =new ModelMap();
-		Integer duracion = servicioTurno.buscarDuracion(veterinarioId, especialidadId);
-		List<Turno> turnos = servicioTurno.listaDeTurnos(veterinarioId);
-//		List<Turno> disponibilidad = servicioTurno.consultarDisponibilidad(veterinarioId,especialidadId,duracion);
+	@RequestMapping(path="/horarios/{diaAtencionId}")
+	public ModelAndView irAConsultarHs(@PathVariable Long diaAtencionId ) {
+
+		Date fecha = new Date();
 		
-		model.put("duracion", duracion);
-		model.put("turnos", turnos);
-//		model.put("disp", disponibilidad);
+		
+		ModelMap model =new ModelMap();
+		model.put("diaAtencion", servicioTurno.obtenerDiaDeAtencion(diaAtencionId));
+		model.put("turnos", servicioTurno.obtenerTurnosPosibles(fecha, diaAtencionId));
+		
+
 				
 		return new ModelAndView ("buscarFechas",model);
 	}

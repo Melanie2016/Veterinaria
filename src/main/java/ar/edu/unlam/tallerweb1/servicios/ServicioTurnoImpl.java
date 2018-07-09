@@ -1,11 +1,10 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -14,110 +13,113 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.dao.TurnoDao;
 import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
-import ar.edu.unlam.tallerweb1.modelo.Duracion;
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
 import ar.edu.unlam.tallerweb1.modelo.Turno;
-import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 
 @Service("servicioTurno")
 @Transactional
 public class ServicioTurnoImpl implements ServicioTurno{
 
-	
 
-	
+
+
 	@Inject
 	private TurnoDao turnoDao;
-	
+
 	/*
 	@Override
 	public List<Veterinario> listaDeVeterinarios(){
 		return turnoDao.listaDeVeterinariosDao();
-	
+
 	}
-	*/
-	
+	 */
+
 	@Override
 	public List<Especialidad> consultarEspecialidad(){
 		return turnoDao.consultarEspecialidadDao();
-	
+
 	}
-	
+
 	@Override
 	public List<DiaAtencion> consultarVeterinario(Long especialidadId){
 		return turnoDao.consultarVeterinarioDao(especialidadId);
-	
+
 	}
-	
+
+
 	@Override
-	public Integer buscarDuracion(Long veterinarioId,Long especialidadId){
-		return turnoDao.buscarDuracionDao(veterinarioId, especialidadId);
-	
+	public DiaAtencion obtenerDiaDeAtencion(Long diaAtencionId){
+		return turnoDao.obtenerDiaDeAtencion(diaAtencionId);
 	}
-	
-//	@Override
-//	public List<Veterinario> consultarDuracion(Long veterinarioId,Long especialidadId){
-//		
-//		return turnoDao.consultarDuracionDao(veterinarioId,especialidadId);
-//	
-//	}
+
+	@Override
+	public List<Turno> listaDeTurnos(Long diaAtencionId){
+		return turnoDao.listaDeTurnosDao(diaAtencionId);
+	}
 
 	
 	@Override
-	public List<Turno> listaDeTurnos(Long veterinarioId){
-		return turnoDao.listaDeTurnosDao(veterinarioId);
-	}
+	public List<Turno> obtenerTurnosPosibles(Date fecha, Long diaAtencionId){
+		
+		Calendar inicioGC = GregorianCalendar.getInstance();
+		Calendar finGC = GregorianCalendar.getInstance();
+		finGC.add(Calendar.MONTH, 1);
 	
-	@Override
-	public List<Turno> consultarDisponibilidad(Long veterinarioId, Long especialidadId, Integer duracion){
-		SimpleDateFormat formateador = new SimpleDateFormat("yyyy/MM/dd");
-		Date fechaHoy = new Date();
 		
-		Turno turno = new Turno();
-		turno.setFechaTurno((Long.parseLong(formateador.format(fechaHoy))));
+		DiaAtencion diaAtencion = obtenerDiaDeAtencion(diaAtencionId);
 		
-		List<Turno> turnos = turnoDao.consultarDisponibilidadDao(veterinarioId, turno);	// traigoLosTurnosDeHoy
+		int diaSemana = 0;
 		
-		List<Turno> turnosDisp = new ArrayList<Turno>();
-		
-	
-		for(Turno misT : turnos) {
-			turno.setHoraTurno(800);
-			if (turno.getHoraTurno().equals(misT.getHoraTurno()) ) {
-				 System.out.println("No es posible dar turnos para esa hora");
-			}else {
-				Integer hora = duracion ++;
-				turno.setHoraTurno(hora);
-				turnosDisp.add(turno);
-			}
-			
+		if(diaAtencion.getDia().equalsIgnoreCase("lunes")) {
+			diaSemana = Calendar.MONDAY;		
+		}else if (diaAtencion.getDia().equalsIgnoreCase("martes")){
+			diaSemana = Calendar.TUESDAY;
+		}else if (diaAtencion.getDia().equalsIgnoreCase("miercoles")){
+			diaSemana = Calendar.WEDNESDAY;
+		}else if (diaAtencion.getDia().equalsIgnoreCase("jueves")){
+			diaSemana = Calendar.THURSDAY;
+		}else if (diaAtencion.getDia().equalsIgnoreCase("viernes")){
+			diaSemana = Calendar.FRIDAY;
+		}else if (diaAtencion.getDia().equalsIgnoreCase("sabado")){
+			diaSemana = Calendar.SATURDAY;
+		}else if (diaAtencion.getDia().equalsIgnoreCase("domingo")){
+			diaSemana = Calendar.SUNDAY;
 		}
 		
+		Turno turno = new Turno();
+		List<Turno> listaDeTurnos = new ArrayList<Turno>();
+		List<Turno> turnosOcupados = turnoDao.listaDeTurnosDao(diaAtencionId);
+		
+		while ( inicioGC.before(finGC) ) {
+			if ( inicioGC.get(Calendar.DAY_OF_WEEK) == diaSemana)
+			
+				turno.setFecha(inicioGC.getTime());
+				listaDeTurnos.add(turno);
+				
+				
+				inicioGC.add(Calendar.DATE, 1);
+			}
 		
 		
-//		List<Turno> listTurnos = new ArrayList<>();
-//		
-//		listTurnos.add(turno);
-//		turnos.removeAll(turnosDisp);
-//		
-		return turnosDisp;
+		
+		return listaDeTurnos;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

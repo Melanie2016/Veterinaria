@@ -1,13 +1,15 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Turno {
@@ -15,55 +17,61 @@ public class Turno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Date fechaHoy;
-	private Integer horaTurno;
-	private Long fechaTurno;
+	
+	@Column(name = "fecha", columnDefinition="DATETIME") @Temporal(TemporalType.TIMESTAMP)
+	private Date fecha;
+	
+	
+	@ManyToOne
+	private DiaAtencion diaAtencion;
 	
 	@ManyToOne
 	private Mascota mascota;
-	
-	@ManyToOne
-	private Veterinario veterinario;
+
 	
 	
-	//getters y setters
 	
+	
+	
+	
+	
+	
+	
+	
+	// get-set 
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-		
-	public Date getFechaHoy() {
-		return fechaHoy;
+
+	public Date getFecha() {
+		return fecha;
 	}
-	public void setFechaHoy(Date fechaTurno) {
-		this.fechaHoy = fechaTurno;
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
-	public Integer getHoraTurno() {
-		return horaTurno;
+
+	public DiaAtencion getDiaAtencion() {
+		return diaAtencion;
 	}
-	public void setHoraTurno(Integer horaTurno) {
-		this.horaTurno = horaTurno;
+
+	public void setDiaAtencion(DiaAtencion diaAtencion) {
+		this.diaAtencion = diaAtencion;
 	}
-	public Long getFechaTurno() {
-		return fechaTurno;
-	}
-	public void setFechaTurno(Long fechaTurno) {
-		this.fechaTurno = fechaTurno;
-	}
-	public Veterinario getVeterinario() {
-		return veterinario;
-	}
-	public void setVeterinario(Veterinario veterinario) {
-		this.veterinario = veterinario;
-	}
-    
+
 	public Mascota getMascota() {
 		return mascota;
 	}
+
 	public void setMascota(Mascota mascota) {
-		this.mascota= mascota;
+		this.mascota = mascota;
 	}
+	
+
+	
+	
 }

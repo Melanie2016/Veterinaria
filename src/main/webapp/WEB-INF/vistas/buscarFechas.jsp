@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix ="fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -32,20 +33,23 @@
 		<div class="container">
 		
 			
-				<h1>Disponibilidad</h1>			
+				<h1>Horarios disponibles de:  ${diaAtencion.veterinario.nombre} ${diaAtencion.veterinario.apellido} </h1>			
+				
+				<h3> ${diaAtencion.dia} de 
+				<fmt:formatDate type = "time" pattern="mm:ss" value = "${diaAtencion.horaAtencionInicio}" /> a <fmt:formatDate type = "time" pattern="mm:ss" value = "${diaAtencion.horaAtencionFinalizacion}" />
+				
+				</h3>
 				<div class="form-group"> 
 				<br>
 				<label for="fecha">Seleccione fecha:</label>
-				<p>${duracion}</p>
 				
 				<table class="table table-hover">
 					<thead>
 						<tr>
 							<th scope="col" class="glyphicon glyphicon-pencil"></th>
-							<th scope="col">Fecha</th>
-							
+							<th scope="col">Dia</th>
 							<th scope="col">Hora</th>
-							<th scope="col">Mascota</th>
+							
 							
 						</tr>
 					</thead>
@@ -54,13 +58,10 @@
 							<tr>
 							
 								<th scope="row"></th>
-<%-- 										<td>${disp.horaTurno}</td> --%>
-<%-- 										<td>${disp.veterinario.nombre}</td> --%>
-<%--  									<td>${turnos.id}</td>  --%>
+
+										<td>${turnos.fecha}</td> 
 										
-										<td>${turnos.fechaTurno}</td> 
-										<td>${turnos.horaTurno}</td> 
-										<td>${turnos.mascota.nombre}</td> 
+										
 										<td><a href="<c:url value="/turno"/>" class="btn btn-warning" 
 									role="button">Seleccionar</a></td>
 							</tr> 

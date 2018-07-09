@@ -1,10 +1,11 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
+import java.util.Date;
 import java.util.List;
-import java.util.Set;
+
 
 import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
-import ar.edu.unlam.tallerweb1.modelo.Duracion;
+
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
 import ar.edu.unlam.tallerweb1.modelo.Turno;
 import ar.edu.unlam.tallerweb1.modelo.Veterinario;
@@ -17,16 +18,11 @@ public interface ServicioTurno {
 
 	List<DiaAtencion> consultarVeterinario(Long especialidadId);
 	
-//	List<Veterinario> consultarDuracion(Long veterinarioId,Long especialidadId);
-	
-	Integer buscarDuracion(Long veterinarioId, Long especialidadId);
-	
-	List<Turno> listaDeTurnos(Long veterinarioId);
+	List<Turno> listaDeTurnos(Long diaAtencionId);
 
-	List<Turno> consultarDisponibilidad(Long veterinarioId,Long especialidadId, Integer duracion);
+	DiaAtencion obtenerDiaDeAtencion(Long diaAtencionId);
 
-
-	
+	List<Turno> obtenerTurnosPosibles(Date fecha, Long diaAtencionId);
 	
 	
 

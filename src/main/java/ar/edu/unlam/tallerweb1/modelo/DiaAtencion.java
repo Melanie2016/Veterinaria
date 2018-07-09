@@ -1,7 +1,7 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.sql.Date;
 import java.sql.Time;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +18,8 @@ public class DiaAtencion {
 	private String dia;
 	private Time horaAtencionInicio;
 	private Time horaAtencionFinalizacion;
+	
+	
 	
 	@ManyToOne
 	private Veterinario veterinario;

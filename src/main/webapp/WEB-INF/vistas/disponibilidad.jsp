@@ -1,15 +1,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix ="fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
-	<head>
-
-	    
+	<head>    
 	    <!-- Esto me soluciono la falta de bootstrap -->
 		<link rel="stylesheet"
 			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
-		
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -36,14 +35,15 @@
 <%-- 					 --%>
 					<p></p>
 					
-					<label for="sel1">Seleccione su profecional:</label> 
+					<label for="sel1">Seleccione su profesional:</label> 
 					<table class="table table-hover">
 					<thead>
 						<tr>
 							<th scope="col" class="glyphicon glyphicon-pencil"></th>
 							
-							<th scope="col">Apellido</th>
-							<th scope="col">Nombre</th>
+							<th scope="col">Profesional</th>
+							
+							<th scope="col">Dias</th>
 							<th scope="col">Rango horario</th>
 						</tr>
 					</thead>
@@ -51,14 +51,16 @@
 						<c:forEach items="${veterinarios}" var="veterinarios">
 						
 							<tr>
-								
-								<th scope="row"></th>
- 									<td>${veterinarios.veterinario.apellido}</td> 
-									<td>${veterinarios.veterinario.nombre}</td>
-									<td>${veterinarios.horaAtencionInicio} - ${veterinarios.horaAtencionFinalizacion}</td>
 
-									<td><a href="consultarDisp/${veterinarios.veterinario.veterinarioId}/${veterinarios.especialidad.especialidadId}" 
-									class="btn btn-warning" role="button" >Seleccionar</a></td>
+								<th scope="row"></th>
+ 									<td>${veterinarios.veterinario.apellido}&nbsp; ${veterinarios.veterinario.nombre}</td> 
+								
+									<td>${veterinarios.dia}</td>
+									<td><fmt:formatDate type = "time" pattern="mm:ss" value = "${veterinarios.horaAtencionInicio}" /> - 
+									<fmt:formatDate type = "time" pattern="mm:ss" value = "${veterinarios.horaAtencionFinalizacion}" />
+									 </td>
+									
+									<td><a href="../horarios/${veterinarios.id}" class="btn btn-warning" role="button" >Seleccionar</a></td>
 							</tr> 
 						</c:forEach>				
 					</tbody>
