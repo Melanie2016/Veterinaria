@@ -130,4 +130,13 @@ public class ControladorLogin {
 		
 	}
 	
+	// test de mockito controlador
+	public ServicioLogin getServicioLogin() {
+		return servicioLogin;
+	}
+
+	public void setServicioLogin(ServicioLogin servicioLogin) {
+		this.servicioLogin = servicioLogin;
+	}
+	
 }
