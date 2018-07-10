@@ -53,7 +53,8 @@ public class ControladorTurno {
 
 		Date fecha = new Date();
 		
-		
+		// hacer un servicio q me traiga la duracion en int  y mandarla 
+		// en el servicio obtenerTurnosPosibles en lugar de fecha
 		ModelMap model =new ModelMap();
 		model.put("diaAtencion", servicioTurno.obtenerDiaDeAtencion(diaAtencionId));
 		model.put("turnos", servicioTurno.obtenerTurnosPosibles(fecha, diaAtencionId));

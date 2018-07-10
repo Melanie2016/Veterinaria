@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -63,7 +64,7 @@ public class ServicioTurnoImpl implements ServicioTurno{
 		
 		Calendar inicioGC = GregorianCalendar.getInstance();
 		Calendar finGC = GregorianCalendar.getInstance();
-		finGC.add(Calendar.MONTH, 1);
+		finGC.add(Calendar.DAY_OF_WEEK_IN_MONTH,1);
 	
 		
 		DiaAtencion diaAtencion = obtenerDiaDeAtencion(diaAtencionId);
@@ -92,8 +93,11 @@ public class ServicioTurnoImpl implements ServicioTurno{
 		
 		while ( inicioGC.before(finGC) ) {
 			if ( inicioGC.get(Calendar.DAY_OF_WEEK) == diaSemana)
-			
+				// esta fecha sirve para saber a partir de cuando se pueden sacar los turnos
+//				inicioGC.add(Calendar.WEEK_OF_MONTH,1);
+				inicioGC.add(Calendar.MINUTE,10);
 				turno.setFecha(inicioGC.getTime());
+				turno.setDiaAtencion(diaAtencion);
 				listaDeTurnos.add(turno);
 				
 				

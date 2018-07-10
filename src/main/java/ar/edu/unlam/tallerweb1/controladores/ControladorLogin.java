@@ -88,7 +88,7 @@ public class ControladorLogin {
 	
 	//cuando se aprete el boton cerrar sesion se desloguea y lleva al inicio	
 		@RequestMapping("cerrarSession")
-		public ModelAndView cerrarSession(HttpServletRequest request) {
+	public ModelAndView cerrarSession(HttpServletRequest request) {
 			request.getSession().setAttribute("rol", null);
 			request.getSession().setAttribute("id", null);
 			return new ModelAndView("redirect:/login");

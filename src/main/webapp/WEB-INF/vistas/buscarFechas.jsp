@@ -4,8 +4,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		
-	    
 	    <!-- Esto me soluciono la falta de bootstrap -->
 		<link rel="stylesheet"
 			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -36,7 +34,7 @@
 				<h1>Horarios disponibles de:  ${diaAtencion.veterinario.nombre} ${diaAtencion.veterinario.apellido} </h1>			
 				
 				<h3> ${diaAtencion.dia} de 
-				<fmt:formatDate type = "time" pattern="mm:ss" value = "${diaAtencion.horaAtencionInicio}" /> a <fmt:formatDate type = "time" pattern="mm:ss" value = "${diaAtencion.horaAtencionFinalizacion}" />
+				<fmt:formatDate type = "time" pattern="mm:ss" value = "${diaAtencion.horaAtencionInicio}"/> a <fmt:formatDate type = "time" pattern="mm:ss" value = "${diaAtencion.horaAtencionFinalizacion}" />
 				
 				</h3>
 				<div class="form-group"> 
@@ -49,29 +47,23 @@
 							<th scope="col" class="glyphicon glyphicon-pencil"></th>
 							<th scope="col">Dia</th>
 							<th scope="col">Hora</th>
-							
-							
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach items="${turnos}" var="turnos">
 							<tr>
-							
 								<th scope="row"></th>
-
 										<td>${turnos.fecha}</td> 
-										
-										
+										<td>${turnos.diaAtencion.dia}</td>
 										<td><a href="<c:url value="/turno"/>" class="btn btn-warning" 
-									role="button">Seleccionar</a></td>
+										role="button">Seleccionar</a></td>
 							</tr> 
 						</c:forEach>				
 					</tbody>
 				</table>
 									
 				
-					<button class="btn btn-lg btn-warning"
-						Type="Submit" >
+				<button class="btn btn-lg btn-warning" Type="Submit" >
 					Buscar Turnos
 				</button>
 				</div>
