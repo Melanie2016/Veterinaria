@@ -38,7 +38,7 @@ div#map_container{
 }
 </style>
 <script type="text/javascript" 
-   src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+   src="http://maps.googleapis.com/maps/api/js?Key=AIzaSyDjTgbFYlZSR1YC4qxZdO3NMsdo3rMTzpk&callback=loadMap"></script>
 
 <script type="text/javascript">
   function loadMap() {
