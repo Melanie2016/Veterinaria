@@ -1,0 +1,61 @@
+use base;
+
+INSERT INTO veterinario 
+VALUES 	(1	,'Ruiz Diaz'	,'Tomas'	),
+		(2	,'Rodriguez'	,'Amelia'	);
+        
+
+INSERT INTO especialidad
+VALUES	(1	,'Clinico'		,10	,1	),
+		(2	,'Cirujano'		,15	,2	);
+        
+INSERT INTO diaatencion
+VALUES 	(1	,'Lunes'	,1100	,0800	,1	,1	),
+		(2	,'Lunes'	,1800	,1500	,1	,1	),
+        (3	,'Lunes'	,1100	,0800	,2	,2	),
+        (4	,'Lunes'	,1800	,1300	,2	,2	),
+        (5	,'Martes'	,1100	,0800	,2	,1	),
+        (6	,'Martes'	,1700	,1400	,2	,1	);
+     
+/*para probar los perfiles y las vacunas de las mascotas*/
+ 
+INSERT INTO Usuario(id,email,pass,rol) 
+VALUES 	(100,'laush_x4','123','admin'),
+		(200,'usuario2','456','cliente'),
+		(300,'sergio','789','vet'),
+		(400,'admin','111','admin'),
+		(500,'cliente','222','cliente');
+ 
+INSERT INTO Mascota (id,edad, nombre, tipo,duenio_id)
+ VALUES (11,5, 'Rubi','Perro',100),
+(22,3, 'Clara', 'Perro',100),
+(33,10, 'Brisa','Gato',200),
+(44,8, 'Cande', 'Perro',200),
+(55,7, 'Mishi', 'Gato',200);
+ 
+INSERT INTO Vacuna (id,nombreVacuna,animal, vencimiento,cantStock) 
+VALUES	(1,'Quintuple','perro', 0,10),
+		(2,'Sextuple','perro', 12,25),
+		(3,'Rabia','perro', 12,50),
+		(4,'TripleFelina','gato', 0,5),
+		(5,'Rabia','gato', 12,18),
+		(6,'TosPerruna','perro', 12,34);
+
+
+INSERT INTO EstadoVacuna values
+(1,'Dada','20170202',11,1),(2,'Dada','20170202',11,2),(3,'Dada','20160206',11,3),(4,'no','20151005',11,6),
+(5,'no','20170201',22,1),(6,'Dada','20170204',22,2),(7,'no','20170905',22,3),(8,'Dada','20141005',22,6),
+(9,'Dada','20170206',33,4),(10,'Dada','20171107',33,5),
+(11,'Dada','20160206',55,4),(12,'Dada','20171122',55,5);
+ 
+
+/*Carga para funcionalidad de turnos */
+
+INSERT INTO turno
+VALUES 	(1	,now(),1	,11	),
+		(2	,now(),2	,22	),
+		(3	,now(),3	,33	),
+        (4	,now(),4	,44	);
+        
+
+  
