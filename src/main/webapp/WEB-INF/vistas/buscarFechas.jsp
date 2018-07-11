@@ -45,7 +45,8 @@
 					<thead>
 						<tr>
 							<th scope="col" class="glyphicon glyphicon-pencil"></th>
-							<th scope="col">Dia</th>
+							<th scope="col">Fecha Actual</th>
+							<th scope="col">Fecha </th>
 							<th scope="col">Hora</th>
 						</tr>
 					</thead>
@@ -54,6 +55,8 @@
 							<tr>
 								<th scope="row"></th>
 										<td>${turnos.fecha}</td> 
+										<td><fmt:formatDate type = "date"  value = "${turnos.fechaTurno}" /></td>
+										<td>${turnos.horaTurno}</td> 
 										<td>${turnos.diaAtencion.dia}</td>
 										<td><a href="<c:url value="/turno"/>" class="btn btn-warning" 
 										role="button">Seleccionar</a></td>

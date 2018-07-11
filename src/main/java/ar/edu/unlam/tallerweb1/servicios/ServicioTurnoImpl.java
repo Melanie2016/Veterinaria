@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -59,6 +60,7 @@ public class ServicioTurnoImpl implements ServicioTurno{
 	}
 
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public List<Turno> obtenerTurnosPosibles(Date fecha, Long diaAtencionId){
 		
@@ -91,18 +93,40 @@ public class ServicioTurnoImpl implements ServicioTurno{
 		List<Turno> listaDeTurnos = new ArrayList<Turno>();
 		List<Turno> turnosOcupados = turnoDao.listaDeTurnosDao(diaAtencionId);
 		
+		Date fechaActual = new Date();
+		
 		while ( inicioGC.before(finGC) ) {
 			if ( inicioGC.get(Calendar.DAY_OF_WEEK) == diaSemana)
 				// esta fecha sirve para saber a partir de cuando se pueden sacar los turnos
-//				inicioGC.add(Calendar.WEEK_OF_MONTH,1);
-				inicioGC.add(Calendar.MINUTE,10);
-				turno.setFecha(inicioGC.getTime());
-				turno.setDiaAtencion(diaAtencion);
-				listaDeTurnos.add(turno);
-				
-				
+				inicioGC.add(Calendar.DAY_OF_WEEK,1);
 				inicioGC.add(Calendar.DATE, 1);
+//				inicioGC.add(Calendar.MINUTE,10);
+//				turno.setFecha(inicioGC.getTime());
+//				turno.setDiaAtencion(diaAtencion);
+//				listaDeTurnos.add(turno);
+				fechaActual = inicioGC.getTime();
 			}
+		
+
+		if (fechaActual.equals(inicioGC.getTime())) {
+//			dia = formateador.format(fechaActual);
+			
+			turno.setFecha(fechaActual);
+			
+			turno.setFechaTurno(fechaActual);
+			turno.setHoraTurno(diaAtencion.getHoraAtencionInicio());
+			
+//			Calendar calendar = Calendar.getInstance();
+//		    calendar.setTime(fechaActual);
+			
+
+		    
+//		    turno.setFecha(calendar.getTime());
+		    listaDeTurnos.add(turno);
+		}
+		
+		
+		
 		
 		
 		

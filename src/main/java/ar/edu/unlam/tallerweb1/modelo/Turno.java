@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.sql.Time;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,7 +21,9 @@ public class Turno {
 	
 	@Column(name = "fecha", columnDefinition="DATETIME") @Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
-	
+	 
+	private Time horaTurno;
+	private Date fechaTurno;
 	
 	@ManyToOne
 	private DiaAtencion diaAtencion;
@@ -28,7 +31,6 @@ public class Turno {
 	@ManyToOne
 	private Mascota mascota;
 
-	
 	
 	
 	
@@ -55,6 +57,22 @@ public class Turno {
 		this.fecha = fecha;
 	}
 
+	public Time getHoraTurno() {
+		return horaTurno;
+	}
+
+	public void setHoraTurno(Time horaTurno) {
+		this.horaTurno = horaTurno;
+	}
+
+	public Date getFechaTurno() {
+		return fechaTurno;
+	}
+
+	public void setFechaTurno(Date fechaTurno) {
+		this.fechaTurno = fechaTurno;
+	}
+
 	public DiaAtencion getDiaAtencion() {
 		return diaAtencion;
 	}
@@ -70,6 +88,12 @@ public class Turno {
 	public void setMascota(Mascota mascota) {
 		this.mascota = mascota;
 	}
+
+	
+	
+	
+
+	
 	
 
 	
