@@ -8,8 +8,7 @@
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-	</head>
-	<body>
+
 		<nav class="navbar navbar-default">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
@@ -29,42 +28,74 @@
 			</nav>
 		<div class="container">
 			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-			
-			<title>Google Map Hello World Example</title>
-<style type="text/css">
-div#map_container{
-	width:100%;
-	height:350px;
-}
-</style>
-<script type="text/javascript" 
-   src="http://maps.googleapis.com/maps/api/js?Key=AIzaSyDjTgbFYlZSR1YC4qxZdO3NMsdo3rMTzpk&callback=loadMap"></script>
-
-<script type="text/javascript">
-  function loadMap() {
-    var latlng = new google.maps.LatLng( -34.6831,-58.5519);
-    var myOptions = {
-      zoom: 4,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("map_container"),myOptions);
-	
-    var marker = new google.maps.Marker({
-      position: latlng, 
-      map: map, 
-      title:"my hometown, Malim Nawar!"
-    }); 
   
-  }
-</script>
-			
-				</head>
-				<body onload="loadMap()">
-                <div id="map_container"></div>	
-						<h1 >Elige tu peluqueria mas cercana</h1>
-						
+</head> 
+<body>
+	<title>Mapa con Peluquerias Caninas</title>
+<style type="text/css">
+</style>
+<script type="text/javascript"
+   src="http://maps.googleapis.com/maps/api/js?Key=AIzaSyDjTgbFYlZSR1YC4qxZdO3NMsdo3rMTzpk&callback=initMap" async defer></script>
+<script >
 
+function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 14
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Esta es tu ubicacion');
+            map.setCenter(pos);
+
+
+            var icon = {
+            	    url: "vista/multimedia/imagenes/pointer.png", // url
+            	    scaledSize: new google.maps.Size(30, 30), // escala siza
+            	    origin: new google.maps.Point(0,0), // origen
+            	    anchor: new google.maps.Point(0, 0) // ancho
+            	};
+
+            	var marker = new google.maps.Marker({
+            	                position: pos,
+            	                map: map,
+            	                title: 'marker with infoWindow',
+            	                icon: icon
+            	           });
+            	           marker.addListener('click', function() {
+            	               infowindow.open(map, marker);
+            	          });
+
+
+            	          }, function() {
+            	            handleLocationError(true, infoWindow, map.getCenter());
+            	          });
+            	        } else {
+            	          // Navegador no soporta Geolocation
+            	          handleLocationError(false, infoWindow, map.getCenter());
+            	        }
+            	      }
+
+            	      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            	        infoWindow.setPosition(pos);
+            	        infoWindow.setContent(browserHasGeolocation ?
+            	                              'Error: El servicio geolocalizador fallo.' :
+            	                              'Error: Tu Navegador no soporta el geolocalizador.');
+            	      }
+</script>      
+              <h2>Elige tu peluqueria mas cercana</h2>
+              <center><div id="map" style="height:500px;width:800px;margin-top:5%;"></div></center>
 
 	</body>
+		
+		
 </html>
