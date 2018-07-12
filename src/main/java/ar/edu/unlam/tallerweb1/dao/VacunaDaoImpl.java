@@ -24,9 +24,12 @@ public class VacunaDaoImpl implements VacunaDao{
 			public List<Vacuna> mostrarVacunasDao(){
 				
 				final Session session = sessionFactory.getCurrentSession();
+				
 				return session.createCriteria(Vacuna.class)
 						.add(Restrictions.isNotNull("id"))
 						.list();
+				
+				
 			}
 
 }

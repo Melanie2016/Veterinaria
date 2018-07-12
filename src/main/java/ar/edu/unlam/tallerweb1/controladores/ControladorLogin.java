@@ -109,11 +109,11 @@ public class ControladorLogin {
 	public ModelAndView mostrarPerfilAdmin() {		
 		
 		ModelMap model =new ModelMap();
-	//	List<Vacuna> vacuna = servicioVacuna.mostrarVacunas();
-	//	model.put("vacuna", vacuna);	
-	//	model.put("id",vacuna);
-	//	model.put("nombreVacuna",vacuna);
-	//	model.put("cantidad",vacuna);
+		//List<Vacuna> vacuna = servicioVacuna.mostrarVacunas();
+		//model.put("vacuna", vacuna);	
+		//model.put("id",vacuna);
+		//model.put("nombreVacuna",vacuna);
+		//model.put("cantidad",vacuna);
 		Usuario admin = new Usuario();		
 		model.put("admin", admin);	
 		    return new ModelAndView ("perfilAdmin",model);

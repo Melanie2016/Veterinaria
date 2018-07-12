@@ -25,6 +25,7 @@ VALUES 	(100,'laush_x4','123','admin'),
 		(300,'sergio','789','vet'),
 		(400,'admin','111','admin'),
 		(500,'cliente','222','cliente');
+INSERT INTO Usuario(id,email,pass,rol) VALUES (600,'vet@gmail.com','333','vet');
  
 INSERT INTO Mascota (id,edad, nombre, tipo,duenio_id)
  VALUES (11,5, 'Rubi','Perro',100),
