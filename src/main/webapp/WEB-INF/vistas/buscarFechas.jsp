@@ -51,10 +51,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${turnos}" var="turnos">
+						<c:forEach items="${list}" var="list">
 							<tr>
 								<th scope="row"></th>
-										<td>${turnos.fecha}</td> 
+										<td>${list}</td> 
 										<td><fmt:formatDate type = "date"  value = "${turnos.fechaTurno}" /></td>
 										<td>${turnos.horaTurno}</td> 
 										<td>${turnos.diaAtencion.dia}</td>

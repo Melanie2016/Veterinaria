@@ -22,7 +22,9 @@ public interface ServicioTurno {
 
 	DiaAtencion obtenerDiaDeAtencion(Long diaAtencionId);
 
-	List<Turno> obtenerTurnosPosibles(Date fecha, Long diaAtencionId);
+//	List<Turno> obtenerTurnosPosibles(Date fecha, Long diaAtencionId);
+
+	List<Date> consultarFechaASeleccionar(Long diaAtencionId);
 	
 	
 

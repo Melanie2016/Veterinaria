@@ -1,7 +1,5 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -48,7 +46,6 @@ public class ServicioTurnoImpl implements ServicioTurno{
 
 	}
 
-
 	@Override
 	public DiaAtencion obtenerDiaDeAtencion(Long diaAtencionId){
 		return turnoDao.obtenerDiaDeAtencion(diaAtencionId);
@@ -60,78 +57,135 @@ public class ServicioTurnoImpl implements ServicioTurno{
 	}
 
 	
-	@SuppressWarnings("deprecation")
+	// fechas de hoy a dos meses 
 	@Override
-	public List<Turno> obtenerTurnosPosibles(Date fecha, Long diaAtencionId){
+	public List<Date> consultarFechaASeleccionar(Long diaAtencionId){
+		
+		DiaAtencion dia = turnoDao.obtenerDiaDeAtencion(diaAtencionId);
+		dia.getDia() ; // dia de atencion , ejemplo LUNES
+		
+		List<Date> list = new ArrayList<Date>();
 		
 		Calendar inicioGC = GregorianCalendar.getInstance();
 		Calendar finGC = GregorianCalendar.getInstance();
-		finGC.add(Calendar.DAY_OF_WEEK_IN_MONTH,1);
-	
+		finGC.add(Calendar.DAY_OF_WEEK_IN_MONTH,2);
 		
-		DiaAtencion diaAtencion = obtenerDiaDeAtencion(diaAtencionId);
-		
+        
 		int diaSemana = 0;
 		
-		if(diaAtencion.getDia().equalsIgnoreCase("lunes")) {
+		if(dia.getDia().equalsIgnoreCase("lunes")) {
 			diaSemana = Calendar.MONDAY;		
-		}else if (diaAtencion.getDia().equalsIgnoreCase("martes")){
+		}else if (dia.getDia().equalsIgnoreCase("martes")){
 			diaSemana = Calendar.TUESDAY;
-		}else if (diaAtencion.getDia().equalsIgnoreCase("miercoles")){
+		}else if (dia.getDia().equalsIgnoreCase("miercoles")){
 			diaSemana = Calendar.WEDNESDAY;
-		}else if (diaAtencion.getDia().equalsIgnoreCase("jueves")){
+		}else if (dia.getDia().equalsIgnoreCase("jueves")){
 			diaSemana = Calendar.THURSDAY;
-		}else if (diaAtencion.getDia().equalsIgnoreCase("viernes")){
+		}else if (dia.getDia().equalsIgnoreCase("viernes")){
 			diaSemana = Calendar.FRIDAY;
-		}else if (diaAtencion.getDia().equalsIgnoreCase("sabado")){
+		}else if (dia.getDia().equalsIgnoreCase("sabado")){
 			diaSemana = Calendar.SATURDAY;
-		}else if (diaAtencion.getDia().equalsIgnoreCase("domingo")){
+		}else if (dia.getDia().equalsIgnoreCase("domingo")){
 			diaSemana = Calendar.SUNDAY;
 		}
 		
-		Turno turno = new Turno();
-		List<Turno> listaDeTurnos = new ArrayList<Turno>();
-		List<Turno> turnosOcupados = turnoDao.listaDeTurnosDao(diaAtencionId);
-		
-		Date fechaActual = new Date();
-		
+		// fechas de hoy a dos meses 
 		while ( inicioGC.before(finGC) ) {
 			if ( inicioGC.get(Calendar.DAY_OF_WEEK) == diaSemana)
-				// esta fecha sirve para saber a partir de cuando se pueden sacar los turnos
-				inicioGC.add(Calendar.DAY_OF_WEEK,1);
+			
+				
 				inicioGC.add(Calendar.DATE, 1);
-//				inicioGC.add(Calendar.MINUTE,10);
-//				turno.setFecha(inicioGC.getTime());
-//				turno.setDiaAtencion(diaAtencion);
-//				listaDeTurnos.add(turno);
-				fechaActual = inicioGC.getTime();
+
+				list.add(inicioGC.getTime());
 			}
 		
-
-		if (fechaActual.equals(inicioGC.getTime())) {
-//			dia = formateador.format(fechaActual);
-			
-			turno.setFecha(fechaActual);
-			
-			turno.setFechaTurno(fechaActual);
-			turno.setHoraTurno(diaAtencion.getHoraAtencionInicio());
-			
-//			Calendar calendar = Calendar.getInstance();
-//		    calendar.setTime(fechaActual);
-			
-
-		    
-//		    turno.setFecha(calendar.getTime());
-		    listaDeTurnos.add(turno);
-		}
 		
 		
 		
 		
 		
-		
-		return listaDeTurnos;
+		return list;
 	}
+	
+	
+	
+//	@SuppressWarnings("deprecation")
+//	@Override
+//	public List<Turno> obtenerTurnosPosibles(Date fecha, Long diaAtencionId){
+//		
+//		Calendar inicioGC = GregorianCalendar.getInstance();
+//		Calendar finGC = GregorianCalendar.getInstance();
+//		finGC.add(Calendar.DAY_OF_WEEK_IN_MONTH,1);
+//	
+//		
+//		DiaAtencion diaAtencion = obtenerDiaDeAtencion(diaAtencionId);
+//		
+//		int diaSemana = 0;
+//		
+//		if(diaAtencion.getDia().equalsIgnoreCase("lunes")) {
+//			diaSemana = Calendar.MONDAY;		
+//		}else if (diaAtencion.getDia().equalsIgnoreCase("martes")){
+//			diaSemana = Calendar.TUESDAY;
+//		}else if (diaAtencion.getDia().equalsIgnoreCase("miercoles")){
+//			diaSemana = Calendar.WEDNESDAY;
+//		}else if (diaAtencion.getDia().equalsIgnoreCase("jueves")){
+//			diaSemana = Calendar.THURSDAY;
+//		}else if (diaAtencion.getDia().equalsIgnoreCase("viernes")){
+//			diaSemana = Calendar.FRIDAY;
+//		}else if (diaAtencion.getDia().equalsIgnoreCase("sabado")){
+//			diaSemana = Calendar.SATURDAY;
+//		}else if (diaAtencion.getDia().equalsIgnoreCase("domingo")){
+//			diaSemana = Calendar.SUNDAY;
+//		}
+//		
+//		Turno turno = new Turno();
+//		List<Turno> listaDeTurnos = new ArrayList<Turno>();
+//		List<Turno> turnosOcupados = turnoDao.listaDeTurnosDao(diaAtencionId);
+//		
+//		Date fechaActual = new Date();
+//		
+//		while ( inicioGC.before(finGC) ) {
+//			if ( inicioGC.get(Calendar.DAY_OF_WEEK) == diaSemana)
+//				// esta fecha sirve para saber a partir de cuando se pueden sacar los turnos
+//				inicioGC.add(Calendar.DAY_OF_WEEK,1);
+//				inicioGC.add(Calendar.DATE, 1);
+////				inicioGC.add(Calendar.MINUTE,10);
+////				turno.setFecha(inicioGC.getTime());
+////				turno.setDiaAtencion(diaAtencion);
+////				listaDeTurnos.add(turno);
+//				fechaActual = inicioGC.getTime();
+//			}
+//		
+//
+//		if (fechaActual.equals(inicioGC.getTime())) {
+////			dia = formateador.format(fechaActual);
+//			
+//			turno.setFecha(fechaActual);
+//			
+//			for(Turno t : listaDeTurnos) {
+//				
+//			
+//			}
+//			
+//			turno.setFechaTurno(fechaActual);
+//			turno.setHoraTurno(diaAtencion.getHoraAtencionInicio());
+//			
+////			Calendar calendar = Calendar.getInstance();
+////		    calendar.setTime(fechaActual);
+//			
+//
+//		    
+////		    turno.setFecha(calendar.getTime());
+//		    listaDeTurnos.add(turno);
+//		}
+//		
+//		
+//		
+//		
+//		
+//		
+//		return listaDeTurnos;
+//	}
 
 
 
