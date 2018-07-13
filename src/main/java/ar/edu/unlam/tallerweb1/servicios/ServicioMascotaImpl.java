@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.dao.MascotaDao;
 import ar.edu.unlam.tallerweb1.modelo.EstadoVacuna;
 import ar.edu.unlam.tallerweb1.modelo.Mascota;
+import ar.edu.unlam.tallerweb1.modelo.Vacuna;
 @Service("servicioMascota")
 @Transactional
 public class ServicioMascotaImpl implements ServicioMascota{
@@ -34,5 +35,15 @@ public class ServicioMascotaImpl implements ServicioMascota{
 		return servicioMascotaDao.mostrarEstadoVacunasDao(idMascota);
 		
 	}
+	//para el stock
+	@Override
+	public List<Vacuna> mostrarVacunas(){
+		return servicioMascotaDao.mostrarVacunasDao();
+		
+	}
+	
+	public Vacuna getIdVac(Long id) {
+        return servicioMascotaDao.getIdVacDao(id);
+    }
 
 }

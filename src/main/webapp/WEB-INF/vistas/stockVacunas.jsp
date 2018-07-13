@@ -19,8 +19,8 @@
 		    </div>
 		    
 		    <ul class="nav navbar-nav">
-		      <li class="active"><a href="#">Perfil</a></li>
-		      <li><a href="<c:url value="/stockVacunas"/>">StockVacunas</a></li>
+		      <li><a href="<c:url value="/perfilAdmin"/>">Perfil</a></li>
+		      <li  class="active"><a href="#">StockVacunas</a></li>
 		       <li><a href="#">Veterinarios</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
@@ -32,12 +32,37 @@
 		<div class="container">
 		<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 			<h1><span style="font-size:20px">
-		Bienvenido</span> Administrador <span class="glyphicon glyphicon-heart" style="color:orange">
+		Stock</span> Vacunas <span class="glyphicon glyphicon-heart" style="color:orange">
 		</span></h1>
-			<br><br><br>
-			<h4>${notificacion}</h4>
 				
- 
+             <table class="table table-striped">
+					<h3>Stock de Vacunas</h3>
+		            <thead>
+			            <tr>
+				            <th>Id</th>
+				            <th>Nombre</th>	
+				            <th>Animal</th>			       
+				            <th>Cantidad</th>
+				            <th></th>
+			            </tr>
+		            </thead>
+		
+		             <c:forEach var="vacuna" items="${vacuna}">
+		            <tr>
+			            <td>${vacuna.id}</td>
+			            <td>${vacuna.nombreVacuna}</td>
+			            <td>${vacuna.animal}</td>
+			            <td>${vacuna.cantStock}</td>
+<!--   <td> <a class="btn btn-warning" href="stock-edit/${vacuna.id}">Editar <i class="fa fa-minus"></i>  </td>-->
+		            	<td>
+		            	<c:if test="${vacuna.cantStock<20}"> 
+                <div> <span class="glyphicon glyphicon-alert" style="color:red"> </span> <strong> &nbsp;  Encargar vacunas</strong></div>
+            </c:if>
+            </td>
+					    	</td>
+			        </tr>
+			        </c:forEach>
+		        </table>
 
 		
 	</div>		

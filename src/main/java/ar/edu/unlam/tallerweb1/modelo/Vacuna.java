@@ -15,6 +15,7 @@ public class Vacuna {
 	private Long id;
 	private String nombreVacuna;
 	private String animal;
+
 	private Integer vencimiento; // expresado en meses para calcular al revacunacion
 	private Integer cantStock;
 
@@ -58,5 +59,14 @@ public class Vacuna {
 
 		public void setCantStock(Integer cantStock) {
 			this.cantStock = cantStock;
+		}
+		
+		public String getAnimal() {
+			return animal;
+		}
+
+
+		public void setAnimal(String animal) {
+			this.animal = animal;
 		}
 }

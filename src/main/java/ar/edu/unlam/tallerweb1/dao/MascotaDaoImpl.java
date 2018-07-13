@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import ar.edu.unlam.tallerweb1.modelo.EstadoVacuna;
 import ar.edu.unlam.tallerweb1.modelo.Mascota;
+import ar.edu.unlam.tallerweb1.modelo.Vacuna;
 
 @Repository("mascotaDao")
 public class MascotaDaoImpl implements MascotaDao{
@@ -46,6 +47,26 @@ public class MascotaDaoImpl implements MascotaDao{
 						.createAlias("estado.mascota", "mascotaBuscado")
 						.add(Restrictions.eq("mascotaBuscado.id",idMascota))
 						.list();
+			}
+			
+			
+			@SuppressWarnings("unchecked")
+			@Override
+			public List<Vacuna> mostrarVacunasDao(){
+				
+				final Session session = sessionFactory.getCurrentSession();
+				return session.createCriteria(Vacuna.class)
+						.add(Restrictions.isNotNull("id"))
+						.list();
+			}
+			
+			// para el stock
+			@Override
+			public Vacuna getIdVacDao(Long id){
+				final Session session = sessionFactory.getCurrentSession();
+				return (Vacuna) session.createCriteria(Vacuna.class)				
+						.add(Restrictions.eq("id",id))
+						.uniqueResult();
 			}
 
 }

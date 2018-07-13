@@ -22,9 +22,9 @@
 					</a>
 				</div>
 				<ul class="nav navbar-nav">
-					<li><a href="<c:url value="/perfil"/>">Perfil</a></li>
+				<!--	<li><a href="<c:url value="/perfil"/>">Perfil</a></li>
 					<li><a href="<c:url value="/turno"/>">Turnos</a></li>
-					<li><a href="<c:url value="/peluqueria"/>">Peluquerias</a></li>
+					<li><a href="<c:url value="/peluqueria"/>">Peluquerias</a></li> -->
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#"><span class="glyphicon glyphicon-user"

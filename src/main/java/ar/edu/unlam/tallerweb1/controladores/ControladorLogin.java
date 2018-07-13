@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unlam.tallerweb1.modelo.EstadoVacuna;
-import ar.edu.unlam.tallerweb1.modelo.Mascota;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.modelo.Vacuna;
-import ar.edu.unlam.tallerweb1.modelo.Veterinario;
+
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
-import ar.edu.unlam.tallerweb1.servicios.ServicioVacuna;
+import ar.edu.unlam.tallerweb1.servicios.ServicioMascota;
+
 
 @Controller
 public class ControladorLogin {
@@ -28,7 +27,7 @@ public class ControladorLogin {
 	// @Service o @Repository y debe estar en un paquete de los indicados en applicationContext.xml
 	@Inject
 	private ServicioLogin servicioLogin;
-	private ServicioVacuna servicioVacuna;
+	private ServicioMascota servicioMascota;
 
 	// Este metodo escucha la URL localhost:8080/NOMBRE_APP/login si la misma es invocada por metodo http GET
 	@RequestMapping("/login")
@@ -105,20 +104,7 @@ public class ControladorLogin {
 		return new ModelAndView ("formMascota",model);
 	}
 	
-	@RequestMapping("/perfilAdmin")
-	public ModelAndView mostrarPerfilAdmin() {		
-		
-		ModelMap model =new ModelMap();
-		//List<Vacuna> vacuna = servicioVacuna.mostrarVacunas();
-		//model.put("vacuna", vacuna);	
-		//model.put("id",vacuna);
-		//model.put("nombreVacuna",vacuna);
-		//model.put("cantidad",vacuna);
-		Usuario admin = new Usuario();		
-		model.put("admin", admin);	
-		    return new ModelAndView ("perfilAdmin",model);
-		
-	}
+
 	
 	@RequestMapping("/perfilVet")
 	public ModelAndView mostrarPerfilVet() {		
