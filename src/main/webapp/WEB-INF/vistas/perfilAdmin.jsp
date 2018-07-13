@@ -35,7 +35,8 @@
 		Bienvenido</span> Administrador <span class="glyphicon glyphicon-heart" style="color:orange">
 		</span></h1>
 			<br><br><br>
-			<h4>${notificacion}</h4>
+			<h4><span class="glyphicon glyphicon-alert" style="color:red"></span>&nbsp;
+			${aviso} &nbsp;<span class="glyphicon glyphicon-alert" style="color:red"></span></h4>
 				
  
 

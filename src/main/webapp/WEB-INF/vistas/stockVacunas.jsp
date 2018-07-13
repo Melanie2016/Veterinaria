@@ -30,13 +30,12 @@
 				</div>
 			</nav>
 		<div class="container">
-		<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div id="loginbox" style="margin-top:20px; width:600px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 			<h1><span style="font-size:20px">
-		Stock</span> Vacunas <span class="glyphicon glyphicon-heart" style="color:orange">
+		Stock de</span> Vacunas <span class="glyphicon glyphicon-heart" style="color:orange">
 		</span></h1>
 				
              <table class="table table-striped">
-					<h3>Stock de Vacunas</h3>
 		            <thead>
 			            <tr>
 				            <th>Id</th>
@@ -53,13 +52,12 @@
 			            <td>${vacuna.nombreVacuna}</td>
 			            <td>${vacuna.animal}</td>
 			            <td>${vacuna.cantStock}</td>
-<!--   <td> <a class="btn btn-warning" href="stock-edit/${vacuna.id}">Editar <i class="fa fa-minus"></i>  </td>-->
-		            	<td>
-		            	<c:if test="${vacuna.cantStock<20}"> 
-                <div> <span class="glyphicon glyphicon-alert" style="color:red"> </span> <strong> &nbsp;  Encargar vacunas</strong></div>
-            </c:if>
-            </td>
-					    	</td>
+ <td> <c:if test="${vacuna.cantStock<20}"> 
+      <div> <span class="glyphicon glyphicon-alert" style="color:red"> </span>  &nbsp; Comprar</div>
+      </c:if></td>
+ <td> <a class="btn btn-warning" href="#">Editar <i class="fa fa-minus"></i>  </td>
+		            	
+					    	
 			        </tr>
 			        </c:forEach>
 		        </table>

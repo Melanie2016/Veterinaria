@@ -38,12 +38,19 @@ public class ServicioMascotaImpl implements ServicioMascota{
 	//para el stock
 	@Override
 	public List<Vacuna> mostrarVacunas(){
-		return servicioMascotaDao.mostrarVacunasDao();
-		
+		return servicioMascotaDao.mostrarVacunasDao();	
 	}
 	
 	public Vacuna getIdVac(Long id) {
         return servicioMascotaDao.getIdVacDao(id);
     }
-
+	
+	 public int consultarStock(){ 
+	 List<Vacuna> listaVacunas= servicioMascotaDao.mostrarVacunasDao();	 
+		for (Vacuna vacuna : listaVacunas) {
+			if (vacuna.getCantStock() < 20) 
+			return 0;				
+	 }
+	return 1;
+  }	
 }

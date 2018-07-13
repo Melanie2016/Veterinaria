@@ -28,16 +28,14 @@ public class ControladorAdmin {
 		ModelMap model =new ModelMap();
 		Usuario admin = new Usuario();
 		model.put("admin", admin);	
-		
-		
-		
-		/*Integer aviso =servicioMascota.consultarStock();
+			
+		Integer aviso =servicioMascota.consultarStock();
 			if(aviso==0){
-				model.put("aviso", "Revisar Stock Vacunas, quedan pocas");
+				model.put("aviso", "Revisar el Stock de Vacunas, quedan pocas");
 			}else
-			{ model.put("aviso", "hay stcok..no mostrar nada");}*/
+			{ model.put("aviso", ">>No hay notificaciones para mostrar<<");}
 		
-		    return new ModelAndView ("perfilAdmin",model);
+	 return new ModelAndView ("perfilAdmin",model);
 		
 	}
 	

@@ -8,12 +8,13 @@ import ar.edu.unlam.tallerweb1.modelo.Vacuna;
 
 public interface ServicioMascota {
 	List<Mascota> mostrarMascotas();
-	 Mascota getId(Long id);
+	Mascota getId(Long id); 
+	List<EstadoVacuna> mostrarEstadoVacunas(Long idMascota);
 	 
-	 List<EstadoVacuna> mostrarEstadoVacunas(Long idMascota);
+	//vacunas en el perfil admin
+	List<Vacuna> mostrarVacunas(); 
+	Vacuna getIdVac(Long id);
 	 
-	 //vacunas en el perfil admin
-	 List<Vacuna> mostrarVacunas(); 
-	 Vacuna getIdVac(Long id);
+	int consultarStock();
 
 }
