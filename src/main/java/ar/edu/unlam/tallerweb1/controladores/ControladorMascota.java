@@ -22,17 +22,6 @@ public class ControladorMascota {
 	@Inject
 	private ServicioMascota servicioMascota;
 	
-		/*	@RequestMapping("/perfilMascota")
-			public ModelAndView mostrarPerfilMascota() {
-				
-				ModelMap model =new ModelMap();
-				Mascota mascota = new Mascota(); 
-			
-				model.put("mascota", mascota);
-				
-				return new ModelAndView ("perfilMascota",model);
-			}
-			*/
 			@RequestMapping("/vacunas/{idMascota}")
 			public ModelAndView irAvacunas(@PathVariable Long idMascota) {
 				
@@ -51,8 +40,20 @@ public class ControladorMascota {
 						
 				return new ModelAndView("vacunas",modelo);
 			}
+	/*esto deberia levar a una vista aparte para mostrar la fecha de aplicacion pero 
+	 * sumandole 12 meses, pero ahora solo funciona usando la fecha de HOY y le suma un año*/		
+			@RequestMapping("/revacunar/{idEstadoVacuna}/{fecha}")
+			public ModelAndView irArevacunar(@PathVariable Long idEstadoVacuna,@PathVariable(value = "fecha") String fecha) {
+				
+				ModelMap modelo = new ModelMap();
+				modelo.put("ev",servicioMascota.getIdEV(idEstadoVacuna));
 			
-			
+				modelo.put("rev",servicioMascota.mostrarRevacunacion(fecha));	
+				System.out.println("El id de estado vacuna es--> " + idEstadoVacuna);
+				System.out.println("fecha de aplicacion es--> " + fecha);
+				
+				return new ModelAndView("revacunar",modelo);
+			}
 
 	}
 

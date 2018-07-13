@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
+import java.util.Date;
 import java.util.List;
 
 import ar.edu.unlam.tallerweb1.modelo.EstadoVacuna;
@@ -16,5 +17,9 @@ public interface ServicioMascota {
 	Vacuna getIdVac(Long id);
 	 
 	int consultarStock();
+	
+	//intento mostrar fecha revacunacion
+	 Date mostrarRevacunacion(String fecha); //el parametro lo puse string porke viene de url
+     public EstadoVacuna getIdEV(Long id);
 
 }

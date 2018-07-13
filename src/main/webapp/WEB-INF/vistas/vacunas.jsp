@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix ="fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -46,6 +47,7 @@
                          	<th>Vacuna</th>
                          	<th>Aplicacion</th>
                         	<th>Estado</th>
+                        	<th>Info</th>
                         	<th> </th>
                     	</tr>
                     </thead>
@@ -54,17 +56,23 @@
                         <tr>
                             <td>${id.id}</td>
   							<td>${id.vacuna.nombreVacuna}</td>
-  							<td>${id.fecha_aplicacion}</td>						
-                            <td>${id.estado}</td>      
+<td><fmt:formatDate type = "date" pattern="yyyy/MM/dd" value = "${id.fecha_aplicacion}" />  </td>						
+                            <td>${id.estado}</td> 
+                  <c:if test="${id.vacuna.nombreVacuna=='Quintuple'}">
+                  <td>Se da una vez</td>
+                  </c:if> 
+                  <c:if test="${id.vacuna.nombreVacuna!='Quintuple'}">
+                  <td>Vence cada ${id.vacuna.vencimiento} meses</td> 
+                  </c:if>         
+                                
                             <td>
      			            <c:if test="${id.estado=='no'}">
-				                <a class="btn btn-warning" href="<c:url value="/turno"/>">SacarTurno <i class="fa fa-edit"></i></a>
+				 <a class="btn btn-warning" href="<c:url value="/turno"/>">SacarTurno <i class="fa fa-edit"></i></a>
 				            </c:if>
             
 				            <c:if test="${id.estado=='Dada'}">
-				     <h11>Vence cada ${id.vacuna.vencimiento} meses</h11>
-				            </c:if>
-            				<!-- <a class="btn btn-warning" >Editar <i class="fa fa-edit"></i></a> --> 
+				<a class="btn btn-default" href="<c:url value="/revacunar/${id.id}/${id.fecha_aplicacion}"/>">VerRevacunacion <i class="fa fa-edit"></i></a>			
+			            </c:if>
                             </td>                         
                         </tr>
                     </c:forEach>               

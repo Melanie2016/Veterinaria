@@ -69,4 +69,13 @@ public class MascotaDaoImpl implements MascotaDao{
 						.uniqueResult();
 			}
 
+			//intento revacunacion
+			@Override
+			public EstadoVacuna getIdEVDao(Long id){
+				final Session session = sessionFactory.getCurrentSession();
+				return (EstadoVacuna) session.createCriteria(EstadoVacuna.class)				
+						.add(Restrictions.eq("id",id))
+						.uniqueResult();
+
+			}
 }

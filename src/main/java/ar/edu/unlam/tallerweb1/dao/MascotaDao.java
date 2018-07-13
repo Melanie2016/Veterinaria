@@ -16,4 +16,7 @@ public interface MascotaDao {
 	//para mostrar vacunas // para el stock
 	List<Vacuna> mostrarVacunasDao ();
 	Vacuna getIdVacDao(Long id);
+	
+	//intento revacunacion
+	public EstadoVacuna getIdEVDao(Long id);
 }
