@@ -17,6 +17,7 @@ public interface ServicioMascota {
 	Vacuna getIdVac(Long id);
 	 
 	int consultarStock();
+	//int consultarEstado(Long idMascota);
 	
 	//intento mostrar fecha revacunacion
 	 Date mostrarRevacunacion(String fecha); //el parametro lo puse string porke viene de url

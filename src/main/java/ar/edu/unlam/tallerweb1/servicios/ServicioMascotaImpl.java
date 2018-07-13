@@ -26,7 +26,8 @@ public class ServicioMascotaImpl implements ServicioMascota{
 		return servicioMascotaDao.mostrarMascotasDao();
 		
 	}
-		
+	
+	@Override	
 	//que me muestre por el id ingresado
 	public Mascota getId(Long id) {
         return servicioMascotaDao.getIdDao(id);
@@ -37,6 +38,24 @@ public class ServicioMascotaImpl implements ServicioMascota{
 		return servicioMascotaDao.mostrarEstadoVacunasDao(idMascota);
 		
 	}
+	
+	//intento se suprimir el if del html pero con servicio
+	//no funciona ya que no tengo el idEstadoVacuna y 
+	//en el html debo informar al href a que vista ir
+/*	@Override
+	 public int consultarEstado(Long idMascota){ 
+	 List<EstadoVacuna> listaEV= servicioMascotaDao.mostrarEstadoVacunasDao(idMascota);	 
+		for (EstadoVacuna ev : listaEV) {
+			if (ev.getEstado()=="no")
+				System.out.println("Estado-----> " + ev.getEstado());
+			return 0;				
+	 }
+	return 1;
+ }
+*/	
+	
+	
+	
 	//para el stock
 	@Override
 	public List<Vacuna> mostrarVacunas(){

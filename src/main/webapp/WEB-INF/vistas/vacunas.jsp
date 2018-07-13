@@ -57,7 +57,18 @@
                             <td>${id.id}</td>
   							<td>${id.vacuna.nombreVacuna}</td>
 <td><fmt:formatDate type = "date" pattern="yyyy/MM/dd" value = "${id.fecha_aplicacion}" />  </td>						
-                            <td>${id.estado}</td> 
+                      <td>     
+                           <c:if test="${id.estado=='no'}">
+				            <span class="glyphicon glyphicon-remove" style="color:red"></span> 
+				            </c:if>
+				            <c:if test="${id.estado=='Dada'}">
+				             <span class="glyphicon glyphicon-ok" style="color:green"></span>
+				            </c:if>                    
+                                 </td> 
+                            
+                            
+                            
+                            
                   <c:if test="${id.vacuna.nombreVacuna=='Quintuple'}">
                   <td>Se da una vez</td>
                   </c:if> 
@@ -65,9 +76,10 @@
                   <td>Vence cada ${id.vacuna.vencimiento} meses</td> 
                   </c:if>         
                                 
-                            <td>
+      <td>
+                           
      			            <c:if test="${id.estado=='no'}">
-				 <a class="btn btn-warning" href="<c:url value="/turno"/>">SacarTurno <i class="fa fa-edit"></i></a>
+				 <a class="btn btn-warning" href="<c:url value="/turno"/>">SacarTurno<i class="fa fa-edit"></i></a>
 				            </c:if>
             
 				            <c:if test="${id.estado=='Dada'}">
