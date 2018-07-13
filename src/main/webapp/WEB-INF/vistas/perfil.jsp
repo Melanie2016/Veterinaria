@@ -49,7 +49,6 @@
 			            <td>${mascota.tipo}</td>
 			            <td>${mascota.edad}</td>
 		            	<td>
-					    <!--<a class="btn btn-warning" href="perfilMascota/${mascota.id}">irPerfil <i class="fa fa-edit"></i></a>-->
 					    <a class="btn btn-warning" href="vacunas/${mascota.id}">VerVacunas <i class="fa fa-minus"></i>           						    
 						<a class="btn btn-danger"> X <i class="fa fa-minus"></i>
 				    	</a>

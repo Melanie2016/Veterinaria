@@ -22,7 +22,7 @@ public class ControladorMascota {
 	@Inject
 	private ServicioMascota servicioMascota;
 	
-			@RequestMapping("/perfilMascota")
+		/*	@RequestMapping("/perfilMascota")
 			public ModelAndView mostrarPerfilMascota() {
 				
 				ModelMap model =new ModelMap();
@@ -32,7 +32,7 @@ public class ControladorMascota {
 				
 				return new ModelAndView ("perfilMascota",model);
 			}
-			
+			*/
 			@RequestMapping("/vacunas/{idMascota}")
 			public ModelAndView irAvacunas(@PathVariable Long idMascota) {
 				
