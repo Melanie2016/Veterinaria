@@ -93,8 +93,8 @@ public class ServicioTurnoImpl implements ServicioTurno{
 		while ( inicioGC.before(finGC) ) {
 			if ( inicioGC.get(Calendar.DAY_OF_WEEK) == diaSemana)
 			
-				
-				inicioGC.add(Calendar.DATE, 1);
+				inicioGC.add(Calendar.WEEK_OF_MONTH, 1);
+				inicioGC.add(Calendar.DAY_OF_WEEK_IN_MONTH, 1);
 
 				list.add(inicioGC.getTime());
 			}
