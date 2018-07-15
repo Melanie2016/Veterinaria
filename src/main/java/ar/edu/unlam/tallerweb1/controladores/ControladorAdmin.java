@@ -23,7 +23,7 @@ public class ControladorAdmin {
 	
 	
 	@RequestMapping("/perfilAdmin")
-	public ModelAndView mostrarPerfilVet() {		
+	public ModelAndView mostrarPerfilAdmin() {		
 		
 		ModelMap model =new ModelMap();
 		Usuario admin = new Usuario();
@@ -41,7 +41,7 @@ public class ControladorAdmin {
 	
 	
 	@RequestMapping(path="/stockVacunas", method=RequestMethod.GET)
-	public ModelAndView mostrarPerfilAdmin() {			
+	public ModelAndView mostrarStock() {			
 		ModelMap model =new ModelMap();
 		List<Vacuna> list =servicioMascota.mostrarVacunas(); 
 		model.put("vacuna", list);
