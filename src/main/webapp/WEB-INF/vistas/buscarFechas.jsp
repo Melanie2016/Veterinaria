@@ -52,7 +52,7 @@
 								<th scope="row"></th>
 								<td>${fecha}</td> 
 								<td><fmt:formatDate type = "date"  value = "${fecha}" /></td>
-								<td><a href="../horarios/${veterinarios.id}" class="btn btn-warning" role="button" >Seleccionar</a></td>
+								<td><a href="../horarios/" class="btn btn-warning" role="button" >Seleccionar</a></td>
  	
 							</tr> 
 						</c:forEach>				

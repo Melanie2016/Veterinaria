@@ -93,12 +93,12 @@ public class ServicioTurnoImpl implements ServicioTurno{
 			diaSemana = Calendar.SUNDAY;
 		}
 			
-		inicioGC.add(Calendar.DAY_OF_WEEK, diaSemana);
+		inicioGC.set(Calendar.DAY_OF_WEEK, diaSemana);
 
 			
 		// fechas de hoy a dos meses 
 		while ( inicioGC.before(finGC) ) {
-			inicioGC.add(Calendar.WEEK_OF_MONTH, 1);
+			inicioGC.add(Calendar.DAY_OF_WEEK,7 ); 	
 			listResultado.add(inicioGC.getTime());
 		}
 			
