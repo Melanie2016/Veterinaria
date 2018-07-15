@@ -30,13 +30,10 @@
 		</nav>
 		<div class="container">
 		
-			
-				<h1>Horarios disponibles de:  ${diaAtencion.veterinario.nombre} ${diaAtencion.veterinario.apellido} </h1>			
 				
-				<h3> ${diaAtencion.dia} de 
-				<fmt:formatDate type = "time" pattern="mm:ss" value = "${diaAtencion.horaAtencionInicio}"/> a <fmt:formatDate type = "time" pattern="mm:ss" value = "${diaAtencion.horaAtencionFinalizacion}" />
+				  		
+				<h2>Turnos disponibles a dos meses: </h2>
 				
-				</h3>
 				<div class="form-group"> 
 				<br>
 				<label for="fecha">Seleccione fecha:</label>
@@ -45,30 +42,25 @@
 					<thead>
 						<tr>
 							<th scope="col" class="glyphicon glyphicon-pencil"></th>
-							<th scope="col">Fecha Actual</th>
 							<th scope="col">Fecha </th>
-							<th scope="col">Hora</th>
+					
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${list}" var="list">
+						<c:forEach items="${fecha}" var="fecha">
 							<tr>
 								<th scope="row"></th>
-										<td>${list}</td> 
-										<td><fmt:formatDate type = "date"  value = "${turnos.fechaTurno}" /></td>
-										<td>${turnos.horaTurno}</td> 
-										<td>${turnos.diaAtencion.dia}</td>
-										<td><a href="<c:url value="/turno"/>" class="btn btn-warning" 
-										role="button">Seleccionar</a></td>
+								<td>${fecha}</td> 
+								<td><fmt:formatDate type = "date"  value = "${fecha}" /></td>
+								<td><a href="../horarios/${veterinarios.id}" class="btn btn-warning" role="button" >Seleccionar</a></td>
+ 	
 							</tr> 
 						</c:forEach>				
 					</tbody>
 				</table>
 									
 				
-				<button class="btn btn-lg btn-warning" Type="Submit" >
-					Buscar Turnos
-				</button>
+			
 				</div>
 				
 				

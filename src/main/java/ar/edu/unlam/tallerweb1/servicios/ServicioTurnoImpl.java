@@ -57,22 +57,26 @@ public class ServicioTurnoImpl implements ServicioTurno{
 	}
 
 	
-	// fechas de hoy a dos meses 
+//	fechas de hoy a dos meses 
 	@Override
 	public List<Date> consultarFechaASeleccionar(Long diaAtencionId){
-		
+			
 		DiaAtencion dia = turnoDao.obtenerDiaDeAtencion(diaAtencionId);
 		dia.getDia() ; // dia de atencion , ejemplo LUNES
-		
-		List<Date> list = new ArrayList<Date>();
-		
+			
+		List<Date> listResultado = new ArrayList<Date>();
+					
+			
+		// https://www.discoduroderoer.es/clase-calendar-en-java/
+		// https://dosideas.com/wiki/Fechas_En_Java
+			
 		Calendar inicioGC = GregorianCalendar.getInstance();
 		Calendar finGC = GregorianCalendar.getInstance();
-		finGC.add(Calendar.DAY_OF_WEEK_IN_MONTH,2);
+		finGC.add(Calendar.MONTH,2);
+			
 		
-        
 		int diaSemana = 0;
-		
+			
 		if(dia.getDia().equalsIgnoreCase("lunes")) {
 			diaSemana = Calendar.MONDAY;		
 		}else if (dia.getDia().equalsIgnoreCase("martes")){
@@ -88,104 +92,19 @@ public class ServicioTurnoImpl implements ServicioTurno{
 		}else if (dia.getDia().equalsIgnoreCase("domingo")){
 			diaSemana = Calendar.SUNDAY;
 		}
-		
+			
+		inicioGC.add(Calendar.DAY_OF_WEEK, diaSemana);
+
+			
 		// fechas de hoy a dos meses 
 		while ( inicioGC.before(finGC) ) {
-			if ( inicioGC.get(Calendar.DAY_OF_WEEK) == diaSemana)
+			inicioGC.add(Calendar.WEEK_OF_MONTH, 1);
+			listResultado.add(inicioGC.getTime());
+		}
 			
-				inicioGC.add(Calendar.WEEK_OF_MONTH, 1);
-				inicioGC.add(Calendar.DAY_OF_WEEK_IN_MONTH, 1);
-
-				list.add(inicioGC.getTime());
-			}
-		
-		
-		
-		
-		
-		
-		return list;
+			
+		return listResultado;
 	}
-	
-	
-	
-//	@SuppressWarnings("deprecation")
-//	@Override
-//	public List<Turno> obtenerTurnosPosibles(Date fecha, Long diaAtencionId){
-//		
-//		Calendar inicioGC = GregorianCalendar.getInstance();
-//		Calendar finGC = GregorianCalendar.getInstance();
-//		finGC.add(Calendar.DAY_OF_WEEK_IN_MONTH,1);
-//	
-//		
-//		DiaAtencion diaAtencion = obtenerDiaDeAtencion(diaAtencionId);
-//		
-//		int diaSemana = 0;
-//		
-//		if(diaAtencion.getDia().equalsIgnoreCase("lunes")) {
-//			diaSemana = Calendar.MONDAY;		
-//		}else if (diaAtencion.getDia().equalsIgnoreCase("martes")){
-//			diaSemana = Calendar.TUESDAY;
-//		}else if (diaAtencion.getDia().equalsIgnoreCase("miercoles")){
-//			diaSemana = Calendar.WEDNESDAY;
-//		}else if (diaAtencion.getDia().equalsIgnoreCase("jueves")){
-//			diaSemana = Calendar.THURSDAY;
-//		}else if (diaAtencion.getDia().equalsIgnoreCase("viernes")){
-//			diaSemana = Calendar.FRIDAY;
-//		}else if (diaAtencion.getDia().equalsIgnoreCase("sabado")){
-//			diaSemana = Calendar.SATURDAY;
-//		}else if (diaAtencion.getDia().equalsIgnoreCase("domingo")){
-//			diaSemana = Calendar.SUNDAY;
-//		}
-//		
-//		Turno turno = new Turno();
-//		List<Turno> listaDeTurnos = new ArrayList<Turno>();
-//		List<Turno> turnosOcupados = turnoDao.listaDeTurnosDao(diaAtencionId);
-//		
-//		Date fechaActual = new Date();
-//		
-//		while ( inicioGC.before(finGC) ) {
-//			if ( inicioGC.get(Calendar.DAY_OF_WEEK) == diaSemana)
-//				// esta fecha sirve para saber a partir de cuando se pueden sacar los turnos
-//				inicioGC.add(Calendar.DAY_OF_WEEK,1);
-//				inicioGC.add(Calendar.DATE, 1);
-////				inicioGC.add(Calendar.MINUTE,10);
-////				turno.setFecha(inicioGC.getTime());
-////				turno.setDiaAtencion(diaAtencion);
-////				listaDeTurnos.add(turno);
-//				fechaActual = inicioGC.getTime();
-//			}
-//		
-//
-//		if (fechaActual.equals(inicioGC.getTime())) {
-////			dia = formateador.format(fechaActual);
-//			
-//			turno.setFecha(fechaActual);
-//			
-//			for(Turno t : listaDeTurnos) {
-//				
-//			
-//			}
-//			
-//			turno.setFechaTurno(fechaActual);
-//			turno.setHoraTurno(diaAtencion.getHoraAtencionInicio());
-//			
-////			Calendar calendar = Calendar.getInstance();
-////		    calendar.setTime(fechaActual);
-//			
-//
-//		    
-////		    turno.setFecha(calendar.getTime());
-//		    listaDeTurnos.add(turno);
-//		}
-//		
-//		
-//		
-//		
-//		
-//		
-//		return listaDeTurnos;
-//	}
 
 
 

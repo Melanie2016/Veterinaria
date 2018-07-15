@@ -48,21 +48,17 @@ public class ControladorTurno {
 	}
 	
 	
-	@RequestMapping(path="/horarios/{diaAtencionId}")
+	@RequestMapping(path="/fechas/{diaAtencionId}") 
 	public ModelAndView irAConsultarFecha(@PathVariable Long diaAtencionId ) {
 		
 		
-		// hacer un servicio q me traiga la duracion en int  y mandarla 
-		// en el servicio obtenerTurnosPosibles en lugar de fecha
 		ModelMap model =new ModelMap();
 		
-		
 		List<Date> listFecha = servicioTurno.consultarFechaASeleccionar(diaAtencionId);
-		model.put("list",listFecha);
-//		model.put("diaAtencion", servicioTurno.obtenerDiaDeAtencion(diaAtencionId));
-//		model.put("turnos", servicioTurno.obtenerTurnosPosibles(fecha, diaAtencionId));
 		
-
+		model.put("fecha",listFecha);
+		
+		
 				
 		return new ModelAndView ("buscarFechas",model);
 	}

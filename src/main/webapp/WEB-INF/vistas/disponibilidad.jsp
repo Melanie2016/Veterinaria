@@ -60,7 +60,7 @@
 									<fmt:formatDate type = "time" pattern="mm:ss" value = "${veterinarios.horaAtencionFinalizacion}" />
 									 </td>
 									
-									<td><a href="../horarios/${veterinarios.id}" class="btn btn-warning" role="button" >Seleccionar</a></td>
+									<td><a href="../fechas/${veterinarios.id}" class="btn btn-warning" role="button" >Seleccionar</a></td>
 							</tr> 
 						</c:forEach>				
 					</tbody>
