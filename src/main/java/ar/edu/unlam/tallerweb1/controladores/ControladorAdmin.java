@@ -34,8 +34,14 @@ public class ControladorAdmin {
 		
 		if (idUsuario != null) {
 			if (servicioLogin.buscarPorId(idUsuario).getRol().equals("admin")) {
-		Usuario admin = new Usuario();
-		model.put("admin", admin);	
+				//estas lineas hacen k muestre l nombre de quein se logueo
+				Usuario usuarioLogueado = servicioLogin.buscarPorId((Long) request.getSession().getAttribute("idUsuario"));		
+				model.put("usuario", usuarioLogueado);
+				model.put("id", usuarioLogueado);
+				model.put("email", usuarioLogueado);
+				
+		//Usuario admin = new Usuario();
+		//model.put("admin", admin);	
 			
 		Integer aviso =servicioMascota.consultarStock();
 			if(aviso==0){

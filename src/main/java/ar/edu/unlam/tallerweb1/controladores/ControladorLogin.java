@@ -106,15 +106,7 @@ public class ControladorLogin {
 	
 
 	
-	@RequestMapping("/perfilVet")
-	public ModelAndView mostrarPerfilVet() {		
-		
-		ModelMap model =new ModelMap();
-		Usuario vet = new Usuario();
-		model.put("vet", vet);	
-		    return new ModelAndView ("perfilVet",model);
-		
-	}
+
 	
 	// test de mockito controlador
 	public ServicioLogin getServicioLogin() {

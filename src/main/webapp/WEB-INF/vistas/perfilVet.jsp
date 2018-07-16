@@ -33,7 +33,13 @@
 			<h1><span style="font-size:20px">
 		Perfil del</span> Veterinario <span class="glyphicon glyphicon-heart" style="color:orange">
 		</span></h1>
-			
+		<br><br>
+			<div  style="text-align: center">
+ <h3>Datos Personales</h3>
+		 Id: ${usuario.id} <br>
+         Email: ${usuario.email}<br>
+         Password: ${usuario.pass}<br>
+	</div>
 		
 		
 	</div>		

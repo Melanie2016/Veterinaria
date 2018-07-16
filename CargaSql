@@ -26,6 +26,8 @@ VALUES 	(100,'laush_x4','123','admin'),
 		(400,'admin','111','admin'),
 		(500,'cliente','222','cliente');
 INSERT INTO Usuario(id,email,pass,rol) VALUES (600,'vet@gmail.com','333','vet');
+INSERT INTO Usuario(id,email,pass,rol) VALUES (700,'cliente@gmail.com','444','cliente');
+INSERT INTO Usuario(id,email,pass,rol) VALUES (800,'admin@gmail.com','555','admin');
  
 INSERT INTO Mascota (id,edad, nombre, tipo,duenio_id)
  VALUES (11,5, 'Rubi','Perro',100),
@@ -33,6 +35,13 @@ INSERT INTO Mascota (id,edad, nombre, tipo,duenio_id)
 (33,10, 'Brisa','Gato',200),
 (44,8, 'Cande', 'Perro',200),
 (55,7, 'Mishi', 'Gato',200);
+
+INSERT INTO Mascota (id,edad, nombre, tipo,duenio_id)
+ VALUES(66,5, 'More', 'Perro',700),
+(77,2, 'Pepe', 'Perro',200),
+(88,1, 'Lula', 'Perro',200),
+(99,6, 'Thor', 'Gato',600),
+(111,7, 'Lupe', 'Perro',700);
  
 INSERT INTO Vacuna (id,nombreVacuna,animal, vencimiento,cantStock) 
 VALUES	(1,'Quintuple','perro', 0,10),
