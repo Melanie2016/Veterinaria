@@ -13,6 +13,7 @@ public class Veterinario {
 	private Long veterinarioId;
 	private String nombre;
 	private String apellido;
+	private String especialidad;
 
 //	Date hoy = new Date();
 //	hoy.
@@ -37,7 +38,36 @@ public class Veterinario {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	
-	
+	public String getEspecialidad() {
+		return especialidad;
+	}
+	public void setEspecialidad(String especialidad) {
+		this.especialidad = especialidad;
+	}
+	//Use hashCode para que devuelva el veterinario en forma consistente
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((apellido == null) ? 0 : apellido.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Veterinario other = (Veterinario) obj;
+		if (apellido == null) {
+			if (other.apellido != null)
+				return false;
+		} else if (!apellido.equals(other.apellido))
+			return false;
+		return true;
+	}
 	
 }
