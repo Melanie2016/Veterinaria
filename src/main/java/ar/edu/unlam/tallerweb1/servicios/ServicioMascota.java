@@ -22,5 +22,7 @@ public interface ServicioMascota {
 	//intento mostrar fecha revacunacion
 	 Date mostrarRevacunacion(String fecha); //el parametro lo puse string porke viene de url
      public EstadoVacuna getIdEV(Long id);
+     
+     List<Mascota> mostrarMascotasDeUno(Long idUsuario);
 
 }

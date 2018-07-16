@@ -27,9 +27,17 @@
 				</div>
 			</nav>
 		<div class="container">
-			<h1>Perfil del usuario</h1>
-			
-			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<h1><span style="font-size:20px">
+		Perfil del</span> Cliente <span class="glyphicon glyphicon-heart" style="color:orange"></span></h1>
+		
+<div style="text-align: center">
+ <h3>Datos Personales</h3>
+        Email: ${usuario.email}<br>
+        Password: ${usuario.pass}<br>
+	</div>			
+			<div id="loginbox" style="margin-top:5px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+				
+				<div class="col-lg-6">
 				<table class="table table-striped">
 					<h3>Mis Mascotas:</h3>
 		            <thead>
@@ -39,6 +47,7 @@
 				            <th>Tipo</th>
 				            <th>Edad</th>
 				            <th></th>
+				            
 			            </tr>
 		            </thead>
 		
@@ -51,16 +60,19 @@
 		            	
 					    <td><a class="btn btn-warning" href="vacunas/${mascota.id}">VerVacunas <i class="fa fa-minus"></i> </td>          						    
 						<td><a class="btn btn-danger"> X <i class="fa fa-minus"></i>
-				    	</a></td>
-				    	
+				    	</a></td>			    	
 			        </tr>
 			        </c:forEach>
 		        </table>
 		 		<a href="<c:url value="/formMascota"/>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Agregar una mascota</a>	
+
+
+	
+	</div>
 			</div>
-		
+
 			
-		</div>
+		</div> 
 		<!-- Placed at the end of the do"src/main/webapp/WEB-INF/vistas/login.jsp"cument so the pages load faster -->
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

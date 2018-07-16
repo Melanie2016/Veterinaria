@@ -25,7 +25,7 @@
 </nav>
 		<div class = "container">
 		
-	<div class="alert alert-${tipo}">
+	<div style="text-align: center" class="alert alert-${tipo}">
 		<h1>${titulo}</h1>
 		<p>${mensaje}</p>
 	</div>

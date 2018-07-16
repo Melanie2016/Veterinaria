@@ -37,19 +37,19 @@
 			<h1><span style="font-size:20px">
 		Bienvenido</span> Administrador <span class="glyphicon glyphicon-heart" style="color:orange">
 		</span></h1>
-			<br>
+			<div  style="text-align: center">
+ <h3>Datos Personales</h3>
+ Email: ${usuario.email}<br>
+ Password: ${usuario.pass}<br>
+	</div>
+	<br>
 			<div class="alert alert-danger"style="width:470px;">
 			<h4><span class="glyphicon glyphicon-alert" style="color:red;"></span>&nbsp;
 			${aviso} &nbsp;<span class="glyphicon glyphicon-alert" style="color:red"></span></h4>		
             </div>
 <br>
   
-<div  style="text-align: center">
- <h3>Datos Personales</h3>
-		 Id: ${usuario.id} <br>
- Email: ${usuario.email}<br>
- Password: ${usuario.pass}<br>
-	</div>
+
 		
 	</div>		
 		</div>

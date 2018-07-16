@@ -39,13 +39,14 @@
 				<img src="img/fondo.png" class="img-fluid" alt="Responsive image"  width="auto" height="100">
 			</div>
 		 -->
-		<div class="fondo" style="background: url(img/fondo.png) no-repeat center;background-size:cover" >
+		<div class="fondo" style="background: url(img/fondo2.jpg) no-repeat center;background-size:auto;" >
 			
-			 <a href="<c:url value="/login"/>" class="btn btn-lg btn-primary  btn-warning"  role="button"
-			 style="margin-top:30%; margin-bottom:15px;"><i style="font-size:24px" class="fa">&#xf0f9;</i> Comenzar </a>	
-
+	
+		<a href="<c:url value="/login"/>" class="btn btn-lg btn-primary  btn-warning"  role="button"
+			 style="margin-top:30%; margin-bottom:15px;"><i style="font-size:24px" class="fa">&#xf0f9;</i> Comenzar </a>
 		
 		</div>
+	
 	
 	
 		<!-- Placed at the end of the document so the pages load faster -->

@@ -118,4 +118,9 @@ public class ServicioMascotaImpl implements ServicioMascota{
 	        System.out.println("fecha aumentada es--> " + nuevaFecha);
 	        return nuevaFecha;
 		}
+	 
+	 @Override
+		public List<Mascota> mostrarMascotasDeUno(Long idUsuario){
+			return servicioMascotaDao.mostrarMascotasDeUnoDao(idUsuario);		
+		}
 }

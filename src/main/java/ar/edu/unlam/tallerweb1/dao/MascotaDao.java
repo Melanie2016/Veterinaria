@@ -19,4 +19,6 @@ public interface MascotaDao {
 	
 	//intento revacunacion
 	public EstadoVacuna getIdEVDao(Long id);
+	
+	List<Mascota> mostrarMascotasDeUnoDao (Long idUsuario);
 }

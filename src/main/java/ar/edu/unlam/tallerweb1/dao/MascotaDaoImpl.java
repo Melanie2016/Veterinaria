@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import ar.edu.unlam.tallerweb1.modelo.EstadoVacuna;
 import ar.edu.unlam.tallerweb1.modelo.Mascota;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.modelo.Vacuna;
 
 @Repository("mascotaDao")
@@ -78,4 +79,25 @@ public class MascotaDaoImpl implements MascotaDao{
 						.uniqueResult();
 
 			}
+			
+			
+			//corregir.. no asocia las mascotas con el usuario	
+			@SuppressWarnings("unchecked")
+			@Override
+			public List<Mascota> mostrarMascotasDeUnoDao(Long idUsuario){
+				
+				final Session session = sessionFactory.getCurrentSession();
+				return session.createCriteria(Mascota.class,"m")
+						.createAlias("m.duenio","mascotaBus")
+						.add(Restrictions.eq("mascotaBus.id",idUsuario))
+						.list();
+			}
+			
+			/*
+			 * final Session session = sessionFactory.getCurrentSession();
+				return session.createCriteria(Usuario.class,"u")
+						.createAlias("u.mascota","mascotaBus")
+						.add(Restrictions.eq("mascotaBus.duenio",idUsuario))
+						.list();
+			 * */
 }
