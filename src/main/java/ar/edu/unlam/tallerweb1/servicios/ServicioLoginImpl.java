@@ -25,5 +25,17 @@ public class ServicioLoginImpl implements ServicioLogin {
 	public Usuario consultarUsuario (Usuario usuario) {
 		return servicioLoginDao.consultarUsuario(usuario);
 	}
+	
+	//para k muestre los datos en el perfil
+
+		@Override
+		public Usuario consultarUsuarioPorMail (Usuario usuario) {
+			return servicioLoginDao.consultarUsuarioPorMailDao(usuario);
+		}
+		
+		@Override
+		public Usuario buscarPorId(Long id) {
+			return servicioLoginDao.findById(id);
+		}
 
 }

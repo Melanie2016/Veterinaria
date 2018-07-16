@@ -3,6 +3,7 @@ package ar.edu.unlam.tallerweb1.controladores;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.modelo.Vacuna;
+import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 import ar.edu.unlam.tallerweb1.servicios.ServicioMascota;
 
 @Controller
@@ -19,13 +21,19 @@ public class ControladorAdmin {
 	
 	@Inject
 	private ServicioMascota servicioMascota;
+	@Inject
+	private ServicioLogin servicioLogin;
 	
 	
 	
 	@RequestMapping("/perfilAdmin")
-	public ModelAndView mostrarPerfilAdmin() {		
-		
+	public ModelAndView mostrarPerfilAdmin(HttpServletRequest request) {		
+		//se obtiene el usuario con su ssesion
+		Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
 		ModelMap model =new ModelMap();
+		
+		if (idUsuario != null) {
+			if (servicioLogin.buscarPorId(idUsuario).getRol().equals("admin")) {
 		Usuario admin = new Usuario();
 		model.put("admin", admin);	
 			
@@ -36,6 +44,15 @@ public class ControladorAdmin {
 			{ model.put("aviso", ">>No hay notificaciones para mostrar<<");}
 		
 	 return new ModelAndView ("perfilAdmin",model);
+			}//por rol
+			else {
+				model.put("tipo", "danger");
+				model.put("titulo", "Acceso denegado");
+				model.put("mensaje", "Para acceder usted debe tener rol ADMINISTRADOR");
+			return new ModelAndView("mensaje", model);}
+	}//usuario null	
+		else {
+			return new ModelAndView("redirect:/login");}
 		
 	}
 	
