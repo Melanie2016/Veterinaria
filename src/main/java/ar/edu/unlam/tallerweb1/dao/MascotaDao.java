@@ -23,6 +23,6 @@ public interface MascotaDao {
 	List<Mascota> mostrarMascotasDeUnoDao (Long idUsuario);
 	
 	void cargaDeMascotaDao (Mascota mascota);
-	//void editDeMascotaDao (Mascota mascota);
+	void editDeMascotaDao (Mascota mascota);
 	void eliminarMascotaDao(Mascota mascota);
 }

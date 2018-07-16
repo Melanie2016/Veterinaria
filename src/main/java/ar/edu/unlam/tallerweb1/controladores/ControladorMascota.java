@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.modelo.EstadoVacuna;
 import ar.edu.unlam.tallerweb1.modelo.Mascota;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.modelo.Vacuna;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 import ar.edu.unlam.tallerweb1.servicios.ServicioMascota;
 
@@ -90,6 +91,35 @@ public class ControladorMascota {
 			return new ModelAndView("correcto",modelo);
 			}
 			
+			//editar
+			@RequestMapping(path ="/editarMascota/{idMascota}", method = RequestMethod.GET)
+			public ModelAndView irAeditar(HttpServletRequest request,@PathVariable Long idMascota) {
+				
+				ModelMap modelo = new ModelMap();
+				Usuario usuarioLogueado = servicioLogin.buscarPorId((Long) request.getSession().getAttribute("idUsuario"));		
+				modelo.put("usuario", usuarioLogueado);
+				Mascota mascota=new Mascota();
+				modelo.put("mascota", servicioMascota.getId(idMascota));
+				modelo.put("id", mascota);
+					
+				return new ModelAndView("editarMascota",modelo);
+			}
+			//guardar edicion:NO ANDA
+			@RequestMapping(path ="/validarEdicion/", method = RequestMethod.POST)
+			public ModelAndView validarEdicion(@ModelAttribute("mascota") Mascota mascota,BindingResult bindingResult,HttpServletRequest request) {
+				
+				ModelMap modelo = new ModelMap();
+				modelo.put("mascota", modelo);
+				mascota.setDuenio(servicioLogin.buscarPorId((Long) request.getSession().getAttribute("idUsuario")));
+                mascota.setNombre(mascota.getNombre());
+                mascota.setEdad(mascota.getEdad());
+                mascota.setTipo(mascota.getTipo());
+            
+				servicioMascota.editDeMascota(mascota);
+				modelo.put("aviso", "Se EDITO correctamente");
+			
+				return new ModelAndView("correcto",modelo);
+			}
 			
 			@RequestMapping(path="/eliminar/{id}")
 			public ModelAndView irAeliminar(@ModelAttribute ("mascota") Mascota mascota) {

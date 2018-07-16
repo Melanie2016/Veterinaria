@@ -99,12 +99,12 @@ public class MascotaDaoImpl implements MascotaDao{
 				session.save(mascota);
 			}
 			
-		/*	@Override
+			@Override
 			public void editDeMascotaDao( Mascota mascota) {
 				final Session session = sessionFactory.getCurrentSession();
 				session.update(mascota);
 			}
-		*/	
+			
 			
 			@Override
 			public void eliminarMascotaDao(Mascota mascota) {

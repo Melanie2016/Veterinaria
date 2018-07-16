@@ -58,7 +58,8 @@
 			            <td>${mascota.edad}</td>
 		            	
 					    <td><a class="btn btn-warning" href="vacunas/${mascota.id}">VerVacunas <i class="fa fa-minus"></i> </td>          						    
-						<td><a class="btn btn-danger" href="eliminar/${mascota.id}"> X <i class="fa fa-minus"></i>
+						<td><a class="btn btn-warning" href="editarMascota/${mascota.id}"> <span class="glyphicon glyphicon-pencil"></span> <i class="fa fa-minus"></i>
+						<td><a class="btn btn-danger" href="eliminar/${mascota.id}"> <span class="glyphicon glyphicon-remove"></span> <i class="fa fa-minus"></i>
 				    	</a></td>			    	
 			        </tr>
 			        </c:forEach>

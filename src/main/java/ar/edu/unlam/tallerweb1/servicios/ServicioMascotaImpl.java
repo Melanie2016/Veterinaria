@@ -130,10 +130,10 @@ public class ServicioMascotaImpl implements ServicioMascota{
 			 servicioMascotaDao.cargaDeMascotaDao(mascota);
 		}
 		
-		/*@Override 
+		@Override 
 		public void editDeMascota(Mascota mascota) {
 			servicioMascotaDao.editDeMascotaDao(mascota);
-		}*/
+		}
 		
 		@Override 
 		public void eliminarMascota(Mascota mascota) {

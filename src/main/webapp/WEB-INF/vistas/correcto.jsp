@@ -26,11 +26,12 @@
     </ul>
   </div>
 </nav>
-		<div class = "container">
+		<div class = "container" >
 		
 	<div style="text-align: center" class="alert alert-success">
 		<h1>${aviso}</h1>
 	</div>
+	<a href="<c:url value="/perfil"/>" class="btn btn-lg btn-warning" role="button">Volver</a>
 			</div>
 	
 		

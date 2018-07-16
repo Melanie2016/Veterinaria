@@ -28,7 +28,7 @@ public interface ServicioMascota {
      
      //abm mascota
  	void cargaDeMascota(Mascota mascota);
- 	//void editDeMascota(Mascota mascota);
+ 	void editDeMascota(Mascota mascota);
  	void eliminarMascota(Mascota mascota);
 
 }
