@@ -16,9 +16,9 @@
 		    </div>
 		    
 		    <ul class="nav navbar-nav">
-		      <li class="active"><a href="#">Perfil</a></li>
-		      <li><a href="<c:url value="/turno"/>">Turnos</a></li>
-		      <li><a href="<c:url value="/peluqueria"/>">Peluquerias</a></li>
+              <li class="active"><a href="<c:url value="/perfilAdmin"/>">Perfil</a></li>
+		      <li><a href="<c:url value="/stockVacunas"/>">StockVacunas</a></li>
+		        <li><a href="#">Veterinarios</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
 		      <li><a href="#"><span class="glyphicon glyphicon-user" style="color:orange"></span> Registrarse</a></li>
@@ -27,37 +27,32 @@
 				</div>
 			</nav>
 		<div class="container">
-			<h1>Perfil del usuario</h1>
-			
-			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-				<table class="table table-striped">
-					<h3>Mis Mascotas:</h3>
+			<h1>Listado de Veterinarios</h1>
+				
+		 <table class="table table-striped">
 		            <thead>
 			            <tr>
 				            <th>Id</th>
-				            <th>Nombre</th>
-				            <th>Tipo</th>
-				            <th>Edad</th>
+				            <th>Nombre</th>	
+				            <th>Apellido</th>			       
+				           
 				            <th></th>
 			            </tr>
 		            </thead>
 		
-		            <c:forEach var="mascota" items="${mascota}">
+		             <c:forEach var="vet" items="${vet}">
 		            <tr>
-			            <td>${mascota.id}</td>
-			            <td>${mascota.nombre}</td>
-			            <td>${mascota.tipo}</td>
-			            <td>${mascota.edad}</td>
-		            	
-					    <td><a class="btn btn-warning" href="vacunas/${mascota.id}">VerVacunas <i class="fa fa-minus"></i> </td>          						    
-						<td><a class="btn btn-danger"> X <i class="fa fa-minus"></i>
-				    	</a></td>
-				    	
+			            <td>${vet.veterinarioId}</td>
+			            <td>${vet.nombre}</td>
+			            <td>${vet.apellido}</td>
+			          
+ 						<td> <a class="btn btn-warning" href="#">Editar <i class="fa fa-minus"></i> </td>
+                       <td> <a class="btn btn-danger" href="#">X<i class="fa fa-minus"></i> </td>
+		    	
 			        </tr>
 			        </c:forEach>
 		        </table>
-		 		<a href="<c:url value="/formMascota"/>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Agregar una mascota</a>	
-			</div>
+				 <a href="#>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Agregar Veterinario</a>	
 		
 			
 		</div>

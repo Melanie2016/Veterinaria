@@ -21,7 +21,10 @@
 		    <ul class="nav navbar-nav">
 		      <li class="active"><a href="#">Perfil</a></li>
 		      <li><a href="<c:url value="/stockVacunas"/>">StockVacunas</a></li>
-		        <li><a href="<c:url value="/veterinario-Abm"/>">Veterinarios</a></li>
+		        <li><a href="<c:url value="/veterinarios"/>">Veterinarios</a></li>
+		        
+		        
+		        
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
 		      

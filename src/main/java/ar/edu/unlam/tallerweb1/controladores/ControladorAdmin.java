@@ -7,14 +7,17 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.modelo.Vacuna;
+import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 import ar.edu.unlam.tallerweb1.servicios.ServicioMascota;
+import ar.edu.unlam.tallerweb1.servicios.ServicioVeterinario;
 
 @Controller
 public class ControladorAdmin {
@@ -23,6 +26,8 @@ public class ControladorAdmin {
 	private ServicioMascota servicioMascota;
 	@Inject
 	private ServicioLogin servicioLogin;
+	@Inject
+	private ServicioVeterinario servicioVeterinario;
 	
 	
 	
@@ -76,6 +81,17 @@ public class ControladorAdmin {
 
 		    return new ModelAndView ("stockVacunas",model);
 		
+	}
+	
+	//solapa veterinarios
+	
+	@RequestMapping("/veterinarios")
+	public ModelAndView irAlistadoDeVeterinarios() {
+		
+		ModelMap modelo = new ModelMap();
+		List<Veterinario> listVet=servicioVeterinario.listarTodosLosVeterinarios();
+		modelo.put("vet", listVet);
+		return new ModelAndView("veterinarios",modelo);
 	}
 
 }

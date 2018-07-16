@@ -30,15 +30,9 @@ public class ControladorVeterinarioAbm {
 	
 	@RequestMapping(path = "veterinario-Abm")
 	public ModelAndView mostrarEquipo(HttpServletRequest request) {
-
-		
-		if(request.getSession().getAttribute("admin") == null) {
-			return new ModelAndView("redirect:/");
-			
-		}
-		
+				
 		ModelMap modelo = new ModelMap();
-		
+	
 		Veterinario veterinario= new Veterinario();
 		modelo.put("veterinario",veterinario);
 		
@@ -48,10 +42,10 @@ public class ControladorVeterinarioAbm {
 		Usuario consultarUsuario = servicioLogin.buscarPorId((Long) request.getSession().getAttribute("admin"));
 		modelo.put("usuario",consultarUsuario);
 		modelo.put("email",consultarUsuario.getEmail());
-		
-		
+				
 		return new ModelAndView("veterinario-Abm",modelo);
-	}
+	
+	  }
 
 	
 	@RequestMapping(path = "crear-veterinario" , method = RequestMethod.POST)
@@ -123,4 +117,5 @@ public class ControladorVeterinarioAbm {
 
 		return new ModelAndView("veterinario-Abm" , modelo);
 	}
+	
 }
