@@ -92,12 +92,24 @@ public class MascotaDaoImpl implements MascotaDao{
 						.add(Restrictions.eq("mascotaBus.id",idUsuario))
 						.list();
 			}
+			//abm
+			@Override
+			public void cargaDeMascotaDao( Mascota mascota) {
+				final Session session = sessionFactory.getCurrentSession();
+				session.save(mascota);
+			}
 			
-			/*
-			 * final Session session = sessionFactory.getCurrentSession();
-				return session.createCriteria(Usuario.class,"u")
-						.createAlias("u.mascota","mascotaBus")
-						.add(Restrictions.eq("mascotaBus.duenio",idUsuario))
-						.list();
-			 * */
+		/*	@Override
+			public void editDeMascotaDao( Mascota mascota) {
+				final Session session = sessionFactory.getCurrentSession();
+				session.update(mascota);
+			}
+		*/	
+			
+			@Override
+			public void eliminarMascotaDao(Mascota mascota) {
+				final Session session = sessionFactory.getCurrentSession();
+				session.delete(mascota);
+
+			}
 }

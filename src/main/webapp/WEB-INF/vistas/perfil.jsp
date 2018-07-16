@@ -21,8 +21,7 @@
 		      <li><a href="<c:url value="/peluqueria"/>">Peluquerias</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
-		      <li><a href="#"><span class="glyphicon glyphicon-user" style="color:orange"></span> Registrarse</a></li>
-		      <li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in" style="color:orange"></span> Login</a></li>
+		       <li><a href="<c:url value="/cerrarSession"/>"><span class="glyphicon glyphicon-log-in" style="color:orange"></span> LogOut</a></li>
 		    </ul>
 				</div>
 			</nav>
@@ -31,7 +30,7 @@
 		Perfil del</span> Cliente <span class="glyphicon glyphicon-heart" style="color:orange"></span></h1>
 		
 <div style="text-align: center">
- <h3>Datos Personales</h3>
+ <h3>Datos Personales</h3>Id: ${usuario.id}<br>
         Email: ${usuario.email}<br>
         Password: ${usuario.pass}<br>
 	</div>			
@@ -59,7 +58,7 @@
 			            <td>${mascota.edad}</td>
 		            	
 					    <td><a class="btn btn-warning" href="vacunas/${mascota.id}">VerVacunas <i class="fa fa-minus"></i> </td>          						    
-						<td><a class="btn btn-danger"> X <i class="fa fa-minus"></i>
+						<td><a class="btn btn-danger" href="eliminar/${mascota.id}"> X <i class="fa fa-minus"></i>
 				    	</a></td>			    	
 			        </tr>
 			        </c:forEach>

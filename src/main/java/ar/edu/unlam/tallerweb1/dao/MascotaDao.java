@@ -21,4 +21,8 @@ public interface MascotaDao {
 	public EstadoVacuna getIdEVDao(Long id);
 	
 	List<Mascota> mostrarMascotasDeUnoDao (Long idUsuario);
+	
+	void cargaDeMascotaDao (Mascota mascota);
+	//void editDeMascotaDao (Mascota mascota);
+	void eliminarMascotaDao(Mascota mascota);
 }

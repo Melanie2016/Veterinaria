@@ -28,9 +28,8 @@
 </nav>
 		<div class = "container">
 		
-	<div style="text-align: center" class="alert alert-${tipo}">
-		<h1>${titulo}</h1>
-		<p>${mensaje}</p>
+	<div style="text-align: center" class="alert alert-success">
+		<h1>${aviso}</h1>
 	</div>
 			</div>
 	

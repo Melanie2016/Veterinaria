@@ -18,48 +18,28 @@
 					<ul class="nav navbar-nav">
 				<li><a href="<c:url value="/perfil"/>">Perfil</a></li>
 				<li><a href="<c:url value="/turno"/>">Turnos</a></li>
-						<li><a href="#">Peluquerias</a></li>
+				<li><a href="<c:url value="/peluqueria"/>">Peluquerias</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#"><span class="glyphicon glyphicon-user"
-								style="color: orange"></span> Registrarse</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-log-in"
-								style="color: orange"></span> Login</a></li>
+						
+ <li><a href="<c:url value="/cerrarSession"/>"><span class="glyphicon glyphicon-log-in" style="color:orange"></span> LogOut</a></li>
+
 					</ul>
 				</div>
 		</nav>
 		<div class = "container">
 			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 
-				<form:form >
-					<h3>Ingrese los datos de su mascota</h3>
-					
-					<label for="nombre">Nombre:</label>
-					<input type="text" class="form-control" />
-					<br>
-					<label for="tipo">Tipo de Mascota:</label>
-					<select class="form-control" id="sel1">
-						<option>Seleccione</option>
-				        <option>Perro</option>
-				        <option>Gato</option>
-				        <option>Tortuga</option>
-				        <option>Pajaro</option>
-				        <option>Hamsters</option>
-			      	</select>
-			      	<br>
-						 <!--Creo que el duenio no debe ingresarse, porke el form esta siendo usado desde la cuenta del duenio-->
-						<!--	<label for="duenio">Duenio:</label>
-						<input type="text" class="form-control" />		      
-							
-						<label for="vacunas">Vacunas que tiene aplicadas:</label>
-						<label class="checkbox-inline"><input type="checkbox" value="">Quintuple</label>		      	
-						<label class="checkbox-inline"><input type="checkbox" value="">Sextuple</label>
-						<label class="checkbox-inline"><input type="checkbox" value="">Rabia</label>
-							<br>-->
-			      	
-				<button class="btn btn-lg btn-block btn-default" Type="Submit" /> Ingresar</button>
-			    <a href="<c:url value="/perfil"/>" class="btn btn-lg btn-block btn-default" role="button">Volver</a>	 
-				  	
+				<form:form action="validarMascota" method="POST" modelAttribute="mascota">
+	<h3>Ingrese los datos de su mascota</h3>
+						
+	<form:input path="nombre" id="nombre" type="text" class="form-control" placeholder="Nombre" /><br>
+	<form:input path="edad" id="edad"  type="text" class="form-control" placeholder="Edad" /><br>
+	<form:input path="tipo" id="tipo"  type="text" class="form-control" placeholder="Animal" /><br>
+	<form:input path="duenio" id="duenio" type="text" value="${usuario.id}" class="form-control" placeholder="Id del duenio" /><br>
+				      	<!-- ${chofer.getId()} -->
+	<button class="btn btn-lg btn-block btn-warning" Type="Submit" /> Ingresar</button>
+	<a href="<c:url value="/perfil"/>" class="btn btn-lg btn-block btn-warning" role="button">Volver</a>	 	  	
 				</form:form>
 			</div>
 		</div>

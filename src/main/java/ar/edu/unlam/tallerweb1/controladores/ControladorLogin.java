@@ -93,20 +93,6 @@ public class ControladorLogin {
 			return new ModelAndView("redirect:/login");
 		}
 	
-	//Para probar las vistas del formulario.
-	@RequestMapping("/formMascota")
-	public ModelAndView sacarTurno() {
-		String msj = "hola";
-		ModelMap model =new ModelMap();
-		
-		model.put("datos", msj);
-		
-		return new ModelAndView ("formMascota",model);
-	}
-	
-
-	
-
 	
 	// test de mockito controlador
 	public ServicioLogin getServicioLogin() {

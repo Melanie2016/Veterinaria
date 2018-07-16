@@ -43,10 +43,7 @@ public class ControladorAdmin {
 				Usuario usuarioLogueado = servicioLogin.buscarPorId((Long) request.getSession().getAttribute("idUsuario"));		
 				model.put("usuario", usuarioLogueado);
 				model.put("id", usuarioLogueado);
-				model.put("email", usuarioLogueado);
-				
-		//Usuario admin = new Usuario();
-		//model.put("admin", admin);	
+				model.put("email", usuarioLogueado);	
 			
 		Integer aviso =servicioMascota.consultarStock();
 			if(aviso==0){

@@ -24,5 +24,11 @@ public interface ServicioMascota {
      public EstadoVacuna getIdEV(Long id);
      
      List<Mascota> mostrarMascotasDeUno(Long idUsuario);
+     
+     
+     //abm mascota
+ 	void cargaDeMascota(Mascota mascota);
+ 	//void editDeMascota(Mascota mascota);
+ 	void eliminarMascota(Mascota mascota);
 
 }

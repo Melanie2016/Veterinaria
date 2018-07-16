@@ -123,4 +123,20 @@ public class ServicioMascotaImpl implements ServicioMascota{
 		public List<Mascota> mostrarMascotasDeUno(Long idUsuario){
 			return servicioMascotaDao.mostrarMascotasDeUnoDao(idUsuario);		
 		}
+	 
+	 
+	 @Override 
+		public void cargaDeMascota(Mascota mascota) {
+			 servicioMascotaDao.cargaDeMascotaDao(mascota);
+		}
+		
+		/*@Override 
+		public void editDeMascota(Mascota mascota) {
+			servicioMascotaDao.editDeMascotaDao(mascota);
+		}*/
+		
+		@Override 
+		public void eliminarMascota(Mascota mascota) {
+			servicioMascotaDao.eliminarMascotaDao(mascota);
+		}
 }
