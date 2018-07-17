@@ -83,7 +83,7 @@
 				            </c:if>
             
 				            <c:if test="${id.estado=='Dada'}">
-				<a class="btn btn-default" href="<c:url value="/revacunar/${id.id}/${id.fecha_aplicacion}"/>">VerRevacunacion <i class="fa fa-edit"></i></a>			
+				<a class="btn btn-default" href="../revacunar/${id.id}">VerRevacunacion <i class="fa fa-edit"></i></a>			
 			            </c:if>
                             </td>                         
                         </tr>

@@ -20,47 +20,58 @@ VALUES 	(1	,'Lunes'	,1100	,0800	,1	,1	),
 /*para probar los perfiles y las vacunas de las mascotas*/
  
 INSERT INTO Usuario(id,email,pass,rol) 
-VALUES 	(100,'laush_x4','123','admin'),
-		(200,'usuario2','456','cliente'),
-		(300,'sergio','789','vet'),
-		(400,'admin','111','admin'),
-		(500,'cliente','222','cliente');
-INSERT INTO Usuario(id,email,pass,rol) VALUES (600,'vet@gmail.com','333','vet');
-INSERT INTO Usuario(id,email,pass,rol) VALUES (700,'cliente@gmail.com','444','cliente');
-INSERT INTO Usuario(id,email,pass,rol) VALUES (800,'admin@gmail.com','555','admin');
+VALUES 	(100,'lau@gmail.com'	,'111','admin'	),
+		(200,'usu@gmail.com'	,'222','cliente'),
+		(300,'sergio@gmail.com'	,'333','vet'	),
+		(400,'mel@gmail.com'	,'444','admin'	),
+		(500,'cliente@gmail.com','555','cliente'),
+		(600,'vet@gmail.com'	,'666','vet'	),
+		(700,'cli@gmail.com'	,'777','cliente'),
+		(800,'admin@gmail.com'	,'888','admin'	);
  
 INSERT INTO Mascota (id,edad, nombre, tipo,duenio_id)
- VALUES (11,5, 'Rubi','Perro',100),
-(22,3, 'Clara', 'Perro',100),
-(33,10, 'Brisa','Gato',200),
-(44,8, 'Cande', 'Perro',200),
-(55,7, 'Mishi', 'Gato',200);
-
-INSERT INTO Mascota (id,edad, nombre, tipo,duenio_id)
- VALUES(66,5, 'More', 'Perro',700),
-(77,2, 'Pepe', 'Perro',200),
-(88,1, 'Lula', 'Perro',200),
-(99,6, 'Thor', 'Gato',600),
-(111,7, 'Lupe', 'Perro',700);
+ VALUES (11,5	,'Rubi'	, 'Perro'	,200),
+		(22,3	,'Clara', 'Perro'	,500),
+		(33,10	,'Brisa', 'Gato'	,500),
+		(44,8	,'Cande', 'Perro'	,700),
+		(55,7	,'Mishi', 'Gato'	,700),
+		(66,5	, 'More', 'Perro'	,700),
+		(77,2	, 'Pepe', 'Gato'	,200),
+		(88,1	, 'Lula', 'Perro'	,200),
+		(99,6	, 'Thor', 'Gato'	,500);
+	
  
 INSERT INTO Vacuna (id,nombreVacuna,animal, vencimiento,cantStock) 
-VALUES	(1,'Quintuple','perro', 0,10),
-		(2,'Sextuple','perro', 12,25),
-		(3,'Rabia','perro', 12,50),
-		(4,'TripleFelina','gato', 0,5),
-		(5,'Rabia','gato', 12,18),
-		(6,'TosPerruna','perro', 12,34);
+VALUES	(1,'Quintuple'		,'perro',0	,10	),
+		(2,'Sextuple'		,'perro',12	,25	),
+		(3,'Rabia'			,'perro',12	,50	),
+		(4,'TripleFelina'	,'gato'	,0	,5	),
+		(5,'Rabia'			,'gato'	,12	,18	),
+		(6,'TosPerruna'		,'perro',12	,34	);
 
 
-INSERT INTO EstadoVacuna values
-(1,'Dada','20170202',11,1),(2,'Dada','20170202',11,2),(3,'Dada','20160206',11,3),(4,'no','20151005',11,6),
-(5,'no','20170201',22,1),(6,'Dada','20170204',22,2),(7,'no','20170905',22,3),(8,'Dada','20141005',22,6),
-(9,'Dada','20170206',33,4),(10,'Dada','20171107',33,5),
-(11,'Dada','20160206',55,4),(12,'Dada','20171122',55,5);
-INSERT INTO EstadoVacuna values
-(13,'no','20170202',44,1),(14,'Dada','20180202',44,2),(15,'Dada','20180206',44,3),(16,'no','20151005',44,6),
-(17,'no','20170202',77,1),(18,'Dada','20180202',77,2),(19,'no','20180206',77,3),(20,'no','20151005',77,6);
- 
+INSERT INTO EstadoVacuna 
+VALUES	(1	,'Dada','20170202',11,1),
+		(2	,'Dada','20170202',11,2),
+		(3	,'Dada','20160206',11,3),
+		(4	,'no'  ,'20151005',11,6),
+		(5	,'no'  ,'20170201',22,1),
+		(6	,'Dada','20170204',22,2),
+		(7	,'no'  ,'20170905',22,3),
+		(8	,'Dada','20141005',22,6),
+		(9	,'Dada','20170206',33,4),
+		(10	,'Dada','20171107',33,5),
+		(11	,'Dada','20160206',55,4),
+		(12	,'Dada','20171122',55,5),
+		(13	,'no'  ,'20170202',44,1),
+		(14	,'Dada','20180202',44,2),
+		(15	,'Dada','20180206',44,3),
+		(16	,'no'  ,'20151005',44,6),
+		(17	,'no'  ,'20170202',77,1),
+		(18	,'Dada','20180202',77,2),
+		(19	,'no'  ,'20180206',77,3),
+		(20	,'no'  ,'20151005',77,6);
+	 
 
 /*Carga para funcionalidad de turnos */
 

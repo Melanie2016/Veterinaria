@@ -13,7 +13,7 @@ public class Veterinario {
 	private Long veterinarioId;
 	private String nombre;
 	private String apellido;
-	private String especialidad;
+//	private String especialidad;
 
 //	Date hoy = new Date();
 //	hoy.
@@ -38,12 +38,19 @@ public class Veterinario {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public String getEspecialidad() {
-		return especialidad;
-	}
-	public void setEspecialidad(String especialidad) {
-		this.especialidad = especialidad;
-	}
+	
+	
+	
+//	public String getEspecialidad() {
+//		return especialidad;
+//	}
+//	public void setEspecialidad(String especialidad) {
+//		this.especialidad = especialidad;
+//	}
+	
+	
+	
+	
 	//Use hashCode para que devuelva el veterinario en forma consistente
 	@Override
 	public int hashCode() {

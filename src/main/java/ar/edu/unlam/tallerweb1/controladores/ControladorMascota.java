@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -30,38 +31,55 @@ public class ControladorMascota {
 	private ServicioLogin servicioLogin;
 
 	
-			@RequestMapping("/vacunas/{idMascota}")
-			public ModelAndView irAvacunas(@PathVariable Long idMascota) {
+	@RequestMapping("/vacunas/{idMascota}")
+	public ModelAndView irAvacunas(@PathVariable Long idMascota) {
 				
-				ModelMap modelo = new ModelMap();
-				List<EstadoVacuna> vacuna = servicioMascota.mostrarEstadoVacunas(idMascota);
-
-				modelo.put("id",vacuna);
-				modelo.put("vacuna",vacuna);
-				modelo.put("fecha_aplicacion",vacuna);
-				modelo.put("estado",vacuna);
-				modelo.put("vencimiento",vacuna);
-
-				Mascota mascota = new Mascota(); 
-				modelo.put("mascota",servicioMascota.getId(idMascota));
-				modelo.put("nombre",mascota);
-						
-				return new ModelAndView("vacunas",modelo);
-			}
+		ModelMap modelo = new ModelMap();
+		List<EstadoVacuna> vacuna = servicioMascota.mostrarEstadoVacunas(idMascota);
+	
+		modelo.put("id",vacuna);
+		modelo.put("vacuna",vacuna);
+		modelo.put("fecha_aplicacion",vacuna);
+		modelo.put("estado",vacuna);
+		modelo.put("vencimiento",vacuna);
+	
+		Mascota mascota = new Mascota(); 
+		modelo.put("mascota",servicioMascota.getId(idMascota));
+		modelo.put("nombre",mascota);
+							
+		return new ModelAndView("vacunas",modelo);
+	}
+	
+	
+	
+	
 	/*esto deberia levar a una vista aparte para mostrar la fecha de aplicacion pero 
 	 * sumandole 12 meses, pero ahora solo funciona usando la fecha de HOY y le suma un año*/		
-			@RequestMapping("/revacunar/{idEstadoVacuna}/{fecha}")
-			public ModelAndView irArevacunar(@PathVariable Long idEstadoVacuna,@PathVariable(value = "fecha") String fecha) {
-				
-				ModelMap modelo = new ModelMap();
-				modelo.put("ev",servicioMascota.getIdEV(idEstadoVacuna));
-			
-				modelo.put("rev",servicioMascota.mostrarRevacunacion(fecha));	
-				System.out.println("El id de estado vacuna es--> " + idEstadoVacuna);
-				System.out.println("fecha de aplicacion es--> " + fecha);
-				
-				return new ModelAndView("revacunar",modelo);
-			}
+	@RequestMapping("/revacunar/{idEstadoVacuna}")
+	public ModelAndView irArevacunar(@PathVariable Long idEstadoVacuna) {
+					
+		ModelMap modelo = new ModelMap();
+						
+		EstadoVacuna estadoVacuna = servicioMascota.consultaEstadoVacuna(idEstadoVacuna);
+		Date revacunacion = servicioMascota.mostrarRevacunacion(estadoVacuna);
+		
+		modelo.put("vacunaNombre", estadoVacuna.getVacuna().getNombreVacuna());
+		
+		modelo.put("rev", revacunacion);
+					
+					
+					
+//					modelo.put("ev",servicioMascota.consultarFechaDeVacunacion(idEstadoVacuna));
+//				
+//					modelo.put("rev",servicioMascota.mostrarRevacunacion(fecha));	
+//					System.out.println("El id de estado vacuna es--> " + idEstadoVacuna);
+//					System.out.println("fecha de aplicacion es--> " + fecha);
+					
+		return new ModelAndView("revacunar",modelo);
+	}
+		
+	
+	
 			
 			
 			//Para agregar una mascota..{id}@PathVariable Long id para k envie iddeususario

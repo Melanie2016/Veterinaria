@@ -25,4 +25,8 @@ public interface MascotaDao {
 	void cargaDeMascotaDao (Mascota mascota);
 	void editDeMascotaDao (Mascota mascota);
 	void eliminarMascotaDao(Mascota mascota);
+	
+	
+	//para revacunar
+	EstadoVacuna consultaEstadoVacunaDao(Long idEstadoVacuna);
 }

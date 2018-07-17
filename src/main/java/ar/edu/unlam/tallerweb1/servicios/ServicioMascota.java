@@ -8,6 +8,9 @@ import ar.edu.unlam.tallerweb1.modelo.Mascota;
 import ar.edu.unlam.tallerweb1.modelo.Vacuna;
 
 public interface ServicioMascota {
+	
+	
+	
 	List<Mascota> mostrarMascotas();
 	Mascota getId(Long id); 
 	List<EstadoVacuna> mostrarEstadoVacunas(Long idMascota);
@@ -19,10 +22,10 @@ public interface ServicioMascota {
 	int consultarStock();
 	//int consultarEstado(Long idMascota);
 	
-	//intento mostrar fecha revacunacion
-	 Date mostrarRevacunacion(String fecha); //el parametro lo puse string porke viene de url
-     public EstadoVacuna getIdEV(Long id);
-     
+//	//intento mostrar fecha revacunacion
+//	 Date mostrarRevacunacion(String fecha); //el parametro lo puse string porke viene de url
+//     public EstadoVacuna getIdEV(Long id);
+//     
      List<Mascota> mostrarMascotasDeUno(Long idUsuario);
      
      
@@ -30,5 +33,18 @@ public interface ServicioMascota {
  	void cargaDeMascota(Mascota mascota);
  	void editDeMascota(Mascota mascota);
  	void eliminarMascota(Mascota mascota);
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	// para revacurar 
+ 	EstadoVacuna consultaEstadoVacuna(Long idEstadoVacuna);
+ 	
+ 	Date mostrarRevacunacion(EstadoVacuna estadoVacuna);
+	
 
+	
+	
+	
 }

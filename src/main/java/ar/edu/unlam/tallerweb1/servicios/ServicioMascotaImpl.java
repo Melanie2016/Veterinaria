@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.servicios;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -83,41 +84,41 @@ public class ServicioMascotaImpl implements ServicioMascota{
 	        return servicioMascotaDao.getIdEVDao(id);
 	    }
 	 
-	 @Override
-		public Date mostrarRevacunacion(String fecha){
-			//recibo la fecha como un string
-			System.out.println("fecha de aplicacion es--> " + fecha);
-
-			//intento convertirla del tipo DATE	    
-			/*SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-			 //otra forma: SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
-	        try {
-
-	            Date date = formatter.parse(fecha);
-	           //otra forma Date date = formatter.parse(fecha.replaceAll("Z$", "+0000"));
-	            Calendar cal = Calendar.getInstance();
-	            cal.setTime(date);
-	            cal.add(Calendar.MONTH, 12);
-	            Date nuevaFecha = cal.getTime();
-	            return nuevaFecha;
-
-	       } catch (ParseException e) {
-	           e.printStackTrace();
-	        }
-		*/
-			
-			//otro intento---default, ISO_LOCAL_DATE
-	       // LocalDate localDate = LocalDate.parse(fecha);
-			
-			//PROVISORIO calcula sobre la fecha de hoy, y le suma meses			
-	        Calendar cal = Calendar.getInstance(); 
-			Date hoy = new Date();	
-	        cal.setTime(hoy); 
-	        cal.add(Calendar.MONTH, 12);
-	        Date nuevaFecha = cal.getTime();
-	        System.out.println("fecha aumentada es--> " + nuevaFecha);
-	        return nuevaFecha;
-		}
+//	 @Override
+//		public Date mostrarRevacunacion(String fecha){
+//			//recibo la fecha como un string
+//			System.out.println("fecha de aplicacion es--> " + fecha);
+//
+//			//intento convertirla del tipo DATE	    
+//			/*SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+//			 //otra forma: SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+//	        try {
+//
+//	            Date date = formatter.parse(fecha);
+//	           //otra forma Date date = formatter.parse(fecha.replaceAll("Z$", "+0000"));
+//	            Calendar cal = Calendar.getInstance();
+//	            cal.setTime(date);
+//	            cal.add(Calendar.MONTH, 12);
+//	            Date nuevaFecha = cal.getTime();
+//	            return nuevaFecha;
+//
+//	       } catch (ParseException e) {
+//	           e.printStackTrace();
+//	        }
+//		*/
+//			
+//			//otro intento---default, ISO_LOCAL_DATE
+//	       // LocalDate localDate = LocalDate.parse(fecha);
+//			
+//			//PROVISORIO calcula sobre la fecha de hoy, y le suma meses			
+//	        Calendar cal = Calendar.getInstance(); 
+//			Date hoy = new Date();	
+//	        cal.setTime(hoy); 
+//	        cal.add(Calendar.MONTH, 12);
+//	        Date nuevaFecha = cal.getTime();
+//	        System.out.println("fecha aumentada es--> " + nuevaFecha);
+//	        return nuevaFecha;
+//		}
 	 
 	 @Override
 		public List<Mascota> mostrarMascotasDeUno(Long idUsuario){
@@ -139,4 +140,35 @@ public class ServicioMascotaImpl implements ServicioMascota{
 		public void eliminarMascota(Mascota mascota) {
 			servicioMascotaDao.eliminarMascotaDao(mascota);
 		}
+		
+		
+		
+		
+		
+		
+	// para revacunar
+	@Override
+	public EstadoVacuna consultaEstadoVacuna(Long idEstadoVacuna) {
+		return  servicioMascotaDao.consultaEstadoVacunaDao(idEstadoVacuna);
+	}
+	
+	
+	@Override
+	public Date mostrarRevacunacion(EstadoVacuna estadoVacuna){
+		
+//		estadoVacuna.getId();
+		
+		Calendar fechaGC = new GregorianCalendar();
+		fechaGC.setTime(estadoVacuna.getFecha_aplicacion());
+		
+		fechaGC.add(Calendar.MONTH, 12);
+		 
+		return fechaGC.getTime();
+	
+	}
+	
+	
+	
+	
+	
 }

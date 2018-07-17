@@ -112,4 +112,25 @@ public class MascotaDaoImpl implements MascotaDao{
 				session.delete(mascota);
 
 			}
+			
+			
+			
+	// para revacunar
+	@Override
+	public EstadoVacuna consultaEstadoVacunaDao(Long idEstadoVacuna) {
+		final Session session = sessionFactory.getCurrentSession();
+		return (EstadoVacuna) session.createCriteria(EstadoVacuna.class, "estVacuna")
+			.add(Restrictions.eq("estVacuna.id", idEstadoVacuna))
+			.uniqueResult();
+	}	
+			
+
+
+	
+	
+	
+	
+			
+			
 }
+
