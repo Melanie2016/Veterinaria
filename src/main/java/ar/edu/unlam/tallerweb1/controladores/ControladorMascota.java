@@ -49,12 +49,7 @@ public class ControladorMascota {
 							
 		return new ModelAndView("vacunas",modelo);
 	}
-	
-	
-	
-	
-	/*esto deberia levar a una vista aparte para mostrar la fecha de aplicacion pero 
-	 * sumandole 12 meses, pero ahora solo funciona usando la fecha de HOY y le suma un año*/		
+		
 	@RequestMapping("/revacunar/{idEstadoVacuna}")
 	public ModelAndView irArevacunar(@PathVariable Long idEstadoVacuna) {
 					
@@ -67,22 +62,10 @@ public class ControladorMascota {
 		
 		modelo.put("rev", revacunacion);
 					
-					
-					
-//					modelo.put("ev",servicioMascota.consultarFechaDeVacunacion(idEstadoVacuna));
-//				
-//					modelo.put("rev",servicioMascota.mostrarRevacunacion(fecha));	
-//					System.out.println("El id de estado vacuna es--> " + idEstadoVacuna);
-//					System.out.println("fecha de aplicacion es--> " + fecha);
-					
 		return new ModelAndView("revacunar",modelo);
 	}
 		
-	
-	
-			
-			
-			//Para agregar una mascota..{id}@PathVariable Long id para k envie iddeususario
+
 			@RequestMapping("/formMascota")
 			public ModelAndView ingresarMascota(HttpServletRequest request) {
 				
@@ -109,7 +92,7 @@ public class ControladorMascota {
 			return new ModelAndView("correcto",modelo);
 			}
 			
-			//editar
+			//editar: NO FUNCIONa
 			@RequestMapping(path ="/editarMascota/{idMascota}", method = RequestMethod.GET)
 			public ModelAndView irAeditar(HttpServletRequest request,@PathVariable Long idMascota) {
 				

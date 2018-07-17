@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Mascota;
@@ -42,6 +41,13 @@ public class ControladorUsuario {
 			model.put("mascota",mascota);
 			model.put("id",mascota);
 					
+			//notificacion si falta aplicar vacunas
+			int cant = servicioMascota.consultarEstado(idUsuario);
+			if (cant>0){
+				model.put("aviso", " Tiene "+ cant+ " vacunas sin aplicar ");
+			}else
+			{ model.put("aviso", ">>No hay notificaciones para mostrar<<");}
+					
 			return new ModelAndView ("perfil",model);
 			}//por rol
 				
@@ -52,18 +58,10 @@ public class ControladorUsuario {
 			return new ModelAndView("mensaje", model);}
 			}//usuario null
 				return new ModelAndView("redirect:/login");}
-	
+		
 		/*
-		//perfil humano:carga todas las mascotas
-		
-			@RequestMapping(path="/perfil", method=RequestMethod.GET)
-			public ModelAndView mostrarPerfilHumano() {			
-				ModelMap modelo = new ModelMap();
-				List<Mascota> mList = servicioMascota.mostrarMascotas();
-				modelo.put("mascota", mList);
-				modelo.put("id", mList);
-				return new ModelAndView("perfil",modelo);
-			}
-		
-*/
+		  //contar cant de mascotas
+					Integer cantPerros =servicioMascota.contarMascotas();
+					 modelo.put("aviso", "Usted tiene:" + cantPerros + "perros" );*/
+	
 }

@@ -38,24 +38,7 @@ public class ServicioMascotaImpl implements ServicioMascota{
 	public List<EstadoVacuna> mostrarEstadoVacunas(Long idMascota){
 		return servicioMascotaDao.mostrarEstadoVacunasDao(idMascota);
 		
-	}
-	
-	//intento se suprimir el if del html pero con servicio
-	//no funciona ya que no tengo el idEstadoVacuna y 
-	//en el html debo informar al href a que vista ir
-/*	@Override
-	 public int consultarEstado(Long idMascota){ 
-	 List<EstadoVacuna> listaEV= servicioMascotaDao.mostrarEstadoVacunasDao(idMascota);	 
-		for (EstadoVacuna ev : listaEV) {
-			if (ev.getEstado()=="no")
-				System.out.println("Estado-----> " + ev.getEstado());
-			return 0;				
-	 }
-	return 1;
- }
-*/	
-	
-	
+	}	
 	
 	//para el stock
 	@Override
@@ -77,48 +60,11 @@ public class ServicioMascotaImpl implements ServicioMascota{
   }	
 	 
 	 
-	 //intento revacunacion
-	 
 	//que me muestre por el id ingresado estado vacuna
 		public EstadoVacuna getIdEV(Long id) {
 	        return servicioMascotaDao.getIdEVDao(id);
 	    }
 	 
-//	 @Override
-//		public Date mostrarRevacunacion(String fecha){
-//			//recibo la fecha como un string
-//			System.out.println("fecha de aplicacion es--> " + fecha);
-//
-//			//intento convertirla del tipo DATE	    
-//			/*SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-//			 //otra forma: SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
-//	        try {
-//
-//	            Date date = formatter.parse(fecha);
-//	           //otra forma Date date = formatter.parse(fecha.replaceAll("Z$", "+0000"));
-//	            Calendar cal = Calendar.getInstance();
-//	            cal.setTime(date);
-//	            cal.add(Calendar.MONTH, 12);
-//	            Date nuevaFecha = cal.getTime();
-//	            return nuevaFecha;
-//
-//	       } catch (ParseException e) {
-//	           e.printStackTrace();
-//	        }
-//		*/
-//			
-//			//otro intento---default, ISO_LOCAL_DATE
-//	       // LocalDate localDate = LocalDate.parse(fecha);
-//			
-//			//PROVISORIO calcula sobre la fecha de hoy, y le suma meses			
-//	        Calendar cal = Calendar.getInstance(); 
-//			Date hoy = new Date();	
-//	        cal.setTime(hoy); 
-//	        cal.add(Calendar.MONTH, 12);
-//	        Date nuevaFecha = cal.getTime();
-//	        System.out.println("fecha aumentada es--> " + nuevaFecha);
-//	        return nuevaFecha;
-//		}
 	 
 	 @Override
 		public List<Mascota> mostrarMascotasDeUno(Long idUsuario){
@@ -140,11 +86,7 @@ public class ServicioMascotaImpl implements ServicioMascota{
 		public void eliminarMascota(Mascota mascota) {
 			servicioMascotaDao.eliminarMascotaDao(mascota);
 		}
-		
-		
-		
-		
-		
+			
 		
 	// para revacunar
 	@Override
@@ -167,8 +109,46 @@ public class ServicioMascotaImpl implements ServicioMascota{
 	
 	}
 	
+	//notificacion si falta alguna vacuna
 	
+	public int consultarEstado(Long idUsuario){
+		 
+		int	 contadorDeNo=0;
+		//recorro las mascotas de un duenio
+		List<Mascota> listaMascotas= servicioMascotaDao.mostrarMascotasDeUnoDao(idUsuario);  
+		for (Mascota m : listaMascotas) {
+			
+			//recorro las vacunas de esa mascota
+			Long idMascota=m.getId();//agarro el id de la mascota
+			
+			List<EstadoVacuna> listaVacunas= servicioMascotaDao.mostrarEstadoVacunasDao(idMascota);   
+			for (EstadoVacuna ev : listaVacunas) {
+		
+				if(ev.getEstado().equals("no")){
+					contadorDeNo++;	
+				}
+				
+			}//for vacunas
+		 
+		 
+		 }//for mascotas
+			return	contadorDeNo;	
+		}
 	
-	
+	//cuanta la cantidad de mascotas (perros)	 
+	 public int contarMascotas(){
+		 
+	List<Mascota> lista =servicioMascotaDao.mostrarMascotasDao();	
+	int cant=0;
+	for (Mascota m : lista) {
+			 
+	 if (m.getTipo().equals("Perro")){
+		 
+		cant++; 
+	 }
+	 
+	}
+	return cant; 
+}	 
 	
 }
