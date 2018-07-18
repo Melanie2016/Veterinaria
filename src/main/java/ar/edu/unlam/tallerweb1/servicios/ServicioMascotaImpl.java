@@ -135,6 +135,18 @@ public class ServicioMascotaImpl implements ServicioMascota{
 			return	contadorDeNo;	
 		}
 	
+	
+//consulta edad	
+	public int consultarEdad(Long idMascota){
+
+		Mascota m= servicioMascotaDao.getIdDao(idMascota);
+		int edad=0;
+		edad=m.getEdad();
+	
+		return edad;
+	}
+	
+	
 	//cuanta la cantidad de mascotas (perros)	 
 	 public int contarMascotas(){
 		 

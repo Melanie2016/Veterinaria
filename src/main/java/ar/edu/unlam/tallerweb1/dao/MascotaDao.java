@@ -11,7 +11,7 @@ public interface MascotaDao {
 	List<Mascota> mostrarMascotasDao ();
 	Mascota getIdDao(Long id);
 	List<EstadoVacuna> mostrarEstadoVacunasDao (Long idMascota);
-	
+
 	
 	//para mostrar vacunas // para el stock
 	List<Vacuna> mostrarVacunasDao ();

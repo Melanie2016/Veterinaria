@@ -92,7 +92,7 @@ public class MascotaDaoImpl implements MascotaDao{
 						.add(Restrictions.eq("mascotaBus.id",idUsuario))
 						.list();
 			}
-			//abm
+			
 			@Override
 			public void cargaDeMascotaDao( Mascota mascota) {
 				final Session session = sessionFactory.getCurrentSession();

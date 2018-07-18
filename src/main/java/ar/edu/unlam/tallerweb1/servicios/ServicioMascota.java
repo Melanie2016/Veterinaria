@@ -20,6 +20,7 @@ public interface ServicioMascota {
 	int consultarStock();
 	int consultarEstado(Long idUsuario);
 	int contarMascotas();
+	int consultarEdad(Long idMascota);
 	
      List<Mascota> mostrarMascotasDeUno(Long idUsuario);
           

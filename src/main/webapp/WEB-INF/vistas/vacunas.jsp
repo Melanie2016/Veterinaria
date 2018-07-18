@@ -36,7 +36,6 @@
 		</nav>
 		
 		<div class = "container">
-			
 				<h1><span style="font-size:20px">Vacunas de:</span> ${mascota.nombre} <span class="glyphicon glyphicon-heart" style="color:orange"></span></h1>							 	
  			
  				<table class="table table-striped">
@@ -74,14 +73,17 @@
                                 
       <td>
                 
-     			            <c:if test="${id.estado=='no' && id.vacuna.nombreVacuna!='Quintuple'}">
+     			            <c:if test="${id.estado=='no' && id.vacuna.nombreVacuna!='Quintuple'&& id.vacuna.nombreVacuna!='TripleFelina'}">
 				 <a class="btn btn-warning" href="<c:url value="/turno"/>">SacarTurno<i class="fa fa-edit"></i></a>
 				  &nbsp;&nbsp;<span class="glyphicon glyphicon-warning-sign" style="color:red"></span>
 	
 				            </c:if>
             
-				            <c:if test="${id.estado=='Dada' && id.vacuna.nombreVacuna!='Quintuple'}">
+				            <c:if test="${id.estado=='Dada' && id.vacuna.nombreVacuna!='Quintuple'&& id.vacuna.nombreVacuna!='TripleFelina'}">
 				<a class="btn btn-default" href="../revacunar/${id.id}">VerRevacunacion <i class="fa fa-edit"></i></a>			
+			            </c:if>
+			          <c:if test="${id.estado=='no' && id.vacuna.nombreVacuna=='Quintuple'|| id.vacuna.nombreVacuna=='TripleFelina'}">
+							${avisoQuintuple} 
 			            </c:if>
                             </td>                      
                         </tr>

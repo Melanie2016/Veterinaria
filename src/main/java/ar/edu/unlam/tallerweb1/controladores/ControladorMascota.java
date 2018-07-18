@@ -32,7 +32,7 @@ public class ControladorMascota {
 
 	
 	@RequestMapping("/vacunas/{idMascota}")
-	public ModelAndView irAvacunas(@PathVariable Long idMascota) {
+	public ModelAndView irAvacunas(@PathVariable Long idMascota,HttpServletRequest request) {
 				
 		ModelMap modelo = new ModelMap();
 		List<EstadoVacuna> vacuna = servicioMascota.mostrarEstadoVacunas(idMascota);
@@ -46,7 +46,14 @@ public class ControladorMascota {
 		Mascota mascota = new Mascota(); 
 		modelo.put("mascota",servicioMascota.getId(idMascota));
 		modelo.put("nombre",mascota);
-							
+		
+		//valida la edad para la vacuna que solo se aplica al ser cachorro
+		int edad =servicioMascota.consultarEdad(idMascota);
+		if(edad==0){
+			modelo.put("avisoQuintuple", "Aplicar antes del primer anio de edad");
+		}else
+		{ modelo.put("avisoQuintuple", "Ya no se aplica");}
+		
 		return new ModelAndView("vacunas",modelo);
 	}
 		

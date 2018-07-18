@@ -65,7 +65,7 @@ public class TestMockitoVacuna {
 		when(servicioMascota.getId(any(Long.class))).thenReturn(mascota);
 		when(servicioMascota.mostrarEstadoVacunas(any(Long.class))).thenReturn(listaVacunas);
 		//ejecucion			
-		ModelAndView mav7 = controlador.irAvacunas(1L);
+		ModelAndView mav7 = controlador.irAvacunas(1L,request);
 		
 	
 		//verificacion	

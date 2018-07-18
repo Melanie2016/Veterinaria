@@ -1,6 +1,5 @@
 use base;
 
-======carga laush..ANDA TODO ===============
 drop database base;
 create database base;
 
@@ -36,8 +35,8 @@ INSERT INTO Mascota (id,edad, nombre, tipo,duenio_id)
  VALUES (11,5, 'Rubi','Perro',100),
 		(22,3, 'Clara', 'Perro',100),
 		(33,10, 'Brisa','Gato',200),/*cliente*/
-		(44,8, 'Cande', 'Perro',200),/*cliente*/
-		(55,3, 'Mishi', 'Gato',700),/*cliente*/
+		(44,0, 'Cande', 'Perro',200),/*cliente*/
+		(55,0, 'Mishi', 'Gato',700),/*cliente*/
 		(66,5, 'More', 'Perro',700),/*cliente*/
 		(77,2, 'Pepe', 'Perro',500),/*cliente*/
 		(88,1, 'Lula', 'Perro',200),/*cliente*/
@@ -68,96 +67,11 @@ INSERT INTO EstadoVacuna values
      
 /*Carga para funcionalidad de turnos */
 
-INSERT INTO turno
-VALUES 	(1	,now(),'20180723','0000/00/00/08:00:00',1	,11	),
-		(2	,now(),'20180723','0000/00/00/08:20:00',2	,22	),
-		(3	,now(),'20180724','0000/00/00/08:40:00',3	,33	),
-        (4	,now(),'20180723','0000/00/00/09:00:00',4	,44	);
+NSERT INTO turno
+VALUES 	(1	,now(),'20180723','2018/01/01/08:00:00',1	,11	),
+		(2	,now(),'20180723','2018/01/01/08:10:00',2	,22	),
+		(3	,now(),'20180724','2018/01/01/08:20:00',3	,33	),
+        (4	,now(),'20180723','2018/01/01/09:00:00',4	,44	);
 
 
 
-=====carga nueva mel======no andal el eliminar======
-
-INSERT INTO veterinario 
-VALUES 	(1	,'Ruiz Diaz'	,'Tomas'	),
-		(2	,'Rodriguez'	,'Amelia'	);
-        
-
-INSERT INTO especialidad
-VALUES	(1	,'Clinico'		,10	,1	),
-		(2	,'Cirujano'		,15	,2	);
-        
-INSERT INTO diaatencion
-VALUES 	(1	,'Lunes'	,1100	,0800	,1	,1	),
-		(2	,'Lunes'	,1800	,1500	,1	,1	),
-        (3	,'Lunes'	,1100	,0800	,2	,2	),
-        (4	,'Lunes'	,1800	,1300	,2	,2	),
-        (5	,'Martes'	,1100	,0800	,2	,1	),
-        (6	,'Martes'	,1700	,1400	,2	,1	);
-     
-/*para probar los perfiles y las vacunas de las mascotas*/
- 
-INSERT INTO Usuario(id,email,pass,rol) 
-VALUES 	(100,'lau@gmail.com'	,'111','admin'	),
-		(200,'usu@gmail.com'	,'222','cliente'),
-		(300,'sergio@gmail.com'	,'333','vet'	),
-		(400,'mel@gmail.com'	,'444','admin'	),
-		(500,'cliente@gmail.com','555','cliente'),
-		(600,'vet@gmail.com'	,'666','vet'	),
-		(700,'cli@gmail.com'	,'777','cliente'),
-		(800,'admin@gmail.com'	,'888','admin'	);
-		
-INSERT INTO Mascota (id,edad, nombre, tipo,duenio_id)
- VALUES (11,5	,'Rubi'	, 'Perro'	,200),
-		(22,3	,'Clara', 'Perro'	,500),
-		(33,10	,'Brisa', 'Gato'	,500),
-		(44,8	,'Cande', 'Perro'	,700),
-		(55,7	,'Mishi', 'Gato'	,700),
-		(66,5	, 'More', 'Perro'	,700),
-		(77,2	, 'Pepe', 'Gato'	,200),
-		(88,1	, 'Lula', 'Perro'	,200),
-		(99,6	, 'Thor', 'Gato'	,500);
-	
- 
-INSERT INTO Vacuna (id,nombreVacuna,animal, vencimiento,cantStock) 
-VALUES	(1,'Quintuple'		,'perro',0	,10	),
-		(2,'Sextuple'		,'perro',12	,25	),
-		(3,'Rabia'			,'perro',12	,50	),
-		(4,'TripleFelina'	,'gato'	,0	,5	),
-		(5,'Rabia'			,'gato'	,12	,18	),
-		(6,'TosPerruna'		,'perro',12	,34	);
-
-
-INSERT INTO EstadoVacuna 
-VALUES	(1	,'Dada','20170202',11,1),
-		(2	,'Dada','20170202',11,2),
-		(3	,'Dada','20160206',11,3),
-		(4	,'no'  ,'20151005',11,6),
-		(5	,'no'  ,'20170201',22,1),
-		(6	,'Dada','20170204',22,2),
-		(7	,'no'  ,'20170905',22,3),
-		(8	,'Dada','20141005',22,6),
-		(9	,'Dada','20170206',33,4),
-		(10	,'Dada','20171107',33,5),
-		(11	,'Dada','20160206',55,4),
-		(12	,'Dada','20171122',55,5),
-		(13	,'no'  ,'20170202',44,1),
-		(14	,'Dada','20180202',44,2),
-		(15	,'Dada','20180206',44,3),
-		(16	,'no'  ,'20151005',44,6),
-		(17	,'no'  ,'20170202',77,1),
-		(18	,'Dada','20180202',77,2),
-		(19	,'no'  ,'20180206',77,3),
-		(20	,'no'  ,'20151005',77,6);
-	 
-
-/*Carga para funcionalidad de turnos */
-
-INSERT INTO turno
-VALUES 	(1	,now(),'20180713','08:10',1	,11	),
-		(2	,now(),'20180713','08:30',2	,22	),
-		(3	,now(),'20180713','09:10',3	,33	),
-        (4	,now(),'20180713','09:40',4	,44	);
-        
-
-  
