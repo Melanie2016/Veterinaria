@@ -3,12 +3,9 @@ package ar.edu.unlam.tallerweb1.servicios;
 import java.util.Date;
 import java.util.List;
 
-
 import ar.edu.unlam.tallerweb1.modelo.DiaAtencion;
-
 import ar.edu.unlam.tallerweb1.modelo.Especialidad;
 import ar.edu.unlam.tallerweb1.modelo.Turno;
-import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 
 public interface ServicioTurno {
 	
@@ -21,10 +18,10 @@ public interface ServicioTurno {
 	List<Turno> listaDeTurnos(Long diaAtencionId);
 
 	DiaAtencion obtenerDiaDeAtencion(Long diaAtencionId);
+	
+	
 
-//	List<Turno> obtenerTurnosPosibles(Date fecha, Long diaAtencionId);
-
-	List<Date> consultarFechaASeleccionar(Long diaAtencionId);
+	List<Date> consultarFechaDeElDiaSeleccionadoADosMeses(Long diaAtencionId);
 	
 	
 

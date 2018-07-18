@@ -1,6 +1,6 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.sql.Time;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -16,8 +16,8 @@ public class DiaAtencion {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	private String dia;
-	private Time horaAtencionInicio;
-	private Time horaAtencionFinalizacion;
+	private Date horaAtencionInicio;
+	private Date horaAtencionFinalizacion;
 	
 	
 	
@@ -26,9 +26,13 @@ public class DiaAtencion {
 	
 	@ManyToOne
 	private Especialidad especialidad;
+
+	
+	
 	
 	//getter y setter
 	
+
 	public Long getId() {
 		return id;
 	}
@@ -45,19 +49,19 @@ public class DiaAtencion {
 		this.dia = dia;
 	}
 
-	public Time getHoraAtencionInicio() {
+	public Date getHoraAtencionInicio() {
 		return horaAtencionInicio;
 	}
 
-	public void setHoraAtencionInicio(Time horaAtencionInicio) {
+	public void setHoraAtencionInicio(Date horaAtencionInicio) {
 		this.horaAtencionInicio = horaAtencionInicio;
 	}
 
-	public Time getHoraAtencionFinalizacion() {
+	public Date getHoraAtencionFinalizacion() {
 		return horaAtencionFinalizacion;
 	}
 
-	public void setHoraAtencionFinalizacion(Time horaAtencionFinalizacion) {
+	public void setHoraAtencionFinalizacion(Date horaAtencionFinalizacion) {
 		this.horaAtencionFinalizacion = horaAtencionFinalizacion;
 	}
 
@@ -76,8 +80,6 @@ public class DiaAtencion {
 	public void setEspecialidad(Especialidad especialidad) {
 		this.especialidad = especialidad;
 	}
-	
-	
 	
 	
 	

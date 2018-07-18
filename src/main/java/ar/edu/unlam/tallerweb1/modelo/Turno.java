@@ -1,6 +1,5 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.sql.Time;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -22,7 +21,7 @@ public class Turno {
 	@Column(name = "fecha", columnDefinition="DATETIME") @Temporal(TemporalType.TIMESTAMP)
 	private Date fecha;
 	 
-	private Time horaTurno;
+	private Date horaTurno;
 	private Date fechaTurno;
 	
 	@ManyToOne
@@ -57,11 +56,12 @@ public class Turno {
 		this.fecha = fecha;
 	}
 
-	public Time getHoraTurno() {
+
+	public Date getHoraTurno() {
 		return horaTurno;
 	}
 
-	public void setHoraTurno(Time horaTurno) {
+	public void setHoraTurno(Date horaTurno) {
 		this.horaTurno = horaTurno;
 	}
 

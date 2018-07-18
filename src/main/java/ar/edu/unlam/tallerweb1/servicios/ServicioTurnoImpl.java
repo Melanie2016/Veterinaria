@@ -59,11 +59,12 @@ public class ServicioTurnoImpl implements ServicioTurno{
 	
 //	fechas de hoy a dos meses 
 	@Override
-	public List<Date> consultarFechaASeleccionar(Long diaAtencionId){
+	public List<Date> consultarFechaDeElDiaSeleccionadoADosMeses(Long diaAtencionId){
 			
 		DiaAtencion dia = turnoDao.obtenerDiaDeAtencion(diaAtencionId);
 		dia.getDia() ; // dia de atencion , ejemplo LUNES
 			
+//		List<Turno> listResultado = new ArrayList<Date>();
 		List<Date> listResultado = new ArrayList<Date>();
 					
 			

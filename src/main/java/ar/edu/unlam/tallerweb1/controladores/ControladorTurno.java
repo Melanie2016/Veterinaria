@@ -1,6 +1,8 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -53,16 +55,44 @@ public class ControladorTurno {
 		
 		
 		ModelMap model =new ModelMap();
+		List<Date> fechasADosMeses = servicioTurno.consultarFechaDeElDiaSeleccionadoADosMeses(diaAtencionId);
 		
-		List<Date> listFecha = servicioTurno.consultarFechaASeleccionar(diaAtencionId);
+		model.put("fechas",fechasADosMeses);
+		model.put("diaAtencion", diaAtencionId);
 		
-		model.put("fecha",listFecha);
 		
-		
-				
 		return new ModelAndView ("buscarFechas",model);
 	}
 	
+	
+	
+	
+	@RequestMapping(path="/horarios/{dia}/{mes}/{anio}/{diaAtencionId}") 
+	public ModelAndView irAConsultarHorarios(
+			@PathVariable int dia,
+			@PathVariable int mes,
+			@PathVariable int anio,
+			@PathVariable Long diaAtencionId) {
+		
+		Calendar fechaGC = new GregorianCalendar();
+		fechaGC.set(Calendar.DATE, dia);
+		fechaGC.set(Calendar.MONTH, mes);
+		fechaGC.set(Calendar.YEAR, anio);
+		
+		Date fecha = fechaGC.getTime();
+		
+		
+		ModelMap model =new ModelMap();
+		List<Date> listHorariosPosibles = servicioTurno.obtenerHorariosPosibles(fecha, diaAtencionId);
+		List<Date> listHorariosOcupados = servicioTurno.obtenerHorariosOcupados(fecha);
+		List<Turno> turnosPosibles = servicioTurno.generarTurnosPosibles(listHorariosPosibles,listHorariosOcupados,diaAtencionId);
+		
+		model.put("horarios", listHorariosPosibles);
+		
+
+				
+		return new ModelAndView ("buscarHorarios",model);
+	}
 	
 	
 	
