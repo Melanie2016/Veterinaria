@@ -56,8 +56,8 @@
  									<td>${veterinarios.veterinario.apellido}&nbsp; ${veterinarios.veterinario.nombre}</td> 
 								
 									<td>${veterinarios.dia}</td>
-									<td><fmt:formatDate type = "time" pattern="mm:ss" value = "${veterinarios.horaAtencionInicio}" /> - 
-									<fmt:formatDate type = "time" pattern="mm:ss" value = "${veterinarios.horaAtencionFinalizacion}" />
+									<td><fmt:formatDate type = "time" pattern="hh:mm" value = "${veterinarios.horaAtencionInicio}" /> - 
+									<fmt:formatDate type = "time" pattern="hh:mm" value = "${veterinarios.horaAtencionFinalizacion}" />
 									 </td>
 									
 									<td><a href="../fechas/${veterinarios.id}" class="btn btn-warning" role="button" >Seleccionar</a></td>

@@ -53,14 +53,15 @@
 						</tr>
 					</thead>
 					<tbody>
+					
 						<c:forEach items="${horarios}" var="horarios">
 							<tr>
 								<th scope="row"></th> 
-							
+								
 								<td><fmt:formatDate type = "time" pattern="hh:mm"  value = "${horarios}" /></td> 
  								<th scope="col"> </th>
  								<td><a href="../reservarTurno/" class="btn btn-warning" role="button" >Reservar Turno</a></td> 
-								
+								<td>${fecha}</td>
 						</c:forEach>
 									
 					</tbody>

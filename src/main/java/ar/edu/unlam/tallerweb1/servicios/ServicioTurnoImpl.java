@@ -56,6 +56,31 @@ public class ServicioTurnoImpl implements ServicioTurno{
 		return turnoDao.listaDeTurnosDao(diaAtencionId);
 	}
 
+
+	
+	@Override
+	public List<Date> obtenerHorariosOcupados(Date fecha){
+		// setear la hora a 00:00:00 para q coincidan las fechas exactamente en el criteria 
+		Calendar fechaC = new GregorianCalendar();
+		fechaC.setTime(fecha);
+		fechaC.add(Calendar.MONTH, -1);
+		fechaC.set(Calendar.HOUR, 00);
+		fechaC.set(Calendar.MINUTE, 00);
+		fechaC.set(Calendar.SECOND,	00);
+		
+		
+		
+		fecha = fechaC.getTime();
+		System.out.println("la fecha q se va a pasar al dao es "+fecha);
+		System.out.println("la fechaC q se va a pasar al dao es "+fechaC.getTime());
+		
+//		List<Date> turnos = 
+//		System.out.println("turnooooo : "+turnos);
+//		List<Date> horarios = new ArrayList<>();
+		return turnoDao.obtenerHorariosOcupadosDao(fecha) ;
+	}
+	
+	
 	
 //	fechas de hoy a dos meses 
 	@Override

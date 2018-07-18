@@ -88,7 +88,8 @@ public class ControladorTurno {
 //		List<Turno> turnosPosibles = servicioTurno.generarTurnosPosibles(listHorariosPosibles,listHorariosOcupados,diaAtencionId);
 		
 		model.put("horarios", listHorariosPosibles);
-		
+		model.put("fecha", fecha);
+		model.put("diaAtencion", diaAtencionId);
 
 				
 		return new ModelAndView ("buscarHorarios",model);
@@ -97,7 +98,14 @@ public class ControladorTurno {
 	
 	
 	
-	
+	@RequestMapping(path="/horarios/{dia}/{mes}/{anio}/{diaAtencionId}") 
+	public ModelAndView irAConsultarHorarios() {
+		
+		
+		ModelMap model = new ModelMap();
+		
+		return new ModelAndView("registrarTurno",model)
+	}
 	
 	
 	
