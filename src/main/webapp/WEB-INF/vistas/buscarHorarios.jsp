@@ -29,38 +29,40 @@
 				</div>
 		</nav>
 		<div class="container">
-			<h1>Turnos disponibles a dos meses</h1>
+		
+			<h1>Horarios disponibles</h1>
+		
 			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
 			
 				
 				
-				
 				<div class="form-group"> 
 				<br>
-				<label for="fecha">Seleccione fecha:</label>
+				<label for="fecha">Seleccione HORA:</label>
+				
 				
 				
 				<table class="table table-hover">
 					<thead>
 						<tr>
 							<th scope="col" class="glyphicon glyphicon-pencil"></th>
-							<th scope="col">Fecha </th>
+							<th scope="col">Hora </th>
+						
 							
-							
+							<th scope="col"> </th>
 						</tr>
 					</thead>
 					<tbody>
-					
-						<c:forEach items="${fechas}" var="fechas">
+						<c:forEach items="${horarios}" var="horarios">
 							<tr>
-								<th scope="row"></th>
+								<th scope="row"></th> 
+							
+								<td><fmt:formatDate type = "time" pattern="hh:mm"  value = "${horarios}" /></td> 
+ 								<th scope="col"> </th>
+ 								<td><a href="../reservarTurno/" class="btn btn-warning" role="button" >Reservar Turno</a></td> 
+								
+						</c:forEach>
 									
-									<td><fmt:formatDate type = "date"  value = "${fechas}" /></td>
-									<td></td>
-									<td></td>
-									<td><a href="../horarios/<fmt:formatDate type = "date"  value = "${fechas}"/>/${diaAtencion}" class="btn btn-warning" role="button" >Seleccionar</a></td>
-
-						</c:forEach>				
 					</tbody>
 				</table>
 						
