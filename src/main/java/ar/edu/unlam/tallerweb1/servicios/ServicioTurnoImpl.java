@@ -108,6 +108,89 @@ public class ServicioTurnoImpl implements ServicioTurno{
 	}
 
 
+	
+	@Override
+	public List<Date> obtenerHorariosPosibles(Date fecha, Long diaAtencionId){
+		
+//		Juan atiende 8 a 12
+//		           desde hasta
+//		obtenes DiaSelccionado
+//		obtenes Duracion
+//		hora de inicio (8) y hora de fin (12) 
+//		 MiTurno con la hora de inicio (8) que atienede el veterinario
+//		agregas a la lista turno
+//		while preguntando hora de finalizacion del dia > Hora de Miturno
+//		       12 				>	8
+//		 hora de turno con  + duracion
+//		  mi turno 8 + 10min
+//		          8:10  + 10
+//		          
+//		 agregas a la lista
+//		 fin del while
+//			 
+//
+//			 return listaDe turnos
+					 
+		
+		Calendar fechaC = new GregorianCalendar();
+		fechaC.setTime(fecha);
+		fechaC.add(Calendar.MONTH, -1);
+		
+//		System.out.println("FECHA PASADA POR PARAMETRO: " + fechaC.getTime());
+		
+		DiaAtencion dia = turnoDao.obtenerDiaDeAtencion(diaAtencionId);
+		dia.getVeterinario().getNombre(); // ejemplo juan
+		dia.getHoraAtencionInicio(); // desde
+		dia.getHoraAtencionFinalizacion(); // hasta
+		
+	
+		Especialidad especialidad = dia.getEspecialidad() ;
+		especialidad.getDuracion(); // duracion
+		
+		Turno miTurno = new Turno(); 
+		// MiTurno con la hora de inicio (8) que atienede el veterinario
+		miTurno.setFechaTurno(fecha);
+		miTurno.setDiaAtencion(dia);
+		miTurno.setHoraTurno(dia.getHoraAtencionInicio());
+		
+		
+//		System.out.println("hora de atencion inicia" +dia.getHoraAtencionInicio());
+//		System.out.println("fecha del turno"+miTurno.getFechaTurno());
+//		System.out.println("hora del turno"+miTurno.getHoraTurno());
+		
+		// agregas a la lista turno
+		List<Date> listHorariosPosibles = new ArrayList<>();
+		listHorariosPosibles.add(miTurno.getHoraTurno());
+		
+
+		Calendar fechaDesde = new GregorianCalendar();
+		fechaDesde.setTime(miTurno.getHoraTurno());
+		
+		// agregar una fecha de fin para que el bucle termine en el mismo dia 
+		Calendar fechaHasta = new GregorianCalendar();
+		fechaHasta.setTime(dia.getHoraAtencionFinalizacion());
+	
+//		System.out.println("/n /n");
+//		System.out.println("fecha desde: "+fechaDesde.getTime());
+//		System.out.println("fecha hasta: "+fechaHasta.getTime());
+		
+		while (fechaHasta.after(fechaDesde)) {
+//			System.out.println("La fecha menor es: "+fechaDesde.getTime());
+			fechaDesde.add(Calendar.MINUTE, especialidad.getDuracion());
+			
+			miTurno.setHoraTurno(fechaDesde.getTime());
+//			System.out.println("hora de turno: "+miTurno.getHoraTurno());
+	
+			listHorariosPosibles.add(miTurno.getHoraTurno());
+		}
+		
+		List<Date> horariosOcupados = turnoDao.obtenerHorariosOcupadosDao(miTurno.getFechaTurno());
+
+		listHorariosPosibles.removeAll(horariosOcupados);
+
+
+		return listHorariosPosibles;
+	}
 
 
 

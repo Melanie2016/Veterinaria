@@ -84,8 +84,8 @@ public class ControladorTurno {
 		
 		ModelMap model =new ModelMap();
 		List<Date> listHorariosPosibles = servicioTurno.obtenerHorariosPosibles(fecha, diaAtencionId);
-		List<Date> listHorariosOcupados = servicioTurno.obtenerHorariosOcupados(fecha);
-		List<Turno> turnosPosibles = servicioTurno.generarTurnosPosibles(listHorariosPosibles,listHorariosOcupados,diaAtencionId);
+//		List<Date> listHorariosOcupados = servicioTurno.obtenerHorariosOcupados(fecha);
+//		List<Turno> turnosPosibles = servicioTurno.generarTurnosPosibles(listHorariosPosibles,listHorariosOcupados,diaAtencionId);
 		
 		model.put("horarios", listHorariosPosibles);
 		

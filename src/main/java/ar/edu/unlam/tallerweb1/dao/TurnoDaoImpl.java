@@ -108,14 +108,47 @@ public class TurnoDaoImpl implements TurnoDao {
 				.uniqueResult();
 	}
 	
+
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<Date> obtenerHorariosOcupadosDao(Date fecha){
+		final Session session = sessionFactory.getCurrentSession();
+		
+		System.out.println("Fecha que llega al dao: "+fecha);
+		
+		Criteria criteria = session.createCriteria(Turno.class)
+				 .add(Restrictions.isNotNull("id"))
+				;
+		List<Date> listC = criteria.list();
+				
+				 
+		return listC ;
+//		Criteria criteria = (Criteria) session.createCriteria(Turno.class)
+//				.add(Restrictions.eq("fechaTurno", fecha));
+//		List<Date> listC = criteria.list();
+//		
+//		System.out.println("resultado del CRITERIA: "+ listC);
+		
+//		Query query =session.createQuery(
+//						"SELECT t.fechaTurno FROM Turno t WHERE fechaTurno = :fecha");
+//		query.setParameter("fecha", "%"+fecha+"%");
+//		List<Turno> listQ = query.list();
+//	
+//		System.out.println("resultado del QUERY: "+ listQ);
+		
+	
+//	return listQ;
+		
+		
+	}
+	
+	
 	@Override
 	public List<Turno> obtenerTurnosPosiblesDao(Date fecha, Long diaAtencionId){
 		
 		
 		return null;
 	}
-	
-	
-	
 	
 }

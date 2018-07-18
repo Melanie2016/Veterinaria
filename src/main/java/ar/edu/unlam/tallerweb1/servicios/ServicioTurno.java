@@ -22,6 +22,8 @@ public interface ServicioTurno {
 	
 
 	List<Date> consultarFechaDeElDiaSeleccionadoADosMeses(Long diaAtencionId);
+
+	List<Date> obtenerHorariosPosibles(Date fecha, Long diaAtencionId);
 	
 	
 
