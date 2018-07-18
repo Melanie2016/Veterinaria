@@ -98,7 +98,7 @@ public class ControladorTurno {
 	
 	
 	
-	@RequestMapping(path="/formResumen") 
+	@RequestMapping(path="/formResumen/{dia}/{mes}/{anio}/{hora}/{diaAtencionId}") 
 	public ModelAndView irAConsultarHorarios() {
 		// pendiente
 		

@@ -61,7 +61,7 @@
 								<td></td>
 								<td><fmt:formatDate type = "time" pattern="hh:mm"  value = "${horarios}" /></td> 
  								<th scope="col"> </th>
- 								<td><a href="../reservarTurno/" class="btn btn-warning" role="button" >Reservar Turno</a></td> 
+ 								<td><a href="/formResumen/<fmt:formatDate type = "date" value = "${fecha}" />/<fmt:formatDate type = "time" pattern="hh:mm"  value = "${horarios}" />/${diaAtencion}" class="btn btn-warning" role="button" >Reservar Turno</a></td> 
 								
 						</c:forEach>
 									
