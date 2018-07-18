@@ -46,6 +46,7 @@
 					<thead>
 						<tr>
 							<th scope="col" class="glyphicon glyphicon-pencil"></th>
+							<th><fmt:formatDate type = "date" value = "${fecha}" /></td>
 							<th scope="col">Hora </th>
 						
 							
@@ -53,15 +54,15 @@
 						</tr>
 					</thead>
 					<tbody>
-					
+						
 						<c:forEach items="${horarios}" var="horarios">
 							<tr>
 								<th scope="row"></th> 
-								
+								<td></td>
 								<td><fmt:formatDate type = "time" pattern="hh:mm"  value = "${horarios}" /></td> 
  								<th scope="col"> </th>
  								<td><a href="../reservarTurno/" class="btn btn-warning" role="button" >Reservar Turno</a></td> 
-								<td>${fecha}</td>
+								
 						</c:forEach>
 									
 					</tbody>

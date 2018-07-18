@@ -86,9 +86,9 @@ public class ControladorTurno {
 		List<Date> listHorariosPosibles = servicioTurno.obtenerHorariosPosibles(fecha, diaAtencionId);
 //		List<Date> listHorariosOcupados = servicioTurno.obtenerHorariosOcupados(fecha);
 //		List<Turno> turnosPosibles = servicioTurno.generarTurnosPosibles(listHorariosPosibles,listHorariosOcupados,diaAtencionId);
-		
+		fechaGC.add(Calendar.MONTH, -1);
 		model.put("horarios", listHorariosPosibles);
-		model.put("fecha", fecha);
+		model.put("fecha", fechaGC.getTime());
 		model.put("diaAtencion", diaAtencionId);
 
 				
@@ -98,13 +98,13 @@ public class ControladorTurno {
 	
 	
 	
-	@RequestMapping(path="/horarios/{dia}/{mes}/{anio}/{diaAtencionId}") 
+	@RequestMapping(path="/formResumen") 
 	public ModelAndView irAConsultarHorarios() {
-		
+		// pendiente
 		
 		ModelMap model = new ModelMap();
 		
-		return new ModelAndView("registrarTurno",model)
+		return new ModelAndView("resumenDeTurno",model);
 	}
 	
 	
