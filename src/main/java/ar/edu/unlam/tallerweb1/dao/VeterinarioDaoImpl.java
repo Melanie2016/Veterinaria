@@ -3,11 +3,11 @@ package ar.edu.unlam.tallerweb1.dao;
 import java.util.List;
 import javax.inject.Inject;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 
@@ -33,30 +33,20 @@ public class VeterinarioDaoImpl implements VeterinarioDao{
 		sessionFactory.getCurrentSession().save(veterinario);		
 	}
 
-
-	@Override
-	public Veterinario findByMatch(Veterinario veterinario) {
-		return (Veterinario) sessionFactory.getCurrentSession().createCriteria(Veterinario.class)
-				.add(Restrictions.eq("apellido", veterinario.getApellido()))
-				.uniqueResult();
-	}
-
-	@Override
-	public void update(Veterinario veterinario) {
-		
-		
-		sessionFactory.getCurrentSession().update(veterinario);
-		
-	}
 	
 	@Override
-	public void delete(Veterinario veterinario) {
-		
-		
-		sessionFactory.getCurrentSession().delete(veterinario);
-		
+	public void editDeVeterinarioDao( Veterinario veterinario) {
+		final Session session = sessionFactory.getCurrentSession();
+		session.update(veterinario);
 	}
+	
+	
+	@Override
+	public void eliminar(Veterinario veterinario) {
+		final Session session = sessionFactory.getCurrentSession();
+		session.delete(veterinario);
 
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -68,5 +58,12 @@ public class VeterinarioDaoImpl implements VeterinarioDao{
 		return veterinarios;
 	}
 
+	@Override
+	public Veterinario getVeterinarioId(Long veterinarioId) {
+		final Session session =sessionFactory.getCurrentSession();
+		return (Veterinario) session.createCriteria(Veterinario.class)
+		.add(Restrictions.eq("veterinarioId", veterinarioId))
+		.uniqueResult();
+	}
 
 }

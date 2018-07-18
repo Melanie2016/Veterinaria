@@ -46,8 +46,8 @@
 			            <td>${vet.nombre}</td>
 			            <td>${vet.apellido}</td>
 			          
- 						<td> <a class="btn btn-warning" href="#">Editar <i class="fa fa-minus"></i> </td>
-                       <td> <a class="btn btn-danger" href="#">X<i class="fa fa-minus"></i> </td>
+ 					   <td> <a class="btn btn-warning" href="editarVeterinario/${vet.veterinarioId}">Editar <i class="fa fa-minus"></i></a> </td>
+                       <td> <a class="btn btn-danger" href="eliminar/${veterinarioiId}">X<i class="fa fa-minus"></i> </a></td>
 		    	
 			        </tr>
 			        </c:forEach>

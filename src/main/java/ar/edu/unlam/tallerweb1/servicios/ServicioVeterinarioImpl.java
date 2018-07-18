@@ -16,36 +16,42 @@ import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 public class ServicioVeterinarioImpl implements ServicioVeterinario{
 	
 	@Inject
-	private VeterinarioDao veterinarioDao;
+	private VeterinarioDao servicioVeterinarioDao;
 	
 	@Override
 	public List<Veterinario> listarTodosLosVeterinarios() {
-		return veterinarioDao.findAll();
+		return servicioVeterinarioDao.findAll();
 	}
 
 	@Transactional
 	@Override
 	public void guardarVeterinario(Veterinario veterinario) {
-		veterinarioDao.save(veterinario);
-		
-	}
-
-	@Override
-	public Veterinario consultarVeterinario(Veterinario veterinario) {
-		return veterinarioDao.findByMatch(veterinario);
-	}
-
-	@Transactional
-	@Override
-	public void actualizarVeterinario(Veterinario veterinario) {
-		veterinarioDao.update(veterinario);
+		servicioVeterinarioDao.save(veterinario);
 		
 	}
 
 	@Transactional
 	@Override
 	public List<Veterinario> insertarVeterinario(Veterinario veterinario) {
-		return veterinarioDao.add(veterinario);
+		return servicioVeterinarioDao.add(veterinario);
 	}
+	
+	@Override	
+	//que me muestre por el id ingresado
+	public Veterinario getVeterinarioId(Long veterinarioId) {
+        return servicioVeterinarioDao.getVeterinarioId(veterinarioId);
+    }
+	
+	@Override 
+	public void editDeVeterinario(Veterinario veterinario) {
+		servicioVeterinarioDao.editDeVeterinarioDao(veterinario);
+	}
+
+	@Override
+	public void eliminarVeterinario(Veterinario veterinario) {
+		servicioVeterinarioDao.eliminar(veterinario);
+		
+	}
+
 }
 

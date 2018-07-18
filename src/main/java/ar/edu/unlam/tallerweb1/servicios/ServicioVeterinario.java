@@ -10,7 +10,8 @@ public interface ServicioVeterinario {
 	List<Veterinario> listarTodosLosVeterinarios();
 	List<Veterinario> insertarVeterinario(Veterinario veterinario);
 	void guardarVeterinario(Veterinario veterinario);
-	void actualizarVeterinario(Veterinario veterinario);
-	Veterinario consultarVeterinario(Veterinario veterinario);
+	void eliminarVeterinario(Veterinario veterinario);
+	Veterinario getVeterinarioId(Long veterinarioId);
+	void editDeVeterinario(Veterinario veterinario);
 
 }
