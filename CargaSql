@@ -67,7 +67,7 @@ INSERT INTO EstadoVacuna values
      
 /*Carga para funcionalidad de turnos */
 
-NSERT INTO turno
+INSERT INTO turno
 VALUES 	(1	,now(),'20180723','2018/01/01/08:00:00',1	,11	),
 		(2	,now(),'20180723','2018/01/01/08:10:00',2	,22	),
 		(3	,now(),'20180724','2018/01/01/08:20:00',3	,33	),

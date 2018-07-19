@@ -26,6 +26,8 @@ public interface ServicioTurno {
 	List<Date> obtenerHorariosPosibles(Date fecha, Long diaAtencionId);
 
 	List<Date> obtenerHorariosOcupados(Date fecha);
+
+	void registrarTurno(Turno turno);
 	
 	
 

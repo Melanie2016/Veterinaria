@@ -131,9 +131,10 @@ public class ServicioTurnoImpl implements ServicioTurno{
 			
 		return listResultado;
 	}
-
-
 	
+	
+
+
 	@Override
 	public List<Date> obtenerHorariosPosibles(Date fecha, Long diaAtencionId){
 		
@@ -177,7 +178,8 @@ public class ServicioTurnoImpl implements ServicioTurno{
 		miTurno.setFechaTurno(fecha);
 		miTurno.setDiaAtencion(dia);
 		miTurno.setHoraTurno(dia.getHoraAtencionInicio());
-		
+	
+//		Turno turnoConhoraDao = new Turno();
 		
 //		System.out.println("hora de atencion inicia" +dia.getHoraAtencionInicio());
 //		System.out.println("fecha del turno"+miTurno.getFechaTurno());
@@ -198,20 +200,24 @@ public class ServicioTurnoImpl implements ServicioTurno{
 //		System.out.println("/n /n");
 //		System.out.println("fecha desde: "+fechaDesde.getTime());
 //		System.out.println("fecha hasta: "+fechaHasta.getTime());
+//		List<Turno> horariosOcupados = turnoDao.obtenerHorariosOcupadosDao(miTurno);
+//		System.out.println("horarios ocupados desde el DAO" + horariosOcupados);
 		
 		while (fechaHasta.after(fechaDesde)) {
-//			System.out.println("La fecha menor es: "+fechaDesde.getTime());
+
 			fechaDesde.add(Calendar.MINUTE, especialidad.getDuracion());
 			
 			miTurno.setHoraTurno(fechaDesde.getTime());
-//			System.out.println("hora de turno: "+miTurno.getHoraTurno());
-	
-			listHorariosPosibles.add(miTurno.getHoraTurno());
-		}
 		
-		List<Date> horariosOcupados = turnoDao.obtenerHorariosOcupadosDao(miTurno.getFechaTurno());
-
-		listHorariosPosibles.removeAll(horariosOcupados);
+			listHorariosPosibles.add(miTurno.getHoraTurno());
+			
+		}
+	
+		
+		
+		
+		
+//		listHorariosPosibles.removeAll(horariosOcupados);
 
 
 		return listHorariosPosibles;
@@ -219,6 +225,10 @@ public class ServicioTurnoImpl implements ServicioTurno{
 
 
 
+	@Override
+	public void registrarTurno(Turno turno) {
+		 turnoDao.registrarTurnoDao(turno);
+	}
 
 
 

@@ -7,7 +7,7 @@
 	    <!-- Esto me soluciono la falta de bootstrap -->
 		<link rel="stylesheet"
 			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-
+	
     </head>
 			
     <body>
@@ -30,52 +30,77 @@
 		</nav>
 		<div class="container">
 		
-			<h1>Horarios disponibles</h1>
-		
-			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
 			
+			<div id="loginbox" style="margin-top:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<h1>TURNO</h1>
+				<form:form action="${pageContext.request.contextPath}/validarTurno" method="POST" modelAttribute="turno" >
 				
+			 
 				
-				<div class="form-group"> 
-				<br>
-				<label for="fecha">Seleccione HORA:</label>
-				
-				
-				
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col" class="glyphicon glyphicon-pencil"></th>
-							<th><fmt:formatDate type = "date" value = "${fecha}" /></td>
-							<th scope="col">Hora </th>
+					<div class="form-group">
+						<label>Doctor :</label> ${diaAtencion.veterinario.apellido},${diaAtencion.veterinario.nombre}
+						<br>
+						<label>Fecha de Turno :</label> ${diaAtencion.dia}
 						
+				   	 	<fmt:formatDate type ="date"  value = "${fechaTurno}" />
+						<form:input path="diaAtencion" id="diaAtencion" type="hidden" class="form-control" value="${diaAtencion}"  />
+						
+					 	
+				    	<form:input path="fechaTurno" id="fechaTurno" type="hidden" class="form-control" value="${fechaTurno}"  /><br>
+						
+						
+						<label >En el horario de :</label>
+						<form:select path="horaTurno" id="horaTurno" class="form-control">
+							<form:option value="0">Seleccione especialidad</form:option>
 							
-							<th scope="col"> </th>
-						</tr>
-					</thead>
-					<tbody>
-						
-						<c:forEach items="${horarios}" var="horarios">
-							<tr>
-								<th scope="row"></th> 
-								<td></td>
-								<td><fmt:formatDate type = "time" pattern="hh:mm"  value = "${horarios}" /></td> 
- 								<th scope="col"> </th>
- 								<td><a href="/formResumen/<fmt:formatDate type = "date" value = "${fecha}" />/<fmt:formatDate type = "time" pattern="hh:mm"  value = "${horarios}" />/${diaAtencion}" class="btn btn-warning" role="button" >Reservar Turno</a></td> 
-								
-						</c:forEach>
+									<c:forEach items="${horarios}" var="horarios">
+										<form:option value="${horarios}"><fmt:formatDate type = "time" pattern="hh:mm"  value = "${horarios}" /></form:option>
 									
-					</tbody>
-				</table>
+									</c:forEach>
 						
-						
+						</form:select>
+						<br>
+						<button class="btn btn-lg btn-primary btn-block btn-warning" Type="Submit"> Ingresar</button>
+		
+	<!-- 					SE DEBE SELECCIONAR LA MASCOTA, HACER EN EL ORIGINAL PARA USAR LO DEL LOGIN -->
+					
+					
+					</div>
+					
 				
-				</div>
-				
-				
-			 	<a href="<c:url value="/turno"/>" class="btn btn-warning" role="button"><span class="glyphicon glyphicon-hand-left"></span></a>	 
+				</form:form>
+			
+				<a href="<c:url value="/turno"/>" class="btn btn-warning" role="button" ><span class="glyphicon glyphicon-hand-left"></span></a>	 
 				
 			</div>
-		</div>	
+		</div>
+		
+		<!-- Placed at the end of the do"src/main/webapp/WEB-INF/vistas/login.jsp"cument so the pages load faster -->
+		<script type="text/javascript">
+							function ShowSelected()
+							{
+							/* Para obtener el valor */
+							var cod = document.getElementById("especialidadId").value;
+								if(cod == null || cod == 0){
+									alert('Para continuar es necesario que seleccione una especialidad  ¡GRACIAS!');
+								}
+								else{
+									location.href="consultarVet/"+cod;
+								}
+								
+							
+							
+							/* Para obtener el texto 
+							var combo = document.getElementById("producto");
+							var selected = combo.options[combo.selectedIndex].text;
+							alert(selected); */
+							
+							}
+		</script>
+		
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+		<script src="js/bootstrap.min.js" type="text/javascript"></script>	
     </body>
 </html>

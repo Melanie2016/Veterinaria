@@ -22,4 +22,6 @@ public interface TurnoDao {
 	List<Turno> obtenerTurnosPosiblesDao(Date fecha, Long diaAtencionId);
 
 	List<Date> obtenerHorariosOcupadosDao(Date fechaTurno);
+
+	void registrarTurnoDao(Turno turno);
 }

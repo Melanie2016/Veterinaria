@@ -146,9 +146,15 @@ public class TurnoDaoImpl implements TurnoDao {
 	
 	@Override
 	public List<Turno> obtenerTurnosPosiblesDao(Date fecha, Long diaAtencionId){
-		
-		
+
 		return null;
 	}
 	
+	
+	@Override
+	public void registrarTurnoDao(Turno turno) {
+		final Session session = sessionFactory.getCurrentSession();
+		
+		session.save(turno);
+	}
 }
