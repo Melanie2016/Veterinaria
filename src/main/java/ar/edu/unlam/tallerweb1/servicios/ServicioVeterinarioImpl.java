@@ -18,29 +18,29 @@ public class ServicioVeterinarioImpl implements ServicioVeterinario{
 	@Inject
 	private VeterinarioDao servicioVeterinarioDao;
 	
-	@Override
-	public List<Veterinario> listarTodosLosVeterinarios() {
-		return servicioVeterinarioDao.findAll();
-	}
-
-	@Transactional
-	@Override
-	public void guardarVeterinario(Veterinario veterinario) {
-		servicioVeterinarioDao.save(veterinario);
-		
-	}
-
-	@Transactional
-	@Override
-	public List<Veterinario> insertarVeterinario(Veterinario veterinario) {
-		return servicioVeterinarioDao.add(veterinario);
-	}
 	
 	@Override	
 	//que me muestre por el id ingresado
 	public Veterinario getVeterinarioId(Long veterinarioId) {
         return servicioVeterinarioDao.getVeterinarioId(veterinarioId);
     }
+	@Override
+	public List<Veterinario> listarTodosLosVeterinarios() {
+		return servicioVeterinarioDao.findAll();
+	}
+	
+	@Override
+	public void guardarVeterinario(Veterinario veterinario) {
+		servicioVeterinarioDao.save(veterinario);
+		
+	}
+
+	
+	@Override
+	public List<Veterinario> insertarVeterinario(Veterinario veterinario) {
+		return servicioVeterinarioDao.add(veterinario);
+	}
+
 	
 	@Override 
 	public void editDeVeterinario(Veterinario veterinario) {

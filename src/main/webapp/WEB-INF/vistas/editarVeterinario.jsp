@@ -19,8 +19,9 @@
 		    </div>
 		    
 		    <ul class="nav navbar-nav">
-		      <li><a href="<c:url value="/perfil"/>">Perfil</a></li>
-		      <li><a href="#">Proximos Turnos</a></li>
+		      <li><a href="<c:url value="/perfilAdmin"/>">Perfil</a></li>
+		      <li><a href="<c:url value="/stockVacunas"/>">StockVacunas</a></li>
+		        <li class="active"><a href="#">Veterinarios</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
 		      

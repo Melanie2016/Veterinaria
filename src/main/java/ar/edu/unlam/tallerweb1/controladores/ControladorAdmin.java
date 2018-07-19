@@ -88,6 +88,7 @@ public class ControladorAdmin {
 		ModelMap modelo = new ModelMap();
 		List<Veterinario> listVet=servicioVeterinario.listarTodosLosVeterinarios();
 		modelo.put("vet", listVet);
+		modelo.put("id", listVet);
 		return new ModelAndView("veterinarios",modelo);
 	}
 

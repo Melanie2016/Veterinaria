@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unlam.tallerweb1.modelo.Mascota;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.modelo.Veterinario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
@@ -53,14 +54,42 @@ public class ControladorVeterinarioAbm {
 	
 		return new ModelAndView("editarVeterinario",modelo);
 	}
+	@RequestMapping("/formVet")
+	public ModelAndView ingresarVet(HttpServletRequest request) {
+		
+		ModelMap model =new ModelMap();
+		Usuario usuarioLogueado = servicioLogin.buscarPorId((Long) request.getSession().getAttribute("idUsuario"));		
+		model.put("usuario", usuarioLogueado);
+		Veterinario vet=new Veterinario();
+		model.put("vet", vet);	
+		return new ModelAndView ("formVet",model);
+	}
 	
-	@RequestMapping(path="/eliminar/{veterinarioiId}")
-	public ModelAndView irAeliminar(@ModelAttribute ("veterinario") Veterinario veterinario) {
+	//conecto el form con la validacion ,BindingResult bindingResult
+	@RequestMapping(path="/validarVet",method=RequestMethod.POST)
+	public ModelAndView irAValidarVet(@ModelAttribute ("vet") Veterinario vet,BindingResult bindingResult,HttpServletRequest request) {
+		
+		ModelMap modelo = new ModelMap();
+		modelo.put("vet", modelo);
+		modelo.put("nombre", modelo);
+		modelo.put("apellido", modelo);
+		servicioVeterinario.guardarVeterinario(vet);
+		modelo.put("aviso", "Se CREO exitosamente");
+		
+		
+	return new ModelAndView("correcto",modelo);
+	}
+	
+	@RequestMapping(path="/eliminarVet/{veterinarioiId}")
+	public ModelAndView irAeliminarVet(@ModelAttribute ("veterinario") Veterinario veterinario) {
 		
 		ModelMap modelo = new ModelMap();	
 		servicioVeterinario.eliminarVeterinario(veterinario);	
-        modelo.put("veterinarioId", veterinario);
+        modelo.put("veterinario", modelo);
+        modelo.put("id", veterinario);
 		modelo.put("aviso", "ELIMINACION Exitosa");
 		return new ModelAndView("correcto",modelo);
 	}	
+	
+	
 }

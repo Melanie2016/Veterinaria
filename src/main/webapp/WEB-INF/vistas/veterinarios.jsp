@@ -21,8 +21,7 @@
 		        <li><a href="#">Veterinarios</a></li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
-		      <li><a href="#"><span class="glyphicon glyphicon-user" style="color:orange"></span> Registrarse</a></li>
-		      <li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in" style="color:orange"></span> Login</a></li>
+		      <li><a href="<c:url value="/cerrarSession"/>"><span class="glyphicon glyphicon-log-in" style="color:orange"></span> LogOut</a></li>
 		    </ul>
 				</div>
 			</nav>
@@ -47,12 +46,12 @@
 			            <td>${vet.apellido}</td>
 			          
  					   <td> <a class="btn btn-warning" href="editarVeterinario/${vet.veterinarioId}">Editar <i class="fa fa-minus"></i></a> </td>
-                       <td> <a class="btn btn-danger" href="eliminar/${veterinarioiId}">X<i class="fa fa-minus"></i> </a></td>
+                       <td> <a class="btn btn-danger" href="eliminarVet/${vet.veterinarioId}">X<i class="fa fa-minus"></i> </a></td>
 		    	
 			        </tr>
 			        </c:forEach>
 		        </table>
-				 <a href="#>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Agregar Veterinario</a>	
+				 <a href="<c:url value="/formVet"/>" class="btn btn-lg btn-primary btn-block btn-warning" role="button">Agregar Veterinario</a>	
 		
 			
 		</div>
